@@ -1,6 +1,6 @@
 import { type Config } from "tailwindcss";
 
-import baseConfig from "@acme/tailwind-config";
+import baseConfig from "@memory-mate/tailwind-config";
 
 export default {
   presets: [baseConfig],

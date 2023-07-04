@@ -18,7 +18,7 @@ model Post {
 }
 
 // NextAuth.js Models
-// NOTE: When using postgresql, mysql or sqlserver, 
+// NOTE: When using postgresql, mysql or sqlserver,
 // uncomment the @db.Text annotations below
 // @see https://next-auth.js.org/schemas/models
 model Account {
@@ -64,3 +64,25 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Card {
+    id          String   @id @default(cuid())
+    front    String
+    back      String
+    deck        Deck     @relation(fields: [deckId], references: [id], onDelete: Cascade)
+    deckId      String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
+
+model Deck {
+    id          String   @id @default(cuid())
+    owner       User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+    ownerId     String
+    name        String
+    description String?
+    cards       FlashCard[]
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
+
