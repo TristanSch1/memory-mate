@@ -55,6 +55,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    decks         Deck[]
 }
 
 model VerificationToken {
@@ -81,7 +82,7 @@ model Deck {
     ownerId     String
     name        String
     description String?
-    cards       FlashCard[]
+    cards       Card[]
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
 }

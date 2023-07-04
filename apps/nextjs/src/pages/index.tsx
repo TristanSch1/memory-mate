@@ -5,20 +5,20 @@ import { signIn, signOut } from "next-auth/react";
 
 import { api, type RouterOutputs } from "~/utils/api";
 
-function PostCard(props: {
-  post: RouterOutputs["post"]["all"][number];
-  onPostDelete: () => void;
+function DeckCard(props: {
+  deck: RouterOutputs["deck"]["all"][number];
+  onDeckDelete: () => void;
 }) {
   return (
     <div className="flex flex-row rounded-lg bg-white/10 p-4 transition-all hover:scale-[101%]">
       <div className="flex-grow">
-        <h2 className="text-2xl font-bold text-pink-400">{props.post.title}</h2>
-        <p className="mt-2 text-sm">{props.post.content}</p>
+        <h2 className="text-2xl font-bold text-pink-400">{props.deck.name}</h2>
+        <p className="mt-2 text-sm">{props.deck.description}</p>
       </div>
       <div>
         <span
           className="cursor-pointer text-sm font-bold uppercase text-pink-400"
-          onClick={props.onPostDelete}
+          onClick={props.onDeckDelete}
         >
           Delete
         </span>
@@ -33,11 +33,11 @@ function CreatePostForm() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const { mutate, error } = api.post.create.useMutation({
+  const { mutate, error } = api.deck.create.useMutation({
     async onSuccess() {
       setTitle("");
       setContent("");
-      await utils.post.all.invalidate();
+      await utils.deck.all.invalidate();
     },
   });
 
@@ -69,8 +69,8 @@ function CreatePostForm() {
         className="rounded bg-pink-400 p-2 font-bold"
         onClick={() => {
           mutate({
-            title,
-            content,
+            name: title,
+            description: content,
           });
         }}
       >
@@ -81,10 +81,9 @@ function CreatePostForm() {
 }
 
 const Home: NextPage = () => {
-  const postQuery = api.post.all.useQuery();
-
-  const deletePostMutation = api.post.delete.useMutation({
-    onSettled: () => postQuery.refetch(),
+  const deckQuery = api.deck.all.useQuery();
+  const deleteDeckMutation = api.deck.delete.useMutation({
+    onSettled: () => deckQuery.refetch(),
   });
 
   return (
@@ -103,19 +102,19 @@ const Home: NextPage = () => {
 
           <CreatePostForm />
 
-          {postQuery.data ? (
+          {deckQuery.data ? (
             <div className="w-full max-w-2xl">
-              {postQuery.data?.length === 0 ? (
+              {deckQuery.data?.length === 0 ? (
                 <span>There are no posts!</span>
               ) : (
                 <div className="flex h-[40vh] justify-center overflow-y-scroll px-4 text-2xl">
                   <div className="flex w-full flex-col gap-4">
-                    {postQuery.data?.map((p) => {
+                    {deckQuery.data?.map((d) => {
                       return (
-                        <PostCard
-                          key={p.id}
-                          post={p}
-                          onPostDelete={() => deletePostMutation.mutate(p.id)}
+                        <DeckCard
+                          key={d.id}
+                          deck={d}
+                          onDeckDelete={() => deleteDeckMutation.mutate(d.id)}
                         />
                       );
                     })}
