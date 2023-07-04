@@ -2,34 +2,37 @@ import { z } from "zod";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
-export const deckRouter = createTRPCRouter({
+export const cardRouter = createTRPCRouter({
   byId: protectedProcedure.input(z.string()).query(({ input, ctx }) => {
-    return ctx.prisma.deck.findUnique({
+    return ctx.prisma.card.findUnique({
       where: {
         id: input,
       },
     });
   }),
-  all: protectedProcedure.query(({ ctx }) => {
-    return ctx.prisma.deck.findMany({
-      where: {
-        ownerId: ctx.session.user.id,
-      },
-    });
-  }),
+  all: protectedProcedure
+    .input(z.object({ deckId: z.string() }))
+    .query(({ input, ctx }) => {
+      return ctx.prisma.card.findMany({
+        where: {
+          deckId: input.deckId,
+        },
+      });
+    }),
   create: protectedProcedure
     .input(
       z.object({
-        name: z.string().min(1),
-        description: z.string().optional(),
+        deckId: z.string(),
+        front: z.string().min(1),
+        back: z.string().min(1),
       }),
     )
     .mutation(({ input, ctx }) => {
-      return ctx.prisma.deck.create({
+      return ctx.prisma.card.create({
         data: {
-          name: input.name,
-          description: input.description,
-          ownerId: ctx.session.user.id,
+          deckId: input.deckId,
+          front: input.front,
+          back: input.back,
         },
       });
     }),
@@ -37,24 +40,24 @@ export const deckRouter = createTRPCRouter({
     .input(
       z.object({
         id: z.string(),
-        name: z.string().optional(),
-        description: z.string().optional(),
+        front: z.string().optional(),
+        back: z.string().optional(),
       }),
     )
     .mutation(({ input, ctx }) => {
-      return ctx.prisma.deck.update({
+      return ctx.prisma.card.update({
         where: {
           id: input.id,
         },
         data: {
-          name: input.name,
-          description: input.description,
+          front: input.front,
+          back: input.back,
         },
       });
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ input, ctx }) => {
-    return ctx.prisma.deck.delete({
+    return ctx.prisma.card.delete({
       where: {
         id: input,
       },

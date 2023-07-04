@@ -1,11 +1,11 @@
 import { authRouter } from "./router/auth";
+import { cardRouter } from "./router/card";
 import { deckRouter } from "./router/deck";
-import { postRouter } from "./router/post";
 import { createTRPCRouter } from "./trpc";
 
 export const appRouter = createTRPCRouter({
-  post: postRouter,
   deck: deckRouter,
+  card: cardRouter,
   auth: authRouter,
 });
 
