@@ -6,9 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/root.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/root.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/router/deck.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/deck.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/router/post.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/expo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/expo/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/config/eslint/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/config/eslint/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/config/tailwind/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/config/tailwind/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/config/tailwind/postcss.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/db/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/db/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/db/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/packages/db/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,26 +46,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/tristan/Development/memory-mate&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/tristan/Development/memory-mate/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/tristan/Development/memory-mate/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "code.cleanup.on.save": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/tristan/Development/memory-mate/packages",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/tristan/Development/memory-mate/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/tristan/Development/memory-mate/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,7 +84,12 @@
       <updated>1688503067066</updated>
       <workItem from="1688503068109" duration="2938000" />
       <workItem from="1688506023924" duration="1741000" />
-      <workItem from="1688507777197" duration="372000" />
+      <workItem from="1688507777197" duration="970000" />
+      <workItem from="1688543757051" duration="41000" />
+      <workItem from="1688584939021" duration="3368000" />
+      <workItem from="1688589269709" duration="4627000" />
+      <workItem from="1688678383839" duration="4174000" />
+      <workItem from="1688682573963" duration="1279000" />
     </task>
     <servers />
   </component>

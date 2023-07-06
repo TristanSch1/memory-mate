@@ -11,15 +11,7 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id      String @id @default(cuid())
-    title   String
-    content String
-}
-
 // NextAuth.js Models
-// NOTE: When using postgresql, mysql or sqlserver,
-// uncomment the @db.Text annotations below
 // @see https://next-auth.js.org/schemas/models
 model Account {
     id                String  @id @default(cuid())
@@ -72,6 +64,7 @@ model Card {
     back      String
     deck        Deck     @relation(fields: [deckId], references: [id], onDelete: Cascade)
     deckId      String
+    reviews     CardReview[]
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
 }
@@ -83,6 +76,25 @@ model Deck {
     name        String
     description String?
     cards       Card[]
+    reviews     DeckReview[]
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
+
+model DeckReview {
+    id          String   @id @default(cuid())
+    deck        Deck     @relation(fields: [deckId], references: [id], onDelete: Cascade)
+    deckId      String
+    duration    Int
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
+
+model CardReview {
+    id          String   @id @default(cuid())
+    card        Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
+    cardId      String
+    rating      Int
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
 }
