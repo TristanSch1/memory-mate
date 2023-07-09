@@ -1,8 +1,11 @@
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "~/components/Button";
-import { api } from "~/utils/api";
+import { api } from "@/utils/api";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 const deckSchema = z.object({
   name: z.string().min(1),
@@ -11,8 +14,12 @@ const deckSchema = z.object({
 
 type DeckFormInputs = z.infer<typeof deckSchema>;
 
-const DeckForm = () => {
-  const { handleSubmit, register } = useForm({
+type Props = {
+  onSuccess: () => void;
+}
+
+const DeckForm = (props: Props) => {
+  const form = useForm({
     resolver: zodResolver(deckSchema),
   })
   const utils = api.useContext();
@@ -20,6 +27,7 @@ const DeckForm = () => {
   const { mutate, error } = api.deck.create.useMutation({
     async onSuccess() {
       await utils.deck.all.invalidate();
+      props.onSuccess();
     },
   });
 
@@ -28,11 +36,37 @@ const DeckForm = () => {
     mutate(data);
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} >
-      <input {...register("name")} />
-      <input {...register("description")} />
-      <Button type="submit">Ajouter</Button>
-    </form>
+    <Form {...form} >
+      <form onSubmit={form.handleSubmit(onSubmit)} className={"space-y-8"}>
+        <FormField
+          control={form.control}
+          name={"name"}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Nom du deck</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage/>
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name={"description"}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Description</FormLabel>
+              <FormControl>
+                <Textarea {...field} />
+              </FormControl>
+              <FormMessage/>
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className={"w-full"}>Ajouter</Button>
+      </form>
+    </Form>
   );
 };
 

@@ -10,15 +10,13 @@ type MainLayoutProps = {
   children: React.ReactNode;
 };
 
-const MainLayout = ({ children }: MainLayoutProps) => {
+export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div
-      className={"flex bg-neutral-950 text-neutral-50"}
+      className={"flex"}
     >
       <SideNav />
       <main className={"w-full px-12 py-8"}>{children}</main>
     </div>
   );
 };
-
-export default MainLayout;

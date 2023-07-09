@@ -1,20 +1,35 @@
+import DeckForm from "@/features/decks/components/DeckForm";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from "@/components/ui/dialog";
 import { useState } from "react";
-
-import { Button } from "~/components/Button/Button";
-import Modal from "~/components/Modal/Modal";
-import DeckForm from "~/features/decks/components/DeckForm";
+import { Button } from "@/components/ui/button";
 
 const CreateDeck = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const closeModal = () => setIsOpen(false);
-  const openModal = () => setIsOpen(true);
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <>
-      <Button onClick={openModal}>Nouveau deck</Button>
-      <Modal isOpen={isOpen} closeModal={closeModal} title={"Créez un nouveau deck"}>
-        <DeckForm />
-      </Modal>
-    </>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger>
+      <Button>Nouveau deck</Button>
+      </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>
+              Nouveau deck
+            </DialogTitle>
+            <DialogDescription>
+              Créer un nouveau deck
+            </DialogDescription>
+          </DialogHeader>
+          <DeckForm onSuccess={() => setIsOpen(false)}/>
+        </DialogContent>
+      </Dialog>
   );
 };
 

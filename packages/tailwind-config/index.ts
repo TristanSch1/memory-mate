@@ -1,6 +1,7 @@
-import { Config} from "tailwindcss";
+import { Config } from "tailwindcss";
 
 export default {
+  darkMode: ['class', '[data-mode="dark"]'],
   content: [
     // app content
     `src/**/*.{js,ts,jsx,tsx}`,

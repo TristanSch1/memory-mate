@@ -15,6 +15,9 @@ export const deckRouter = createTRPCRouter({
       where: {
         ownerId: ctx.session.user.id,
       },
+      include: {
+        cards: true,
+      }
     });
   }),
   create: protectedProcedure
