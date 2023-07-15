@@ -5,8 +5,17 @@ import { useStore } from "zustand";
 const CardList = () => {
   const store = useCardStore();
 
-  const cards = useStore(store, (state) => state.cards);
-  const mode = useStore(store, (state) => state.mode);
+  const { cards, mode, toggleSelect, selectedCards } = useStore(
+    store,
+    (state) => ({
+      cards: state.cards,
+      mode: state.mode,
+      toggleSelect: state.toggleSelect,
+      selectedCards: state.selectedCards,
+    }),
+  );
+
+  const editMode = mode === "edit";
   if (!cards || cards.length === 0) {
     return (
       <div className={"flex h-full flex-col items-center justify-center"}>
@@ -17,7 +26,13 @@ const CardList = () => {
   return (
     <div className={"space-y-4"}>
       {cards?.map((card) => (
-        <Card key={card.id} card={card} editMode={mode === "edit"} />
+        <Card
+          key={card.id}
+          card={card}
+          editMode={editMode}
+          active={selectedCards.includes(card.id)}
+          onClick={editMode ? () => toggleSelect(card.id) : undefined}
+        />
       ))}
     </div>
   );

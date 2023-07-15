@@ -42,6 +42,9 @@ module.exports = {
         destructive: "hsl(var(--destructive))",
         "destructive-foreground": "hsl(var(--destructive-foreground))",
 
+        popover: "hsl(var(--popover))",
+        "popover-foreground": "hsl(var(--popover-foreground))",
+
         muted: "hsl(var(--muted))",
         "muted-foreground": "hsl(var(--muted-foreground))",
 

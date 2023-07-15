@@ -8,8 +8,9 @@ type Props = ComponentPropsWithoutRef<"div"> & {
 const IconButton = ({ active, children, className, ...props }: Props) => {
   return (
     <div
-      className={clsx(className, "rounded-lg p-2 hover:bg-neutral-100", {
+      className={clsx(className, "rounded-lg p-2", {
         "bg-neutral-200": active,
+        "hover:bg-neutral-100": !active,
       })}
       {...props}
     >

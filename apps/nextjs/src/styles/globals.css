@@ -58,7 +58,7 @@
     --card: var(--neutral-100);
     --card-foreground: var(--neutral-900);
 
-    --popover: var(--neutral-100);
+    --popover: var(--neutral-50);
     --popover-foreground: var(--neutral-900);
 
     --destructive: 341, 94%, 60%;
