@@ -1,12 +1,15 @@
 import "../styles/globals.css";
 
-import { type PropsWithChildren, type ReactElement, type ReactNode } from "react";
+import {
+  type PropsWithChildren,
+  type ReactElement,
+  type ReactNode,
+} from "react";
 import { type NextPage } from "next";
 import { type AppProps } from "next/app";
+import { api } from "@/utils/api";
 import { type Session } from "next-auth";
 import { SessionProvider, useSession } from "next-auth/react";
-
-import { api } from "@/utils/api";
 import { ThemeProvider } from "next-themes";
 
 export type NextPageWithLayout = NextPage & {
@@ -24,12 +27,12 @@ const MyApp = ({ Component, session, pageProps }: AppPropsWithLayout) => {
   const ComponentWithLayout = getLayout(<Component {...pageProps} />);
   return (
     <SessionProvider session={session}>
-      <ThemeProvider >
-      {Component.auth ? (
-        <Auth>{ComponentWithLayout}</Auth>
-      ) : (
-        ComponentWithLayout
-      )}
+      <ThemeProvider>
+        {Component.auth ? (
+          <Auth>{ComponentWithLayout}</Auth>
+        ) : (
+          ComponentWithLayout
+        )}
       </ThemeProvider>
     </SessionProvider>
   );

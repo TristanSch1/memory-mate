@@ -1,18 +1,23 @@
-import { api } from "@/utils/api";
+import Card from "@/features/cards/components/Card";
+import { useCardStore } from "@/features/cards/components/CardsProvider";
+import { useStore } from "zustand";
 
-type Props = {
-  deckId: string;
-};
+const CardList = () => {
+  const store = useCardStore();
 
-const CardList = ({ deckId }: Props) => {
-  const { data: cards } = api.card.all.useQuery({ deckId });
+  const cards = useStore(store, (state) => state.cards);
+  const mode = useStore(store, (state) => state.mode);
+  if (!cards || cards.length === 0) {
+    return (
+      <div className={"flex h-full flex-col items-center justify-center"}>
+        <p className={"text-muted-foreground"}>Aucune carte</p>
+      </div>
+    );
+  }
   return (
-    <div>
+    <div className={"space-y-4"}>
       {cards?.map((card) => (
-        <div key={card.id}>
-          <h3>{card.front}</h3>
-          <p>{card.back}</p>
-        </div>
+        <Card key={card.id} card={card} editMode={mode === "edit"} />
       ))}
     </div>
   );

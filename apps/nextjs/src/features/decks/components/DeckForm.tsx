@@ -1,27 +1,34 @@
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { api } from "@/utils/api";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { api } from "@/utils/api";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 const deckSchema = z.object({
   name: z.string().min(1),
   description: z.string().optional(),
-})
+});
 
 type DeckFormInputs = z.infer<typeof deckSchema>;
 
 type Props = {
   onSuccess: () => void;
-}
+};
 
 const DeckForm = (props: Props) => {
   const form = useForm({
     resolver: zodResolver(deckSchema),
-  })
+  });
   const utils = api.useContext();
 
   const { mutate, error } = api.deck.create.useMutation({
@@ -32,11 +39,10 @@ const DeckForm = (props: Props) => {
   });
 
   const onSubmit = (data: DeckFormInputs) => {
-    console.log(data)
     mutate(data);
-  }
+  };
   return (
-    <Form {...form} >
+    <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className={"space-y-8"}>
         <FormField
           control={form.control}
@@ -47,7 +53,7 @@ const DeckForm = (props: Props) => {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage/>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -60,11 +66,13 @@ const DeckForm = (props: Props) => {
               <FormControl>
                 <Textarea {...field} />
               </FormControl>
-              <FormMessage/>
+              <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" className={"w-full"}>Ajouter</Button>
+        <Button type="submit" className={"w-full"}>
+          Ajouter
+        </Button>
       </form>
     </Form>
   );

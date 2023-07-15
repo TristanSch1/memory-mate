@@ -1,13 +1,17 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@memory-mate/tsconfig/base.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
-    "jsx": "react-native",
-    "types": ["nativewind/types", "webpack-env"]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
-  "include": ["expo-plugins", "src", "*.ts", "**/*.js", "index.tsx"],
-  "exclude": ["node_modules", "*.config.js"]
+  "include": ["./**/*", ".next/types/**/*.ts", "next-env.d.ts"],
+  "exclude": ["node_modules", "dist", ".next"]
 }

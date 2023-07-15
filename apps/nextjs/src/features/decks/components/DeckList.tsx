@@ -1,5 +1,5 @@
-import { api } from "@/utils/api";
 import DeckCard from "@/features/decks/components/DeckCard";
+import { api } from "@/utils/api";
 
 const DeckList = () => {
   const deckQuery = api.deck.all.useQuery();
@@ -17,9 +17,7 @@ const DeckList = () => {
   return (
     <div className={"space-y-4"}>
       {deckQuery.data?.map((deck) => {
-        return (
-          <DeckCard deck={deck} key={deck.id} />
-        );
+        return <DeckCard deck={deck} key={deck.id} />;
       })}
     </div>
   );

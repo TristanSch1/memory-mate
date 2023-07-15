@@ -1,31 +1,56 @@
+import {
+  type GetServerSidePropsContext,
+  type InferGetServerSidePropsType,
+} from "next";
+import TopBarLayout from "@/components/layout/TopBarLayout";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import CardTabContent from "@/features/cards/components/CardTabContent";
+import { DeckProvider } from "@/features/decks/stores/DeckProvider";
 import { type NextPageWithLayout } from "@/pages/_app";
-import { createServerSideHelpers } from "@trpc/react-query/server";
-import { type GetServerSidePropsContext, type InferGetServerSidePropsType } from "next";
-import { appRouter } from "@memory-mate/api";
-import superjson from "superjson";
-import { createInnerTRPCContext } from "@memory-mate/api/src/trpc";
-import { getServerSession } from "@memory-mate/auth";
+import { URLPath } from "@/routes";
 import { api } from "@/utils/api";
 import { authPage } from "@/utils/pages";
-import TopBarLayout from "@/components/layout/TopBarLayout";
-import { URLPath } from "@/routes";
-import CardList from "@/features/cards/components/CardList";
+import { createServerSideHelpers } from "@trpc/react-query/server";
+import superjson from "superjson";
 
-const DeckPage: NextPageWithLayout = authPage(({ id }: InferGetServerSidePropsType<typeof getServerSideProps>) =>
-{
-  const { data: deck } = api.deck.byId.useQuery(id);
+import { appRouter } from "@memory-mate/api";
+import { createInnerTRPCContext } from "@memory-mate/api/src/trpc";
+import { getServerSession } from "@memory-mate/auth";
 
-  if (!deck) return null;
-  return (
-    <TopBarLayout title={deck.name} backRoute={URLPath.home}>
-      <CardList deckId={deck.id}/>
-    </TopBarLayout>
-  );
-});
+const DeckPage: NextPageWithLayout = authPage(
+  ({ id }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+    const { data: deck } = api.deck.byId.useQuery(id);
 
-export const  getServerSideProps = async (
-  { params,req,res }: GetServerSidePropsContext<{ id: string }>,
-)=> {
+    if (!deck) return null;
+    return (
+      <TopBarLayout title={deck.name} backRoute={URLPath.home}>
+        <DeckProvider id={deck.id}>
+          <Tabs defaultValue={"review"}>
+            <TabsList className={"w-full"}>
+              <TabsTrigger value={"review"}>Révision</TabsTrigger>
+              <TabsTrigger value={"cards"}>Cartes</TabsTrigger>
+            </TabsList>
+            <TabsContent value={"review"}>
+              <div className={"flex items-center justify-between"}>
+                <h2 className={"heading text-2xl"}>Révision</h2>
+                <label>{}</label>
+              </div>
+            </TabsContent>
+            <TabsContent value={"cards"}>
+              <CardTabContent />
+            </TabsContent>
+          </Tabs>
+        </DeckProvider>
+      </TopBarLayout>
+    );
+  },
+);
+
+export const getServerSideProps = async ({
+  params,
+  req,
+  res,
+}: GetServerSidePropsContext<{ id: string }>) => {
   const session = await getServerSession({ req, res });
   const helpers = createServerSideHelpers({
     router: appRouter,
@@ -40,6 +65,6 @@ export const  getServerSideProps = async (
       id,
     },
   };
-}
+};
 
 export default DeckPage;

@@ -1,11 +1,11 @@
 import { type ReactNode } from "react";
-import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/router";
+import { ChevronLeft } from "lucide-react";
 
 type Props = {
-  children: ReactNode
-  title?: string
-  backRoute?: string
+  children: ReactNode;
+  title?: string;
+  backRoute?: string;
 };
 
 const TopBarLayout = ({ children, title, backRoute }: Props) => {
@@ -16,16 +16,24 @@ const TopBarLayout = ({ children, title, backRoute }: Props) => {
     } else {
       back();
     }
-  }
+  };
   return (
     <div>
-      <header className={"flex items-center w-full p-4 justify-center border-b shadow-sm"}>
-        <ChevronLeft size={40} className={"absolute left-3 cursor-pointer text-muted-foreground hover:text-foreground transition-colors"} onClick={handleBack}/>
+      <header
+        className={
+          "flex w-full items-center justify-center border-b p-4 shadow-sm"
+        }
+      >
+        <ChevronLeft
+          size={40}
+          className={
+            "text-muted-foreground hover:text-foreground absolute left-3 cursor-pointer transition-colors"
+          }
+          onClick={handleBack}
+        />
         <h1 className={"heading text-2xl"}>{title}</h1>
       </header>
-      <main className={"container py-8"}>
-        {children}
-      </main>
+      <main className={"container py-6"}>{children}</main>
     </div>
   );
 };

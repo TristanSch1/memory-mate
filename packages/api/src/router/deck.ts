@@ -17,7 +17,7 @@ export const deckRouter = createTRPCRouter({
       },
       include: {
         cards: true,
-      }
+      },
     });
   }),
   create: protectedProcedure

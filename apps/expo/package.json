@@ -33,9 +33,9 @@
     "superjson": "1.9.1"
   },
   "devDependencies": {
+    "@memory-mate/tsconfig": "workspace:*",
     "@memory-mate/api": "workspace:*",
     "@memory-mate/eslint-config": "workspace:*",
-    "@memory-mate/tailwind-config": "workspace:*",
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
     "@babel/runtime": "^7.21.5",

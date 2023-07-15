@@ -12,9 +12,7 @@ type MainLayoutProps = {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div
-      className={"flex"}
-    >
+    <div className={"flex"}>
       <SideNav />
       <main className={"w-full px-12 py-8"}>{children}</main>
     </div>

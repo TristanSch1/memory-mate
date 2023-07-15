@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -8,25 +7,27 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import DeckForm from "@/features/decks/components/DeckForm";
+import CardForm from "@/features/cards/components/CardForm";
 
-const CreateDeck = () => {
+const CreateCard = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger>
-        <Button>Nouveau deck</Button>
+        <label className={"text-primary hover:text-primary/90 cursor-pointer"}>
+          Ajouter une carte
+        </label>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Nouveau deck</DialogTitle>
-          <DialogDescription>Créer un nouveau deck</DialogDescription>
+          <DialogTitle>Nouvelle carte</DialogTitle>
+          <DialogDescription>Créer une nouvelle carte</DialogDescription>
         </DialogHeader>
-        <DeckForm onSuccess={() => setIsOpen(false)} />
+        <CardForm onSuccess={() => setIsOpen(false)} />
       </DialogContent>
     </Dialog>
   );
 };
 
-export default CreateDeck;
+export default CreateCard;

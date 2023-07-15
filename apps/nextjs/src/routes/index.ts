@@ -1,4 +1,4 @@
 export const URLPath = {
-  home: '/',
+  home: "/",
   deck: (deckId: string) => `/deck/${deckId}`,
-}
+};
