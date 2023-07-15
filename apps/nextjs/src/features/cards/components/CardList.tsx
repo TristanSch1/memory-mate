@@ -4,16 +4,14 @@ import { useStore } from "zustand";
 
 const CardList = () => {
   const store = useCardStore();
-
-  const { cards, mode, toggleSelect, selectedCards } = useStore(
-    store,
-    (state) => ({
+  const { cards, mode, toggleSelect, selectedCards, setEditingCardId } =
+    useStore(store, (state) => ({
       cards: state.cards,
       mode: state.mode,
       toggleSelect: state.toggleSelect,
       selectedCards: state.selectedCards,
-    }),
-  );
+      setEditingCardId: state.setEditingCardId,
+    }));
 
   const editMode = mode === "edit";
   if (!cards || cards.length === 0) {
@@ -31,7 +29,11 @@ const CardList = () => {
           card={card}
           editMode={editMode}
           active={selectedCards.includes(card.id)}
-          onClick={editMode ? () => toggleSelect(card.id) : undefined}
+          onClick={
+            editMode
+              ? () => toggleSelect(card.id)
+              : () => setEditingCardId(card.id)
+          }
         />
       ))}
     </div>

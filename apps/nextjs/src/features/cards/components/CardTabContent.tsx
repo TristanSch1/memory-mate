@@ -1,3 +1,4 @@
+import CardEdit from "@/features/cards/components/CardEdit";
 import CardList from "@/features/cards/components/CardList";
 import CardListMenuBar from "@/features/cards/components/CardListMenuBar";
 import { CardStoreProvider } from "@/features/cards/components/CardsProvider";
@@ -16,6 +17,7 @@ const CardTabContent = () => {
         <CardListMenuBar />
         <CardList />
       </div>
+      <CardEdit />
     </CardStoreProvider>
   );
 };

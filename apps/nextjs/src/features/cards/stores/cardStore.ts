@@ -6,6 +6,7 @@ interface CardStoreState {
   displayMode: "list" | "grid";
   cards: TCard[];
   selectedCards: string[];
+  editingCardId?: string | null;
 }
 
 interface CardStoreActions {
@@ -15,6 +16,7 @@ interface CardStoreActions {
   toggleSelect: (id: string) => void;
   select: (id: string) => void;
   unselect: (id: string) => void;
+  setEditingCardId: (id?: string | null) => void;
 }
 
 export type CardStore = ReturnType<typeof createCardStore>;
@@ -24,6 +26,7 @@ export const createCardStore = (initProps?: Partial<CardStoreState>) => {
     displayMode: "list",
     cards: [],
     selectedCards: [],
+    editingCardId: null,
   };
 
   return createStore<CardStoreState & CardStoreActions>((set, get) => ({
@@ -52,5 +55,6 @@ export const createCardStore = (initProps?: Partial<CardStoreState>) => {
       set({
         selectedCards: get().selectedCards.filter((cardId) => cardId !== id),
       }),
+    setEditingCardId: (id: string | null) => set({ editingCardId: id }),
   }));
 };
