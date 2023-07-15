@@ -6,25 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/Button/Button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/Button/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/Layout/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/layout/MainLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/CreateDeck.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/CreateDeck.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/tailwind.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/router/deck.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/deck.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/config/eslint/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/config/eslint/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/tailwind-config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tailwind-config/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/expo/src/utils/api.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/expo/src/utils/api.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/api/src/trpc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/trpc.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +83,10 @@
       <workItem from="1688589269709" duration="4627000" />
       <workItem from="1688678383839" duration="4174000" />
       <workItem from="1688682573963" duration="6642000" />
-      <workItem from="1688904256775" duration="6623000" />
+      <workItem from="1688904256775" duration="9414000" />
+      <workItem from="1689412568798" duration="139000" />
+      <workItem from="1689412722833" duration="176000" />
+      <workItem from="1689412914848" duration="4058000" />
     </task>
     <servers />
   </component>

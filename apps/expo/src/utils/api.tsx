@@ -1,4 +1,3 @@
-import React from "react";
 import Constants from "expo-constants";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
@@ -6,6 +5,7 @@ import { createTRPCReact } from "@trpc/react-query";
 import superjson from "superjson";
 
 import { type AppRouter } from "@memory-mate/api";
+import { ReactNode, useState } from "react";
 
 /**
  * A set of typesafe hooks for consuming your API.
@@ -44,9 +44,9 @@ const getBaseUrl = () => {
  * Use only in _app.tsx
  */
 
-export function TRPCProvider(props: { children: React.ReactNode }) {
-  const [queryClient] = React.useState(() => new QueryClient());
-  const [trpcClient] = React.useState(() =>
+export function TRPCProvider(props: { children: ReactNode }) {
+  const [queryClient] = useState(() => new QueryClient());
+  const [trpcClient] = useState(() =>
     api.createClient({
       transformer: superjson,
       links: [
