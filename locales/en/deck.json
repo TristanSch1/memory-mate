@@ -1,0 +1,13 @@
+{
+  "deck": "Deck",
+  "create": "Create new deck",
+  "new": "New deck",
+  "noDeck": "You don't have any decks yet",
+  "review": "Review",
+  "cards": "Cards",
+  "form": {
+    "name": "Deck name",
+    "description": "Description",
+    "cta": "Create deck"
+  }
+}

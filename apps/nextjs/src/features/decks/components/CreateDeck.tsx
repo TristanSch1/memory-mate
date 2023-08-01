@@ -9,19 +9,20 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import DeckForm from "@/features/decks/components/DeckForm";
+import { useTranslation } from "next-i18next";
 
 const CreateDeck = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { t } = useTranslation("deck");
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger>
-        <Button>Nouveau deck</Button>
+        <Button>{t("new")}</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Nouveau deck</DialogTitle>
-          <DialogDescription>Créer un nouveau deck</DialogDescription>
+          <DialogTitle>{t("new")}</DialogTitle>
+          <DialogDescription>{t("create")}</DialogDescription>
         </DialogHeader>
         <DeckForm onSuccess={() => setIsOpen(false)} />
       </DialogContent>

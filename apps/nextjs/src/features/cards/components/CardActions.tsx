@@ -9,8 +9,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import DeleteCards from "@/features/cards/components/DeleteCards";
 import { MoreVertical, TrashIcon } from "lucide-react";
+import { useTranslation } from "next-i18next";
 
 const CardActions = () => {
+  const { t } = useTranslation("card");
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   return (
     <>
@@ -23,7 +25,7 @@ const CardActions = () => {
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => setDeleteDialogOpen(true)}>
             <TrashIcon className={"mr-2 h-4 w-4"} />
-            Supprimer
+            {t("delete")}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

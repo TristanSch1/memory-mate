@@ -11,6 +11,7 @@ import { useDeckContext } from "@/features/decks/stores/DeckProvider";
 import { api, type RouterInputs } from "@/utils/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Editor } from "@tinymce/tinymce-react";
+import { useTranslation } from "next-i18next";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -37,6 +38,7 @@ type Props = {
 };
 
 const CardForm = (props: Props) => {
+  const { t } = useTranslation("card");
   const { id: deckId } = useDeckContext();
   const form = useForm({
     defaultValues: props.card ?? { front: "", back: "" },
@@ -73,7 +75,7 @@ const CardForm = (props: Props) => {
           name={"front"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Face</FormLabel>
+              <FormLabel>{t("form.front")}</FormLabel>
               <FormControl>
                 <Editor
                   apiKey={appConfig.tinyMceApiKey}
@@ -90,7 +92,7 @@ const CardForm = (props: Props) => {
           name={"back"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Dos</FormLabel>
+              <FormLabel>{t("from.back")}</FormLabel>
               <FormControl>
                 <Editor
                   apiKey={appConfig.tinyMceApiKey}
@@ -103,7 +105,7 @@ const CardForm = (props: Props) => {
           )}
         />
         <Button type={"submit"} className={"w-full"}>
-          {props.card ? "Modifier" : "Créer"}
+          {props.card ? t("form.update") : t("form.create")}
         </Button>
       </form>
     </Form>

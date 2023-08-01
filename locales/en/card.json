@@ -1,0 +1,28 @@
+{
+  "selected_one": "{{count}} selected card",
+  "selected_other": "{{count}} selected cards",
+  "delete": {
+    "button": "Delete",
+    "title_one": "Are you sure you want to delete this card?",
+    "title_other": "Are you sure you want to delete these cards?",
+    "description": "This action cannot be undone.",
+    "confirm": "Delete",
+    "cancel": "Cancel"
+  },
+  "edit": {
+    "title": "Edit",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "create": {
+    "button": "Create new card",
+    "title": "Create new card",
+    "description": "Create a new card"
+  },
+  "form": {
+    "front": "Front",
+    "back": "Back",
+    "create": "Create",
+    "update": "Update"
+  }
+}

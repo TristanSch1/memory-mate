@@ -2,9 +2,11 @@ import IconButton from "@/components/ui/icon-button";
 import CardActions from "@/features/cards/components/CardActions";
 import { useCardStore } from "@/features/cards/components/CardsProvider";
 import { Pencil } from "lucide-react";
+import { useTranslation } from "next-i18next";
 import { useStore } from "zustand";
 
 const CardListMenuBar = () => {
+  const { t } = useTranslation("card");
   const store = useCardStore();
   const { mode, toggleMode, selectedCards } = useStore(store, (state) => ({
     mode: state.mode,
@@ -20,8 +22,7 @@ const CardListMenuBar = () => {
       {selectedCards.length > 0 && (
         <div className={"flex items-center gap-2"}>
           <label className={"text-muted-foreground"}>
-            {selectedCards.length} sélectionn
-            {selectedCards.length > 1 ? "ées" : "ée"}
+            {t("selected", { count: selectedCards.length })}
           </label>
           <CardActions />
         </div>

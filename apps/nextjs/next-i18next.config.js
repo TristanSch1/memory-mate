@@ -6,4 +6,5 @@ module.exports = {
   },
   localePath: "../../locales",
   localeStructure: "{{lng}}/{{ns}}",
+  reloadOnPrerender: process.env.NODE_ENV === "development",
 };

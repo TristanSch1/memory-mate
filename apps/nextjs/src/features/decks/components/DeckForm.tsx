@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { api } from "@/utils/api";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslation } from "next-i18next";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -26,6 +27,7 @@ type Props = {
 };
 
 const DeckForm = (props: Props) => {
+  const { t } = useTranslation("deck");
   const form = useForm({
     resolver: zodResolver(deckSchema),
   });
@@ -49,7 +51,7 @@ const DeckForm = (props: Props) => {
           name={"name"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nom du deck</FormLabel>
+              <FormLabel>{t("form.name")}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -62,7 +64,7 @@ const DeckForm = (props: Props) => {
           name={"description"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Description</FormLabel>
+              <FormLabel> {t("form.description")}</FormLabel>
               <FormControl>
                 <Textarea {...field} />
               </FormControl>
@@ -71,7 +73,7 @@ const DeckForm = (props: Props) => {
           )}
         />
         <Button type="submit" className={"w-full"}>
-          Ajouter
+          {t("form.cta")}
         </Button>
       </form>
     </Form>

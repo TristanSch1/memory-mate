@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useCardStore } from "@/features/cards/components/CardsProvider";
 import { api } from "@/utils/api";
+import { useTranslation } from "next-i18next";
 import { useStore } from "zustand";
 
 type Props = {
@@ -19,6 +20,7 @@ type Props = {
 };
 
 const DeleteCards = ({ open, onOpenChange }: Props) => {
+  const { t } = useTranslation("card");
   const store = useCardStore();
   const { selectedCards } = useStore(store, (state) => ({
     selectedCards: state.selectedCards,
@@ -41,17 +43,16 @@ const DeleteCards = ({ open, onOpenChange }: Props) => {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            Êtes-vous sûr de vouloir supprimer{" "}
-            {selectedCards.length > 1 ? "ces cartes" : "cette carte"} ?
+            {t("delete.title", { count: selectedCards.length })}
           </AlertDialogTitle>
           <AlertDialogDescription>
-            Cette action est irréversible.
+            {t("delete.description")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Annuler</AlertDialogCancel>
+          <AlertDialogCancel>{t("delete.cancel")}</AlertDialogCancel>
           <AlertDialogAction onClick={handleDelete}>
-            Supprimer
+            {t("delete.configm")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

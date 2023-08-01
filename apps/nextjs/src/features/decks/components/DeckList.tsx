@@ -1,16 +1,19 @@
 import DeckCard from "@/features/decks/components/DeckCard";
 import { api } from "@/utils/api";
+import { useTranslation } from "next-i18next";
 
 const DeckList = () => {
+  const { t } = useTranslation("deck");
   const deckQuery = api.deck.all.useQuery();
   if (deckQuery.status === "loading") {
+    //TODO LOADER
     return <div>Chargement...</div>;
   }
 
   if (deckQuery.data?.length === 0) {
     return (
       <div className={"flex h-full w-full items-center justify-center"}>
-        Aucun deck pour le moment
+        {t("noDeck")}
       </div>
     );
   }
