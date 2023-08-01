@@ -10,6 +10,7 @@ import { type AppProps } from "next/app";
 import { api } from "@/utils/api";
 import { type Session } from "next-auth";
 import { SessionProvider, useSession } from "next-auth/react";
+import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
 
 export type NextPageWithLayout = NextPage & {
@@ -49,4 +50,4 @@ const Auth = ({ children }: PropsWithChildren) => {
   return <>{children}</>;
 };
 
-export default api.withTRPC(MyApp);
+export default api.withTRPC(appWithTranslation(MyApp));

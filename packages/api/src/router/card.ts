@@ -8,6 +8,9 @@ export const cardRouter = createTRPCRouter({
       where: {
         id: input,
       },
+      include: {
+        reviews: true,
+      },
     });
   }),
   all: protectedProcedure
@@ -56,11 +59,23 @@ export const cardRouter = createTRPCRouter({
       });
     }),
 
-  delete: protectedProcedure.input(z.string()).mutation(({ input, ctx }) => {
+  deleteOne: protectedProcedure.input(z.string()).mutation(({ input, ctx }) => {
     return ctx.prisma.card.delete({
       where: {
         id: input,
       },
     });
   }),
+
+  deleteMany: protectedProcedure
+    .input(z.array(z.string()))
+    .mutation(({ input, ctx }) => {
+      return ctx.prisma.card.deleteMany({
+        where: {
+          id: {
+            in: input,
+          },
+        },
+      });
+    }),
 });

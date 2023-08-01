@@ -3,8 +3,11 @@ import { MainLayout } from "@/components/layout";
 import CreateDeck from "@/features/decks/components/CreateDeck";
 import DeckList from "@/features/decks/components/DeckList";
 import { type NextPageWithLayout } from "@/pages/_app";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Home: NextPageWithLayout = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Head>
@@ -13,7 +16,7 @@ const Home: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={"mb-8 flex items-center justify-between"}>
-        <h1 className={"heading text-5xl"}>Decks</h1>
+        <h1 className={"heading text-5xl capitalize"}>{t("deck")}</h1>
         <CreateDeck />
       </div>
       <DeckList />
@@ -26,5 +29,14 @@ Home.auth = true;
 Home.getLayout = (page) => {
   return <MainLayout>{page}</MainLayout>;
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      // Will be passed to the page component as props
+    },
+  };
+}
 
 export default Home;
