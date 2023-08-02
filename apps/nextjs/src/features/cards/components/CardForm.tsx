@@ -8,7 +8,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useDeckContext } from "@/features/decks/stores/DeckProvider";
+import { useDeck } from "@/features/decks/components/DeckProvider";
 import { api, type RouterInputs } from "@/utils/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Editor } from "@tinymce/tinymce-react";
@@ -48,7 +48,7 @@ type Props = {
 
 const CardForm = (props: Props) => {
   const { t } = useTranslation("card");
-  const { id: deckId } = useDeckContext();
+  const { id: deckId } = useDeck();
   const form = useForm({
     defaultValues: props.card ?? { front: "", back: "" },
     resolver: zodResolver(cardSchema),

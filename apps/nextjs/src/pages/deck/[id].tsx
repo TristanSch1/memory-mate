@@ -5,8 +5,8 @@ import {
 import { appConfig } from "@/_config";
 import TopBarLayout from "@/components/layout/TopBarLayout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CardTabContent from "@/features/cards/components/CardTabContent";
-import { DeckProvider } from "@/features/decks/stores/DeckProvider";
+import { CardTabContent } from "@/features/cards";
+import { DeckProvider, DeckReviewTabContent } from "@/features/decks";
 import { type NextPageWithLayout } from "@/pages/_app";
 import { URLPath } from "@/routes";
 import { api } from "@/utils/api";
@@ -24,21 +24,17 @@ const DeckPage: NextPageWithLayout = authPage(
   ({ id }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const { t } = useTranslation("deck");
     const { data: deck } = api.deck.byId.useQuery(id);
-
     if (!deck) return null;
     return (
       <TopBarLayout title={deck.name} backRoute={URLPath.home}>
-        <DeckProvider id={deck.id}>
+        <DeckProvider deckId={deck.id} cardCount={deck._count.cards}>
           <Tabs defaultValue={"review"}>
             <TabsList className={"w-full"}>
-              <TabsTrigger value={"review"}>{t("review")}</TabsTrigger>
+              <TabsTrigger value={"review"}>{t("review.title")}</TabsTrigger>
               <TabsTrigger value={"cards"}>{t("cards")}</TabsTrigger>
             </TabsList>
             <TabsContent value={"review"}>
-              <div className={"flex items-center justify-between"}>
-                <h2 className={"heading text-2xl"}>{t("review")}</h2>
-                <label>{}</label>
-              </div>
+              <DeckReviewTabContent />
             </TabsContent>
             <TabsContent value={"cards"}>
               <CardTabContent />

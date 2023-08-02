@@ -3,7 +3,10 @@
   "create": "Créer un nouveau deck",
   "new": "Nouveau deck",
   "noDeck": "Vous n'avez pas encore de deck.",
-  "review": "Révision",
+  "review": {
+    "title": "Réviser",
+    "start": "Commencer"
+  },
   "cards": "Cartes",
   "form": {
     "name": "Nom du deck",

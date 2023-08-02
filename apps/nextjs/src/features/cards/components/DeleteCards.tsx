@@ -10,6 +10,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useCardStore } from "@/features/cards/components/CardsProvider";
+import { useDeck } from "@/features/decks";
 import { api } from "@/utils/api";
 import { useTranslation } from "next-i18next";
 import { useStore } from "zustand";
@@ -22,6 +23,7 @@ type Props = {
 const DeleteCards = ({ open, onOpenChange }: Props) => {
   const { t } = useTranslation("card");
   const store = useCardStore();
+  const { deckId } = useDeck();
   const { selectedCards } = useStore(store, (state) => ({
     selectedCards: state.selectedCards,
   }));
@@ -30,6 +32,7 @@ const DeleteCards = ({ open, onOpenChange }: Props) => {
   const deleteCards = api.card.deleteMany.useMutation({
     onSuccess: async () => {
       await utils.card.all.invalidate();
+      await utils.deck.byId.invalidate(deckId);
       store.setState({ selectedCards: [] });
       onOpenChange(false);
     },
@@ -52,7 +55,7 @@ const DeleteCards = ({ open, onOpenChange }: Props) => {
         <AlertDialogFooter>
           <AlertDialogCancel>{t("delete.cancel")}</AlertDialogCancel>
           <AlertDialogAction onClick={handleDelete}>
-            {t("delete.configm")}
+            {t("delete.confirm")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

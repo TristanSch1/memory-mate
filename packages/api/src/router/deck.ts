@@ -8,6 +8,11 @@ export const deckRouter = createTRPCRouter({
       where: {
         id: input,
       },
+      include: {
+        _count: {
+          select: { cards: true },
+        },
+      },
     });
   }),
   all: protectedProcedure.query(({ ctx }) => {
@@ -16,7 +21,9 @@ export const deckRouter = createTRPCRouter({
         ownerId: ctx.session.user.id,
       },
       include: {
-        cards: true,
+        _count: {
+          select: { cards: true },
+        },
       },
     });
   }),

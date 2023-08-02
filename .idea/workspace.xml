@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/next-i18next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/next-i18next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/form.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/card.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardTabContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardTabContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/DeleteCards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/DeleteCards.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/stores/DeckProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locales/en/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/deck.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/fr/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/card.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locales/fr/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/deck.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/api/src/router/deck.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/deck.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +61,7 @@
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "/opt/homebrew/lib/node_modules/prettier",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "settings.editor.selected.configurable": "editing.templates",
     "ts.external.directory.path": "/Users/tristan/Development/memory-mate/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -71,11 +72,11 @@
       <recent name="$PROJECT_DIR$/packages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/nextjs/src/features/decks/components" />
       <recent name="$PROJECT_DIR$/locales" />
       <recent name="$PROJECT_DIR$/apps/nextjs/src/features/cards" />
       <recent name="$PROJECT_DIR$/apps/nextjs/src/components/ui" />
       <recent name="$PROJECT_DIR$/apps/nextjs/src" />
-      <recent name="$PROJECT_DIR$/apps/nextjs/src/components/Button" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -105,7 +106,7 @@
       <workItem from="1690915478815" duration="37000" />
       <workItem from="1690915568877" duration="2069000" />
       <workItem from="1690917843357" duration="3258000" />
-      <workItem from="1691003766064" duration="1696000" />
+      <workItem from="1691003766064" duration="3996000" />
     </task>
     <servers />
   </component>

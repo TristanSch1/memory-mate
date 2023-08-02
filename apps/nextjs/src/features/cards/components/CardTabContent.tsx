@@ -3,12 +3,12 @@ import CardList from "@/features/cards/components/CardList";
 import CardListMenuBar from "@/features/cards/components/CardListMenuBar";
 import { CardStoreProvider } from "@/features/cards/components/CardsProvider";
 import CreateCard from "@/features/cards/components/CreateCard";
-import { useDeckContext } from "@/features/decks/stores/DeckProvider";
+import { useDeck } from "@/features/decks/components/DeckProvider";
 import { useTranslation } from "next-i18next";
 
-const CardTabContent = () => {
+export const CardTabContent = () => {
   const { t } = useTranslation("deck");
-  const { id: deckId } = useDeckContext();
+  const { id: deckId } = useDeck();
   return (
     <CardStoreProvider deckId={deckId}>
       <div className={"space-y-4"}>
@@ -23,5 +23,3 @@ const CardTabContent = () => {
     </CardStoreProvider>
   );
 };
-
-export default CardTabContent;

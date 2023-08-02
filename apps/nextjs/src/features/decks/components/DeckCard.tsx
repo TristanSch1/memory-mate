@@ -43,7 +43,7 @@ const DeckCard = ({ deck }: Props) => {
                 clipRule="evenodd"
               ></path>
             </svg>
-            <p>{deck.cards.length}</p>
+            <p>{deck._count.cards}</p>
           </div>
           <div
             className={"text-muted-foreground flex items-center gap-1 text-sm"}
