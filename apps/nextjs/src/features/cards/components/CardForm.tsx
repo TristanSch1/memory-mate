@@ -6,6 +6,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 import { useDeckContext } from "@/features/decks/stores/DeckProvider";
 import { api, type RouterInputs } from "@/utils/api";
@@ -26,9 +27,17 @@ const tinyMceInit = {
 };
 
 const cardSchema = z.object({
-  front: z.string().min(1),
-  back: z.string().min(1),
+  front: z
+    .string({ required_error: "FRONT_REQUIRED" })
+    .min(1, "FRONT_LENGTH")
+    .max(500, "FRONT_LENGTH"),
+  back: z
+    .string({ required_error: "BACK_REQUIRED" })
+    .min(1, "BACK_LENGTH")
+    .max(500, "BACK_LENGTH"),
 });
+
+const errorTranslation = { namespace: "card", baseKey: "form.error" };
 
 type CardFormInputs = z.infer<typeof cardSchema>;
 
@@ -84,6 +93,7 @@ const CardForm = (props: Props) => {
                   init={tinyMceInit}
                 />
               </FormControl>
+              <FormMessage translation={errorTranslation} />
             </FormItem>
           )}
         />
@@ -92,7 +102,7 @@ const CardForm = (props: Props) => {
           name={"back"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t("from.back")}</FormLabel>
+              <FormLabel>{t("form.back")}</FormLabel>
               <FormControl>
                 <Editor
                   apiKey={appConfig.tinyMceApiKey}
@@ -101,6 +111,7 @@ const CardForm = (props: Props) => {
                   init={tinyMceInit}
                 />
               </FormControl>
+              <FormMessage translation={errorTranslation} />
             </FormItem>
           )}
         />

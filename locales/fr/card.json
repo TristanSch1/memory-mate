@@ -23,6 +23,12 @@
     "front": "Face",
     "back": "Dos",
     "create": "Créer",
-    "update": "Mettre à jour"
+    "update": "Mettre à jour",
+    "error": {
+      "FRONT_REQUIRED": "La face de la carte ne peut pas être vide",
+      "FRONT_LENGTH": "La face de la carte doit contenir entre 1 et 500 caractères",
+      "BACK_REQUIRED": "Le dos de la carte ne peut pas être vide",
+      "BACK_LENGTH": "Le dos de la carte doit contenir entre 1 et 500 caractères"
+    }
   }
 }

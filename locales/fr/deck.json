@@ -8,6 +8,11 @@
   "form": {
     "name": "Nom du deck",
     "description": "Description",
-    "cta": "Créer"
+    "cta": "Créer",
+    "error": {
+      "NAME_REQUIRED": "Veuillez entrer un nom pour votre deck",
+      "NAME_LENGTH": "Le nom de votre deck doit être entre 3 et 50 caractères",
+      "DESCRIPTION_LENGTH": "La description de votre deck doit être entre 3 et 500 caractères"
+    }
   }
 }

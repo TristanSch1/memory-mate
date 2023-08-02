@@ -16,9 +16,18 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const deckSchema = z.object({
-  name: z.string().min(1),
-  description: z.string().optional(),
+  name: z
+    .string({ required_error: "NAME_REQUIRED" })
+    .min(3, "NAME_LENGTH")
+    .max(50, "NAME_LENGTH"),
+  description: z
+    .string()
+    .min(3, "DESCRIPTION_LENGTH")
+    .max(500, "DESCRIPTION_LENGTH")
+    .optional(),
 });
+
+const errorTranslation = { namespace: "deck", baseKey: "form.error" };
 
 type DeckFormInputs = z.infer<typeof deckSchema>;
 
@@ -55,7 +64,7 @@ const DeckForm = (props: Props) => {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage translation={errorTranslation} />
             </FormItem>
           )}
         />
@@ -68,7 +77,7 @@ const DeckForm = (props: Props) => {
               <FormControl>
                 <Textarea {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage translation={errorTranslation} />
             </FormItem>
           )}
         />

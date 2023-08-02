@@ -5,22 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/next-i18next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/next-i18next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/_config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/_config/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardActions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/form.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardListMenuBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardListMenuBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardTabContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardTabContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CreateCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CreateCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/DeleteCards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/DeleteCards.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/CreateDeck.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/CreateDeck.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/fr/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/common.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/card.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/deck.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/fr/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/card.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/fr/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/deck.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,29 +42,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/tristan/Development/memory-mate/apps/nextjs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/opt/homebrew/lib/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/tristan/Development/memory-mate/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "code.cleanup.on.save": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/tristan/Development/memory-mate/apps/nextjs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "prettierjs.PrettierConfiguration.Package": "/opt/homebrew/lib/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/tristan/Development/memory-mate/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apps/nextjs" />
@@ -110,7 +104,8 @@
       <workItem from="1690666953131" duration="1670000" />
       <workItem from="1690915478815" duration="37000" />
       <workItem from="1690915568877" duration="2069000" />
-      <workItem from="1690917843357" duration="2660000" />
+      <workItem from="1690917843357" duration="3258000" />
+      <workItem from="1691003766064" duration="1696000" />
     </task>
     <servers />
   </component>

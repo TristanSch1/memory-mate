@@ -3,6 +3,7 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import type * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
+import { useTranslation } from "next-i18next";
 import {
   Controller,
   FormProvider,
@@ -140,28 +141,43 @@ const FormDescription = React.forwardRef<
 });
 FormDescription.displayName = "FormDescription";
 
-const FormMessage = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, children, ...props }, ref) => {
-  const { error, formMessageId } = useFormField();
-  const body = error ? String(error?.message) : children;
+type FormMessageProps = Omit<
+  React.HTMLAttributes<HTMLParagraphElement>,
+  "children"
+> & {
+  translation?: {
+    namespace?: string;
+    baseKey?: string;
+  };
+};
+const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
+  ({ translation, className, ...props }, ref) => {
+    const { error, formMessageId } = useFormField();
+    const { t } = useTranslation(translation?.namespace ?? "common");
+    const body = error ? String(error?.message) : undefined;
 
-  if (!body) {
-    return null;
-  }
-
-  return (
-    <p
-      ref={ref}
-      id={formMessageId}
-      className={cn("text-destructive text-sm font-medium", className)}
-      {...props}
-    >
-      {body}
-    </p>
-  );
-});
+    if (!body) {
+      return null;
+    }
+    console.log(t("form.error.NAME_REQUIRED"));
+    return (
+      <p
+        ref={ref}
+        id={formMessageId}
+        className={cn("text-destructive text-sm font-medium", className)}
+        {...props}
+      >
+        {translation
+          ? t(
+              `${
+                translation.baseKey ? translation.baseKey + "." + body : body
+              }`,
+            )
+          : body}
+      </p>
+    );
+  },
+);
 FormMessage.displayName = "FormMessage";
 
 export {
