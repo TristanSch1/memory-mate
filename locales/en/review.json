@@ -1,0 +1,7 @@
+{
+  "rate": {
+    "0": "Not acquired",
+    "1": "Partially acquired",
+    "2": "Acquired"
+  }
+}
