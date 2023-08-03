@@ -1,14 +1,20 @@
-import { type ReactNode } from "react";
+import { type ComponentPropsWithoutRef } from "react";
 import { useRouter } from "next/router";
+import { clsx } from "clsx";
 import { ChevronLeft } from "lucide-react";
 
-type Props = {
-  children: ReactNode;
+type Props = ComponentPropsWithoutRef<"main"> & {
   title?: string;
   backRoute?: string;
 };
 
-const TopBarLayout = ({ children, title, backRoute }: Props) => {
+const TopBarLayout = ({
+  children,
+  title,
+  backRoute,
+  className,
+  ...props
+}: Props) => {
   const { back, push } = useRouter();
   const handleBack = () => {
     if (backRoute) {
@@ -18,10 +24,10 @@ const TopBarLayout = ({ children, title, backRoute }: Props) => {
     }
   };
   return (
-    <div>
+    <div className={"h-screen"}>
       <header
         className={
-          "flex w-full items-center justify-center border-b p-4 shadow-sm"
+          "flex h-20 items-center justify-center border-b p-4 shadow-sm"
         }
       >
         <ChevronLeft
@@ -33,7 +39,15 @@ const TopBarLayout = ({ children, title, backRoute }: Props) => {
         />
         <h1 className={"heading text-2xl"}>{title}</h1>
       </header>
-      <main className={"container py-6"}>{children}</main>
+      <main
+        className={clsx(
+          className,
+          "container h-[calc(100vh-80px)] overflow-y-auto py-6",
+        )}
+        {...props}
+      >
+        {children}
+      </main>
     </div>
   );
 };

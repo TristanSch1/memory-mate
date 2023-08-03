@@ -5,6 +5,7 @@ import {
 import { appConfig } from "@/_config";
 import TopBarLayout from "@/components/layout/TopBarLayout";
 import { Review, ReviewProvider } from "@/features/decks/review";
+import { ReviewContainer } from "@/features/decks/review/components/ReviewContainer";
 import { URLPath } from "@/routes";
 import { api } from "@/utils/api";
 import { createServerSideHelpers } from "@trpc/react-query/server";
@@ -25,9 +26,11 @@ const ReviewPage = ({
   }
   return (
     <TopBarLayout title={deck.name} backRoute={URLPath.deck(id)}>
-      <ReviewProvider deck={deck}>
-        <Review />
-      </ReviewProvider>
+      <ReviewContainer>
+        <ReviewProvider deck={deck}>
+          <Review />
+        </ReviewProvider>
+      </ReviewContainer>
     </TopBarLayout>
   );
 };
