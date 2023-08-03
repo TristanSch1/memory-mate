@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/Review.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/Review.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/router/card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/card.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/RateCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/RateCard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +98,7 @@
       <workItem from="1690915568877" duration="2069000" />
       <workItem from="1690917843357" duration="3258000" />
       <workItem from="1691003766064" duration="4638000" />
-      <workItem from="1691085217474" duration="6855000" />
+      <workItem from="1691085217474" duration="7905000" />
     </task>
     <servers />
   </component>

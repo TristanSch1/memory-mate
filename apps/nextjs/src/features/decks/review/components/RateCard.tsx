@@ -16,7 +16,7 @@ const RateButton = ({
       type={"button"}
       className={clsx(
         className,
-        "flex h-10 flex-1 cursor-pointer items-center justify-center",
+        "flex h-full flex-1 cursor-pointer items-center justify-center px-4 py-2 text-sm font-semibold sm:text-base",
         {
           "bg-red-500 text-red-950 hover:bg-red-400": rate === Rate.BAD,
           "bg-yellow-500 text-yellow-950 hover:bg-yellow-400":
