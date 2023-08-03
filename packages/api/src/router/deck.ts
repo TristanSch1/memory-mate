@@ -70,4 +70,24 @@ export const deckRouter = createTRPCRouter({
       },
     });
   }),
+
+  forReview: protectedProcedure
+    .input(
+      z.object({
+        deckId: z.string(),
+        limit: z.number().optional(),
+      }),
+    )
+    .query(({ input, ctx }) => {
+      return ctx.prisma.deck.findUnique({
+        where: {
+          id: input.deckId,
+        },
+        include: {
+          cards: {
+            take: input.limit ?? undefined,
+          },
+        },
+      });
+    }),
 });

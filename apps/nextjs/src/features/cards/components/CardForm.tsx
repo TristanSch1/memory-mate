@@ -48,7 +48,7 @@ type Props = {
 
 const CardForm = (props: Props) => {
   const { t } = useTranslation("card");
-  const { id: deckId } = useDeck();
+  const { deckId } = useDeck();
   const form = useForm({
     defaultValues: props.card ?? { front: "", back: "" },
     resolver: zodResolver(cardSchema),

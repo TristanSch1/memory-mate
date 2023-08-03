@@ -78,4 +78,15 @@ export const cardRouter = createTRPCRouter({
         },
       });
     }),
+
+  review: protectedProcedure
+    .input(z.object({ cardId: z.string(), rating: z.number() }))
+    .mutation(({ input, ctx }) => {
+      return ctx.prisma.cardReview.create({
+        data: {
+          cardId: input.cardId,
+          rating: input.rating,
+        },
+      });
+    }),
 });

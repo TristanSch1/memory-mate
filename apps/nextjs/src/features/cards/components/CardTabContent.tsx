@@ -8,7 +8,7 @@ import { useTranslation } from "next-i18next";
 
 export const CardTabContent = () => {
   const { t } = useTranslation("deck");
-  const { id: deckId } = useDeck();
+  const { deckId } = useDeck();
   return (
     <CardStoreProvider deckId={deckId}>
       <div className={"space-y-4"}>
