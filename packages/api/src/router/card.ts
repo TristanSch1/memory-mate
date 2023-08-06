@@ -1,5 +1,10 @@
 import { z } from "zod";
 
+import {
+  calculateEasinessFactor,
+  getInterval,
+  getStreak,
+} from "../helpers/review";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const cardRouter = createTRPCRouter({
@@ -81,11 +86,34 @@ export const cardRouter = createTRPCRouter({
 
   review: protectedProcedure
     .input(z.object({ cardId: z.string(), rate: z.number() }))
-    .mutation(({ input, ctx }) => {
+    .mutation(async ({ input, ctx }) => {
+      const lastReview = await ctx.prisma.cardReview.findFirst({
+        where: {
+          cardId: input.cardId,
+        },
+      });
+
+      const easiness = calculateEasinessFactor(
+        input.rate,
+        lastReview?.easiness,
+      );
+
+      const interval = getInterval(
+        input.rate,
+        easiness,
+        lastReview?.interval,
+        lastReview?.streak,
+      );
+
+      const streak = getStreak(input.rate, lastReview?.streak);
+
       return ctx.prisma.cardReview.create({
         data: {
           cardId: input.cardId,
           rating: input.rate,
+          easiness,
+          interval,
+          streak,
         },
       });
     }),

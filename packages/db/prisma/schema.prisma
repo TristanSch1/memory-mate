@@ -95,6 +95,9 @@ model CardReview {
     card        Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
     cardId      String
     rating      Int
+    easiness    Float
+    interval    Int
+    streak      Int
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
 }
