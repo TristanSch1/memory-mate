@@ -19,7 +19,8 @@
       "title": "Deck",
       "totalReviews": "Nombre de revues",
       "averageReviewDuration": "Durée moyenne d'une revue",
-      "gradeAverage": "Note moyenne"
+      "gradeAverage": "Note moyenne",
+      "gradeAverageProgress": "Progression de la note moyenne"
     }
   }
 }

@@ -2,6 +2,7 @@ import { Loader } from "@/components/ui/loader";
 import {
   StatisticSection,
   StatisticSectionItem,
+  StatisticSectionProgressItem,
   StatisticSectionTitle,
 } from "@/components/ui/statistic-section";
 import { useReview } from "@/features/decks/review";
@@ -28,6 +29,7 @@ const SessionReviewRecap = ({ duration }: SessionReviewRecapProps) => {
 
 type DeckReviewRecapProps = {
   totalReviews: number;
+  gradeAverageProgress?: number;
   averageReviewDuration?: number;
   gradeAverage?: number;
 };
@@ -35,6 +37,7 @@ const DeckReviewRecap = ({
   totalReviews,
   averageReviewDuration,
   gradeAverage,
+  gradeAverageProgress = 0,
 }: DeckReviewRecapProps) => {
   const { t } = useTranslation("review");
 
@@ -57,13 +60,16 @@ const DeckReviewRecap = ({
         label={t("recap.deck.gradeAverage")}
         value={gradeAverage?.toString() ?? "-"}
       />
+      <StatisticSectionProgressItem
+        label={t("recap.deck.gradeAverageProgress")}
+        value={gradeAverageProgress}
+      />
     </StatisticSection>
   );
 };
 export const ReviewRecap = () => {
   const { deckId } = useReview();
   const { data: recap, isLoading } = api.deckReview.recap.useQuery({ deckId });
-  console.log(recap);
   const lastReview = recap?.lastReview;
   if (isLoading) {
     return <Loader />;
@@ -74,12 +80,13 @@ export const ReviewRecap = () => {
   }
 
   return (
-    <div className={"w-full"}>
+    <div className={"w-full space-y-4"}>
       <SessionReviewRecap duration={lastReview?.duration ?? 0} />
       <DeckReviewRecap
         totalReviews={recap.totalReviews}
         averageReviewDuration={recap.averageReviewDuration ?? undefined}
         gradeAverage={recap.gradeAverage ?? undefined}
+        gradeAverageProgress={recap.gradeAverageProgress ?? undefined}
       />
     </div>
   );

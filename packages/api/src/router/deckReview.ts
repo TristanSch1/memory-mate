@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+import { formatGradeAverage, getGradeAverageProgress } from "../helpers/review";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const deckReviewRouter = createTRPCRouter({
@@ -21,14 +22,15 @@ export const deckReviewRouter = createTRPCRouter({
         data: {
           deckId: input.deckId,
           duration: input.duration,
-          gradeAvg: gradeAverage._avg.grade,
+          gradeAvg: formatGradeAverage(gradeAverage._avg.grade),
         },
       });
     }),
   recap: protectedProcedure
     .input(z.object({ deckId: z.string() }))
     .query(async ({ input, ctx }) => {
-      const lastReview = await ctx.prisma.deckReview.findFirst({
+      const lastReviews = await ctx.prisma.deckReview.findMany({
+        take: 2,
         where: {
           deckId: input.deckId,
         },
@@ -61,10 +63,16 @@ export const deckReviewRouter = createTRPCRouter({
       });
 
       return {
-        lastReview,
+        lastReview: lastReviews[0],
         averageReviewDuration: averageReviewDuration._avg.duration,
         totalReviews,
-        gradeAverage: gradeAverage._avg.grade,
+        gradeAverage: gradeAverage._avg.grade
+          ? formatGradeAverage(gradeAverage._avg.grade)
+          : null,
+        gradeAverageProgress: getGradeAverageProgress(
+          lastReviews?.[1].gradeAvg ?? 0,
+          lastReviews[0].gradeAvg,
+        ),
       };
     }),
 });

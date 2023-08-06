@@ -30,3 +30,19 @@ export const getStreak = (grade: number, streak = 0) => {
 
   return streak + 1;
 };
+
+/**
+ * Calculates grade average progress in percentage
+ * @param current - current grade average
+ * @param to - grade average to
+ * @returns grade average progress in percentage
+ */
+export const getGradeAverageProgress = (current: number, to: number) => {
+  const progress = (to * 100) / current;
+
+  return (progress - 100).toFixed(2);
+};
+
+export const formatGradeAverage = (gradeAverage: number) => {
+  return parseFloat(gradeAverage.toFixed(2));
+};

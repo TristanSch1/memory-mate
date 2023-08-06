@@ -19,7 +19,8 @@
       "title": "Deck",
       "totalReviews": "Total reviews",
       "averageReviewDuration": "Average review time",
-      "gradeAverage": "Grade average"
+      "gradeAverage": "Grade average",
+      "gradeAverageProgress": "Grade average progress"
     }
   }
 }
