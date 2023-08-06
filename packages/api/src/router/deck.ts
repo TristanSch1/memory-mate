@@ -106,4 +106,21 @@ export const deckRouter = createTRPCRouter({
         },
       });
     }),
+
+  lastReview: protectedProcedure
+    .input(
+      z.object({
+        deckId: z.string(),
+      }),
+    )
+    .query(({ input, ctx }) => {
+      return ctx.prisma.deckReview.findFirst({
+        where: {
+          deckId: input.deckId,
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
+    }),
 });

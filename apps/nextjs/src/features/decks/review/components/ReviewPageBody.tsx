@@ -6,7 +6,7 @@ import { Review } from "./Review";
 export const ReviewPageBody = () => {
   const { reviewState } = useReview();
 
-  if (reviewState === "FINISHED") {
+  if (reviewState === "REVIEWING") {
     return <ReviewRecap />;
   }
 

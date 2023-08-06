@@ -8,5 +8,12 @@
       "4": "Correct answer, after some hesitation",
       "5": "Correct answer, with perfect recall"
     }
+  },
+  "recap": {
+    "title": "Recap",
+    "session": {
+      "title": "Session",
+      "duration": "Duration"
+    }
   }
 }
