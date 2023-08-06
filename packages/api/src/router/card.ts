@@ -100,7 +100,9 @@ export const cardRouter = createTRPCRouter({
     }),
 
   review: protectedProcedure
-    .input(z.object({ cardId: z.string(), rate: z.number() }))
+    .input(
+      z.object({ cardId: z.string(), rate: z.number(), duration: z.number() }),
+    )
     .mutation(async ({ input, ctx }) => {
       const lastReview = await ctx.prisma.cardReview.findFirst({
         where: {
@@ -126,6 +128,7 @@ export const cardRouter = createTRPCRouter({
         data: {
           cardId: input.cardId,
           rating: input.rate,
+          duration: input.duration,
           easiness,
           interval,
           streak,

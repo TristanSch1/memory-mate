@@ -98,6 +98,7 @@ model CardReview {
     easiness    Float
     interval    Int
     streak      Int
+    duration    Int
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
 }

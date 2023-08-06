@@ -90,4 +90,20 @@ export const deckRouter = createTRPCRouter({
         },
       });
     }),
+
+  review: protectedProcedure
+    .input(
+      z.object({
+        deckId: z.string(),
+        duration: z.number(),
+      }),
+    )
+    .mutation(({ input, ctx }) => {
+      return ctx.prisma.deckReview.create({
+        data: {
+          deckId: input.deckId,
+          duration: input.duration,
+        },
+      });
+    }),
 });
