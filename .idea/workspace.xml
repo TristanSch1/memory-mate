@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/statistic-section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/statistic-section.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewRecap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewRecap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/review.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/review.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/fr/review.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/review.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/hooks/useReviewStates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/hooks/useReviewStates.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/api/src/helpers/review.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/helpers/review.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/router/deckReview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/deckReview.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +108,7 @@
       <workItem from="1691341723781" duration="214000" />
       <workItem from="1691341940262" duration="276000" />
       <workItem from="1691342219740" duration="665000" />
-      <workItem from="1691342892648" duration="4127000" />
+      <workItem from="1691342892648" duration="4321000" />
     </task>
     <servers />
   </component>

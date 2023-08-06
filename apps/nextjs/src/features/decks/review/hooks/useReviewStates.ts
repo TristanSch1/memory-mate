@@ -25,6 +25,7 @@ export const useReviewStates = (
   const { mutate: deckReviewMutation } = api.deckReview.create.useMutation({
     onSuccess() {
       deckReviewStartTimestamp.current = Date.now();
+      setReviewState("FINISHED");
     },
   });
   const onFinish = (duration: number) => {
@@ -39,7 +40,6 @@ export const useReviewStates = (
     setIsFlipped(false);
     cardReviewStartTimestamp.current = Date.now();
     if (currentIndex === deck.cards.length - 1) {
-      setReviewState("FINISHED");
       const duration = Date.now() - deckReviewStartTimestamp.current;
       onFinish(duration);
       return;

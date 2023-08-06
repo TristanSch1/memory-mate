@@ -40,7 +40,7 @@ export const getStreak = (grade: number, streak = 0) => {
 export const getGradeAverageProgress = (current: number, to: number) => {
   const progress = (to * 100) / current;
 
-  return (progress - 100).toFixed(2);
+  return parseFloat((progress - 100).toFixed(2));
 };
 
 export const formatGradeAverage = (gradeAverage: number) => {
