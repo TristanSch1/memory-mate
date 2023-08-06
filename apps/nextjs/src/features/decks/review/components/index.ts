@@ -1,3 +1,3 @@
 export * from "./StartReview";
-export * from "./Review";
+export * from "./ReviewPageBody";
 export * from "./ReviewProvider";

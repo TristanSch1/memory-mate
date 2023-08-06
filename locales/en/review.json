@@ -1,7 +1,12 @@
 {
   "rate": {
-    "0": "Not acquired",
-    "1": "Partially acquired",
-    "2": "Acquired"
+    "tooltip": {
+      "0": "Total blackout, impossible to remember the information",
+      "1": "Incorrect answer, but after seeing the correct answer, it looked familiar",
+      "2": "Incorrect answer, but after seeing the correct answer, it seemed easy to remember",
+      "3": "Correct answer, but required considerable effort to remember",
+      "4": "Correct answer, after some hesitation",
+      "5": "Correct answer, with perfect recall"
+    }
   }
 }

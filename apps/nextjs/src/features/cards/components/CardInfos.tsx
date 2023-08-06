@@ -27,7 +27,10 @@ const CardInfos = ({ card }: Props) => {
         label={"Modifié le"}
         value={dayjs(card.updatedAt).format("DD/MM/YYYY")}
       />
-      <InfoLine label={"Nombre de révisions"} value={card.reviews.length} />
+      <InfoLine
+        label={"Nombre de révisions"}
+        value={card._count?.reviews ?? "0"}
+      />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import {
 } from "next";
 import { appConfig } from "@/_config";
 import TopBarLayout from "@/components/layout/TopBarLayout";
-import { Review, ReviewProvider } from "@/features/decks/review";
+import { ReviewPageBody, ReviewProvider } from "@/features/decks/review";
 import { ReviewContainer } from "@/features/decks/review/components/ReviewContainer";
 import { URLPath } from "@/routes";
 import { api } from "@/utils/api";
@@ -26,11 +26,11 @@ const ReviewPage = ({
   }
   return (
     <TopBarLayout title={deck.name} backRoute={URLPath.deck(id)}>
-      <ReviewContainer>
-        <ReviewProvider deck={deck}>
-          <Review />
-        </ReviewProvider>
-      </ReviewContainer>
+      <ReviewProvider deck={deck}>
+        <ReviewContainer>
+          <ReviewPageBody />
+        </ReviewContainer>
+      </ReviewProvider>
     </TopBarLayout>
   );
 };

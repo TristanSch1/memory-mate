@@ -16,8 +16,11 @@ const CardEdit = () => {
     setEditingCardId: state.setEditingCardId,
     editingCardId: state.editingCardId,
   }));
+  if (!editingCardId) {
+    return null;
+  }
   const { data: card, isLoading } = api.card.byId.useQuery(editingCardId || "");
-  if (isLoading || !card) {
+  if (isLoading || !card?.id) {
     return null;
   }
   return (

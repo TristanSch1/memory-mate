@@ -1,7 +1,12 @@
 {
   "rate": {
-    "0": "Non acquis",
-    "1": "Partiellement acquis",
-    "2": "Acquis"
+    "tooltip": {
+      "0": "Blackout total, impossibilité de se souvenir de l'information",
+      "1": "Réponse incorrecte, mais en voyant la bonne réponse, elle m'a semblé familière",
+      "2": "Réponse incorrecte, mais après avoir vu la bonne réponse, elle semblait facile à retenir",
+      "3": "Réponse correcte, mais nécessitant un effort important pour s'en souvenir",
+      "4": "Réponse correcte, après quelques hésitations",
+      "5": "Réponse correcte, avec un rappel parfait"
+    }
   }
 }

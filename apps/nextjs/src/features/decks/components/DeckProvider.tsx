@@ -5,15 +5,6 @@ const DeckContext = createContext<{ deckId: string; cardCount: number }>({
   cardCount: 0,
 });
 
-export const useDeck = () => {
-  const ctx = useContext(DeckContext);
-  if (!ctx) {
-    throw new Error("useDeck must be used within a DeckProvider");
-  }
-
-  return ctx;
-};
-
 export const DeckProvider = ({
   deckId,
   cardCount,
@@ -28,4 +19,13 @@ export const DeckProvider = ({
       {children}
     </DeckContext.Provider>
   );
+};
+
+export const useDeck = () => {
+  const ctx = useContext(DeckContext);
+  if (!ctx) {
+    throw new Error("useDeck must be used within a DeckProvider");
+  }
+
+  return ctx;
 };

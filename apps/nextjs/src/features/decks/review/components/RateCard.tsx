@@ -13,12 +13,10 @@ import { useTranslation } from "next-i18next";
 type RateButtonProps = ComponentPropsWithoutRef<"button"> & { rate: TRate };
 const RateButton = forwardRef<HTMLButtonElement, RateButtonProps>(
   ({ rate, children, className, ...props }, ref) => {
-    const { review } = useReview();
     return (
       <button
         ref={ref}
         type={"button"}
-        onClick={() => review(rate)}
         className={clsx(
           className,
           "flex h-full flex-1 cursor-pointer items-center justify-center px-4 py-2 text-sm font-semibold sm:text-base",
@@ -42,11 +40,12 @@ const RateButton = forwardRef<HTMLButtonElement, RateButtonProps>(
 RateButton.displayName = "RateButton";
 
 const RateTooltip = ({ rate }: { rate: TRate }) => {
+  const { review } = useReview();
   const { t } = useTranslation("review");
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger asChild>
+        <TooltipTrigger asChild onClick={() => review(rate)}>
           <RateButton rate={rate}>{rate}</RateButton>
         </TooltipTrigger>
         <TooltipContent>

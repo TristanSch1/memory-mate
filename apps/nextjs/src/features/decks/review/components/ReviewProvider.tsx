@@ -1,20 +1,24 @@
 import { createContext, useContext, type ReactNode } from "react";
 import { useReviewStates } from "@/features/decks/review/hooks/useReviewStates";
-import { type TRate } from "@/features/decks/review/types";
-import { api, type RouterOutputs } from "@/utils/api";
+import { type TRate, type TReviewState } from "@/features/decks/review/types";
+import { type RouterOutputs } from "@/utils/api";
 
 interface ReviewProviderProps {
+  deckId: string;
   card: RouterOutputs["card"]["all"][number];
   isFlipped: boolean;
   flip: () => void;
   review: (rate: TRate) => void;
+  reviewState: TReviewState;
 }
 
 const ReviewCtx = createContext<ReviewProviderProps>({
+  deckId: "",
   card: {} as RouterOutputs["card"]["all"][number],
   isFlipped: false,
   flip: () => void 0,
   review: () => void 0,
+  reviewState: "REVIEWING",
 });
 
 export const ReviewProvider = ({
@@ -24,31 +28,11 @@ export const ReviewProvider = ({
   children: ReactNode;
   deck: NonNullable<RouterOutputs["deck"]["forReview"]>;
 }) => {
-  const { currentIndex, isFlipped, flip, next } = useReviewStates(
-    deck.cards.length,
-  );
-
-  const card = deck.cards[currentIndex];
-
-  const { mutate } = api.card.review.useMutation({
-    onSuccess() {
-      next();
-    },
-  });
-
-  if (!card) {
-    throw new Error("Card not found");
-  }
-  const review = (rate: TRate) => {
-    try {
-      mutate({ cardId: card.id, rate });
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
+  const { isFlipped, flip, reviewState, review, card } = useReviewStates(deck);
   return (
-    <ReviewCtx.Provider value={{ card, isFlipped, flip, review }}>
+    <ReviewCtx.Provider
+      value={{ deckId: deck.id, card, isFlipped, flip, review, reviewState }}
+    >
       {children}
     </ReviewCtx.Provider>
   );

@@ -5,6 +5,7 @@ import { ReviewCard } from "@/features/decks/review/components/ReviewCard";
 
 export const Review = () => {
   const { card, isFlipped, flip } = useReview();
+
   return (
     <div
       className={
