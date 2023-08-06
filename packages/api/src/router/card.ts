@@ -8,15 +8,30 @@ import {
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const cardRouter = createTRPCRouter({
-  byId: protectedProcedure.input(z.string()).query(({ input, ctx }) => {
-    return ctx.prisma.card.findUnique({
+  byId: protectedProcedure.input(z.string()).query(async ({ input, ctx }) => {
+    const lastReview = await ctx.prisma.cardReview.findFirst({
+      where: {
+        cardId: input,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    const card = await ctx.prisma.card.findUnique({
       where: {
         id: input,
       },
       include: {
-        reviews: true,
+        _count: {
+          select: { reviews: true },
+        },
       },
     });
+
+    return {
+      ...card,
+      lastReview,
+    };
   }),
   all: protectedProcedure
     .input(z.object({ deckId: z.string() }))
