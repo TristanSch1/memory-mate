@@ -1,7 +1,3 @@
-export const Rate = {
-  BAD: 0,
-  GOOD: 1,
-  GREAT: 2,
-} as const;
+export const Rate = [0, 1, 2, 3, 4, 5] as const;
 
-export type TRate = typeof Rate[keyof typeof Rate];
+export type TRate = typeof Rate[number];
