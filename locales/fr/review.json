@@ -14,6 +14,12 @@
     "session": {
       "title": "Session",
       "duration": "Durée"
+    },
+    "deck": {
+      "title": "Deck",
+      "totalReviews": "Nombre de revues",
+      "averageReviewDuration": "Durée moyenne d'une revue",
+      "gradeAverage": "Note moyenne"
     }
   }
 }

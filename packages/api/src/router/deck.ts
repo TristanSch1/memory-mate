@@ -3,8 +3,16 @@ import { z } from "zod";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const deckRouter = createTRPCRouter({
-  byId: protectedProcedure.input(z.string()).query(({ input, ctx }) => {
-    return ctx.prisma.deck.findUnique({
+  byId: protectedProcedure.input(z.string()).query(async ({ input, ctx }) => {
+    const lastReview = await ctx.prisma.deckReview.findFirst({
+      where: {
+        deckId: input,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    const deck = await ctx.prisma.deck.findUnique({
       where: {
         id: input,
       },
@@ -14,6 +22,11 @@ export const deckRouter = createTRPCRouter({
         },
       },
     });
+
+    return {
+      ...deck,
+      lastReview,
+    };
   }),
   all: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.deck.findMany({
@@ -87,39 +100,6 @@ export const deckRouter = createTRPCRouter({
           cards: {
             take: input.limit ?? undefined,
           },
-        },
-      });
-    }),
-
-  review: protectedProcedure
-    .input(
-      z.object({
-        deckId: z.string(),
-        duration: z.number(),
-      }),
-    )
-    .mutation(({ input, ctx }) => {
-      return ctx.prisma.deckReview.create({
-        data: {
-          deckId: input.deckId,
-          duration: input.duration,
-        },
-      });
-    }),
-
-  lastReview: protectedProcedure
-    .input(
-      z.object({
-        deckId: z.string(),
-      }),
-    )
-    .query(({ input, ctx }) => {
-      return ctx.prisma.deckReview.findFirst({
-        where: {
-          deckId: input.deckId,
-        },
-        orderBy: {
-          createdAt: "desc",
         },
       });
     }),

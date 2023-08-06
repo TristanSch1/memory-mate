@@ -64,6 +64,7 @@ model Card {
     back      String
     deck        Deck     @relation(fields: [deckId], references: [id], onDelete: Cascade)
     deckId      String
+    grade      Int?
     reviews     CardReview[]
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
@@ -86,6 +87,7 @@ model DeckReview {
     deck        Deck     @relation(fields: [deckId], references: [id], onDelete: Cascade)
     deckId      String
     duration    Int
+    gradeAvg    Float
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
 }
@@ -94,7 +96,7 @@ model CardReview {
     id          String   @id @default(cuid())
     card        Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
     cardId      String
-    rating      Int
+    grade       Int
     easiness    Float
     interval    Int
     streak      Int

@@ -1,15 +1,18 @@
-export const calculateEasinessFactor = (rate: number, easinessFactor = 2.5) => {
-  const EF = easinessFactor + (0.1 - (5 - rate) * (0.08 + (5 - rate) * 0.02));
+export const calculateEasinessFactor = (
+  grade: number,
+  easinessFactor = 2.5,
+) => {
+  const EF = easinessFactor + (0.1 - (5 - grade) * (0.08 + (5 - grade) * 0.02));
   return EF < 1.3 ? 1.3 : EF;
 };
 
 export const getInterval = (
-  rate: number,
+  grade: number,
   easinessFactor: number,
   interval = 1,
   streak = 0,
 ) => {
-  if (rate < 3) {
+  if (grade < 3) {
     return 1;
   }
 
@@ -20,8 +23,8 @@ export const getInterval = (
   return Math.round(interval * easinessFactor);
 };
 
-export const getStreak = (rate: number, streak = 0) => {
-  if (rate < 3) {
+export const getStreak = (grade: number, streak = 0) => {
+  if (grade < 3) {
     return 0;
   }
 

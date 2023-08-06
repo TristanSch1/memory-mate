@@ -1,6 +1,6 @@
 import { createContext, useContext, type ReactNode } from "react";
 import { useReviewStates } from "@/features/decks/review/hooks/useReviewStates";
-import { type TRate, type TReviewState } from "@/features/decks/review/types";
+import { type TGrade, type TReviewState } from "@/features/decks/review/types";
 import { type RouterOutputs } from "@/utils/api";
 
 interface ReviewProviderProps {
@@ -8,7 +8,7 @@ interface ReviewProviderProps {
   card: RouterOutputs["card"]["all"][number];
   isFlipped: boolean;
   flip: () => void;
-  review: (rate: TRate) => void;
+  review: (rate: TGrade) => void;
   reviewState: TReviewState;
 }
 

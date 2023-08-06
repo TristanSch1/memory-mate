@@ -101,7 +101,7 @@ export const cardRouter = createTRPCRouter({
 
   review: protectedProcedure
     .input(
-      z.object({ cardId: z.string(), rate: z.number(), duration: z.number() }),
+      z.object({ cardId: z.string(), grade: z.number(), duration: z.number() }),
     )
     .mutation(async ({ input, ctx }) => {
       const lastReview = await ctx.prisma.cardReview.findFirst({
@@ -111,27 +111,34 @@ export const cardRouter = createTRPCRouter({
       });
 
       const easiness = calculateEasinessFactor(
-        input.rate,
+        input.grade,
         lastReview?.easiness,
       );
 
       const interval = getInterval(
-        input.rate,
+        input.grade,
         easiness,
         lastReview?.interval,
         lastReview?.streak,
       );
 
-      const streak = getStreak(input.rate, lastReview?.streak);
+      const streak = getStreak(input.grade, lastReview?.streak);
 
-      return ctx.prisma.cardReview.create({
+      return ctx.prisma.card.update({
+        where: {
+          id: input.cardId,
+        },
         data: {
-          cardId: input.cardId,
-          rating: input.rate,
-          duration: input.duration,
-          easiness,
-          interval,
-          streak,
+          grade: input.grade,
+          reviews: {
+            create: {
+              grade: input.grade,
+              duration: input.duration,
+              easiness,
+              interval,
+              streak,
+            },
+          },
         },
       });
     }),

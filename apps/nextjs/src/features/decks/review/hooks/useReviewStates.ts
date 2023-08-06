@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { type TRate, type TReviewState } from "@/features/decks/review/types";
+import { type TGrade, type TReviewState } from "@/features/decks/review/types";
 import { api, type RouterOutputs } from "@/utils/api";
 
 export const useReviewStates = (
@@ -22,7 +22,7 @@ export const useReviewStates = (
     setIsFlipped(true);
   };
 
-  const { mutate: deckReviewMutation } = api.deck.review.useMutation({
+  const { mutate: deckReviewMutation } = api.deckReview.create.useMutation({
     onSuccess() {
       deckReviewStartTimestamp.current = Date.now();
     },
@@ -54,10 +54,10 @@ export const useReviewStates = (
     },
   });
 
-  const review = (rate: TRate) => {
+  const review = (grade: TGrade) => {
     try {
       const duration = Date.now() - cardReviewStartTimestamp.current;
-      cardReviewMutation({ cardId: card.id, rate, duration });
+      cardReviewMutation({ cardId: card.id, grade, duration });
     } catch (e) {
       console.error(e);
     }
