@@ -19,35 +19,39 @@ export const StatisticSectionTitle = ({
 };
 
 type StatisticSectionDescriptionProps = ComponentPropsWithoutRef<"p">;
-export const StatisticSectionDescription = forwardRef(
-  ({ children, className, ...props }: StatisticSectionDescriptionProps) => {
-    return (
-      <p className={cn(className, "text-lg text-primary-700")} {...props}>
-        {children}
-      </p>
-    );
-  },
-);
+export const StatisticSectionDescription = forwardRef<
+  HTMLParagraphElement,
+  StatisticSectionDescriptionProps
+>(({ children, className, ...props }, ref) => {
+  return (
+    <p
+      ref={ref}
+      className={cn(className, "text-base text-primary-700")}
+      {...props}
+    >
+      {children}
+    </p>
+  );
+});
 
 StatisticSectionDescription.displayName = "StatisticSectionDescription";
 
 type StatisticSectionProps = ComponentPropsWithoutRef<"div">;
 
-export const StatisticSection = forwardRef(
-  ({ children, className, ...props }: StatisticSectionProps) => {
-    return (
-      <div
-        className={cn(
-          className,
-          "flex flex-col items-center justify-center space-y-4",
-        )}
-        {...props}
-      >
-        {children}
-      </div>
-    );
-  },
-);
+export const StatisticSection = forwardRef<
+  HTMLDivElement,
+  StatisticSectionProps
+>(({ children, className, ...props }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className={cn(className, "flex w-full flex-col justify-center space-y-3")}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+});
 
 StatisticSection.displayName = "StatisticSection";
 
@@ -66,16 +70,11 @@ export const StatisticSectionItem = forwardRef<
   return (
     <p
       ref={ref}
-      className={cn(
-        className,
-        "flex flex-col items-center justify-center space-y-2",
-      )}
+      className={cn(className, "flex items-baseline justify-between")}
       {...props}
     >
-      <span className={cn("text-2xl font-bold text-primary-900 sm:text-3xl")}>
-        {label}
-      </span>
-      <span className={cn("text-lg text-primary-700")}>{value}</span>
+      <span className={cn("text-foreground font-medium")}>{label}</span>
+      <span className={cn("text-muted-foreground")}>{value}</span>
     </p>
   );
 });

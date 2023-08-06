@@ -8,6 +8,8 @@ import { useReview } from "@/features/decks/review";
 import { api } from "@/utils/api";
 import { useTranslation } from "next-i18next";
 
+import { formatDeckReviewDuration } from "@memory-mate/utils";
+
 type SessionReviewRecapProps = {
   duration: number;
 };
@@ -15,10 +17,10 @@ const SessionReviewRecap = ({ duration }: SessionReviewRecapProps) => {
   const { t } = useTranslation("review");
   return (
     <StatisticSection>
-      <StatisticSectionTitle>{t("recap.title")}</StatisticSectionTitle>
+      <StatisticSectionTitle>{t("recap.session.title")}</StatisticSectionTitle>
       <StatisticSectionItem
-        label={t("recap.duration")}
-        value={duration.toString()}
+        label={t("recap.session.duration")}
+        value={formatDeckReviewDuration(duration)}
       />
     </StatisticSection>
   );
@@ -38,7 +40,7 @@ export const ReviewRecap = () => {
   }
 
   return (
-    <div>
+    <div className={"w-full"}>
       <SessionReviewRecap duration={deckReview?.duration ?? 0} />
     </div>
   );

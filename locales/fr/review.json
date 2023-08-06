@@ -7,7 +7,10 @@
       "3": "Réponse correcte, mais nécessitant un effort important pour s'en souvenir",
       "4": "Réponse correcte, après quelques hésitations",
       "5": "Réponse correcte, avec un rappel parfait"
-    },
+    }
+  },
+  "recap": {
+    "title": "Recap",
     "session": {
       "title": "Session",
       "duration": "Durée"

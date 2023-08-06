@@ -15,6 +15,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
     "@memory-mate/api": "^0.1.0",
+    "@memory-mate/utils": "workspace:*",
     "@memory-mate/auth": "^0.1.0",
     "@memory-mate/db": "^0.1.0",
     "@radix-ui/react-alert-dialog": "^1.0.4",
