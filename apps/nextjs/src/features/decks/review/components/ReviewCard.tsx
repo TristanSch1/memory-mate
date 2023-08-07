@@ -8,18 +8,11 @@ type Props = {
 
 export const ReviewCard = ({ card, isFlipped }: Props) => {
   return (
-    <div
-      className={
-        "perspective h-[60vh] w-full select-none bg-transparent transition-all duration-300"
-      }
-    >
+    <div className={"perspective h-[60vh] w-full select-none bg-transparent"}>
       <div
-        className={clsx(
-          "preserve-3d relative h-full w-full transition-transform duration-1000",
-          {
-            "rotate-y-180": isFlipped,
-          },
-        )}
+        className={clsx("preserve-3d relative h-full w-full", {
+          "rotate-y-180 transition-transform duration-500": isFlipped,
+        })}
       >
         <div
           className={"flip-card-front bg-white"}
