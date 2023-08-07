@@ -6,6 +6,7 @@ import {
   StatisticSectionTitle,
 } from "@/components/ui/statistic-section";
 import { useReview } from "@/features/decks/review";
+import { Graph } from "@/features/decks/statistics/components/Graph";
 import { api } from "@/utils/api";
 import { useTranslation } from "next-i18next";
 
@@ -78,7 +79,7 @@ export const ReviewRecap = () => {
   if (!recap || !lastReview) {
     return null;
   }
-
+  console.log(recap);
   return (
     <div className={"w-full space-y-4"}>
       <SessionReviewRecap duration={lastReview?.duration ?? 0} />
@@ -88,6 +89,7 @@ export const ReviewRecap = () => {
         gradeAverage={recap.gradeAverage ?? undefined}
         gradeAverageProgress={recap.gradeAverageProgress ?? undefined}
       />
+      <Graph review={lastReview} />
     </div>
   );
 };

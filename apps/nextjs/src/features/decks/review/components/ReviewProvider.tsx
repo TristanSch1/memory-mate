@@ -24,11 +24,16 @@ const ReviewCtx = createContext<ReviewProviderProps>({
 export const ReviewProvider = ({
   children,
   deck,
+  deckReview,
 }: {
   children: ReactNode;
   deck: NonNullable<RouterOutputs["deck"]["forReview"]>;
+  deckReview: NonNullable<RouterOutputs["deckReview"]["create"]>;
 }) => {
-  const { isFlipped, flip, reviewState, review, card } = useReviewStates(deck);
+  const { isFlipped, flip, reviewState, review, card } = useReviewStates(
+    deck,
+    deckReview,
+  );
   return (
     <ReviewCtx.Provider
       value={{ deckId: deck.id, card, isFlipped, flip, review, reviewState }}

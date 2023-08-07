@@ -1,6 +1,12 @@
 import { z } from "zod";
 
-import { formatGradeAverage, getGradeAverageProgress } from "../helpers/review";
+import {
+  calculateEasinessFactor,
+  formatGradeAverage,
+  getGradeAverageProgress,
+  getInterval,
+  getStreak,
+} from "../helpers/review";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const deckReviewRouter = createTRPCRouter({
@@ -15,14 +21,88 @@ export const deckReviewRouter = createTRPCRouter({
           grade: true,
         },
       });
-      if (!gradeAverage._avg.grade) {
-        throw new Error("No cards in deck");
-      }
       return ctx.prisma.deckReview.create({
         data: {
           deckId: input.deckId,
           duration: input.duration,
-          gradeAvg: formatGradeAverage(gradeAverage._avg.grade),
+          gradeAvg: formatGradeAverage(gradeAverage._avg.grade || 0),
+        },
+      });
+    }),
+  update: protectedProcedure
+    .input(
+      z.object({
+        deckReviewId: z.string(),
+        deckId: z.string(),
+        duration: z.number(),
+      }),
+    )
+    .mutation(async ({ input, ctx }) => {
+      const gradeAverage = await ctx.prisma.card.aggregate({
+        where: {
+          deckId: input.deckId,
+        },
+        _avg: {
+          grade: true,
+        },
+      });
+      return ctx.prisma.deckReview.update({
+        where: {
+          id: input.deckReviewId,
+        },
+        data: {
+          duration: input.duration,
+          gradeAvg: formatGradeAverage(gradeAverage._avg.grade || 0),
+        },
+      });
+    }),
+  addCardReview: protectedProcedure
+    .input(
+      z.object({
+        deckReviewId: z.string(),
+        cardId: z.string(),
+        grade: z.number(),
+        duration: z.number(),
+      }),
+    )
+    .mutation(async ({ input, ctx }) => {
+      const lastReview = await ctx.prisma.cardReview.findFirst({
+        where: {
+          cardId: input.cardId,
+        },
+      });
+
+      const easiness = calculateEasinessFactor(
+        input.grade,
+        lastReview?.easiness,
+      );
+
+      const interval = getInterval(
+        input.grade,
+        easiness,
+        lastReview?.interval,
+        lastReview?.streak,
+      );
+
+      const streak = getStreak(input.grade, lastReview?.streak);
+
+      const cardReview = {
+        cardId: input.cardId,
+        grade: input.grade,
+        duration: input.duration,
+        easiness,
+        interval,
+        streak,
+      };
+
+      return ctx.prisma.deckReview.update({
+        where: {
+          id: input.deckReviewId,
+        },
+        data: {
+          cardReviews: {
+            create: cardReview,
+          },
         },
       });
     }),
@@ -36,6 +116,13 @@ export const deckReviewRouter = createTRPCRouter({
         },
         orderBy: {
           createdAt: "desc",
+        },
+        include: {
+          cardReviews: {
+            orderBy: {
+              createdAt: "desc",
+            },
+          },
         },
       });
       const averageReviewDuration = await ctx.prisma.deckReview.aggregate({

@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewRecap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewRecap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/hooks/useReviewStates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/hooks/useReviewStates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/review/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/review/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/api/src/router/deckReview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/deckReview.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/db/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/packages/db/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +115,12 @@
       <workItem from="1691341940262" duration="276000" />
       <workItem from="1691342219740" duration="665000" />
       <workItem from="1691342892648" duration="6179000" />
-      <workItem from="1691434556247" duration="378000" />
+      <workItem from="1691434556247" duration="1136000" />
+      <workItem from="1691435700945" duration="50000" />
+      <workItem from="1691435753693" duration="84000" />
+      <workItem from="1691435840534" duration="1154000" />
+      <workItem from="1691437001387" duration="833000" />
+      <workItem from="1691437855488" duration="275000" />
     </task>
     <servers />
   </component>

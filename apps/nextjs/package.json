@@ -15,9 +15,9 @@
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
     "@memory-mate/api": "^0.1.0",
-    "@memory-mate/utils": "workspace:*",
     "@memory-mate/auth": "^0.1.0",
     "@memory-mate/db": "^0.1.0",
+    "@memory-mate/utils": "workspace:*",
     "@radix-ui/react-alert-dialog": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.4",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
@@ -47,6 +47,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.1",
     "react-i18next": "^13.0.3",
+    "recharts": "^2.7.2",
     "superjson": "1.9.1",
     "tailwind-merge": "^1.13.2",
     "tailwindcss-animate": "^1.0.6",

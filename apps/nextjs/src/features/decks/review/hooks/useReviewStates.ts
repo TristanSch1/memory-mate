@@ -4,6 +4,7 @@ import { api, type RouterOutputs } from "@/utils/api";
 
 export const useReviewStates = (
   deck: NonNullable<RouterOutputs["deck"]["forReview"]>,
+  deckReview: NonNullable<RouterOutputs["deckReview"]["create"]>,
 ) => {
   const [reviewState, setReviewState] = useState<TReviewState>("REVIEWING");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,7 +23,7 @@ export const useReviewStates = (
     setIsFlipped(true);
   };
 
-  const { mutate: deckReviewMutation } = api.deckReview.create.useMutation({
+  const { mutate: deckReviewMutation } = api.deckReview.update.useMutation({
     onSuccess() {
       deckReviewStartTimestamp.current = Date.now();
       setReviewState("FINISHED");
@@ -30,7 +31,11 @@ export const useReviewStates = (
   });
   const onFinish = (duration: number) => {
     try {
-      deckReviewMutation({ deckId: deck.id, duration });
+      deckReviewMutation({
+        deckReviewId: deckReview.id,
+        deckId: deck.id,
+        duration,
+      });
     } catch (e) {
       console.error(e);
     }
@@ -48,16 +53,22 @@ export const useReviewStates = (
     setCurrentIndex((index) => index + 1);
   };
 
-  const { mutate: cardReviewMutation } = api.card.review.useMutation({
-    onSuccess() {
-      next();
-    },
-  });
+  const { mutate: cardReviewMutation } =
+    api.deckReview.addCardReview.useMutation({
+      onSuccess() {
+        next();
+      },
+    });
 
   const review = (grade: TGrade) => {
     try {
       const duration = Date.now() - cardReviewStartTimestamp.current;
-      cardReviewMutation({ cardId: card.id, grade, duration });
+      cardReviewMutation({
+        cardId: card.id,
+        deckReviewId: deckReview.id,
+        grade,
+        duration,
+      });
     } catch (e) {
       console.error(e);
     }
