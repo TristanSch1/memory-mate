@@ -53,12 +53,11 @@ export const useReviewStates = (
     setCurrentIndex((index) => index + 1);
   };
 
-  const { mutate: cardReviewMutation } =
-    api.deckReview.addCardReview.useMutation({
-      onSuccess() {
-        next();
-      },
-    });
+  const { mutate: cardReviewMutation } = api.cardReview.create.useMutation({
+    onSuccess() {
+      next();
+    },
+  });
 
   const review = (grade: TGrade) => {
     try {

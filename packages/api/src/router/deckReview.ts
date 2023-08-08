@@ -1,12 +1,6 @@
 import { z } from "zod";
 
-import {
-  calculateEasinessFactor,
-  formatGradeAverage,
-  getGradeAverageProgress,
-  getInterval,
-  getStreak,
-} from "../helpers/review";
+import { formatGradeAverage, getGradeAverageProgress } from "../helpers/review";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const deckReviewRouter = createTRPCRouter({
@@ -38,9 +32,9 @@ export const deckReviewRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ input, ctx }) => {
-      const gradeAverage = await ctx.prisma.card.aggregate({
+      const gradeAverage = await ctx.prisma.cardReview.aggregate({
         where: {
-          deckId: input.deckId,
+          deckReviewId: input.deckReviewId,
         },
         _avg: {
           grade: true,
@@ -53,56 +47,6 @@ export const deckReviewRouter = createTRPCRouter({
         data: {
           duration: input.duration,
           gradeAvg: formatGradeAverage(gradeAverage._avg.grade || 0),
-        },
-      });
-    }),
-  addCardReview: protectedProcedure
-    .input(
-      z.object({
-        deckReviewId: z.string(),
-        cardId: z.string(),
-        grade: z.number(),
-        duration: z.number(),
-      }),
-    )
-    .mutation(async ({ input, ctx }) => {
-      const lastReview = await ctx.prisma.cardReview.findFirst({
-        where: {
-          cardId: input.cardId,
-        },
-      });
-
-      const easiness = calculateEasinessFactor(
-        input.grade,
-        lastReview?.easiness,
-      );
-
-      const interval = getInterval(
-        input.grade,
-        easiness,
-        lastReview?.interval,
-        lastReview?.streak,
-      );
-
-      const streak = getStreak(input.grade, lastReview?.streak);
-
-      const cardReview = {
-        cardId: input.cardId,
-        grade: input.grade,
-        duration: input.duration,
-        easiness,
-        interval,
-        streak,
-      };
-
-      return ctx.prisma.deckReview.update({
-        where: {
-          id: input.deckReviewId,
-        },
-        data: {
-          cardReviews: {
-            create: cardReview,
-          },
         },
       });
     }),
@@ -140,9 +84,9 @@ export const deckReviewRouter = createTRPCRouter({
         },
       });
 
-      const gradeAverage = await ctx.prisma.card.aggregate({
+      const gradeAverage = await ctx.prisma.cardReview.aggregate({
         where: {
-          deckId: input.deckId,
+          deckReviewId: lastReviews[0].id,
         },
         _avg: {
           grade: true,
