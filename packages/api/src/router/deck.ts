@@ -1,3 +1,4 @@
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
 import { createTRPCRouter, protectedProcedure } from "../trpc";
@@ -22,7 +23,12 @@ export const deckRouter = createTRPCRouter({
         },
       },
     });
-
+    if (!deck) {
+      throw new TRPCError({
+        code: "NOT_FOUND",
+        message: "Deck not found",
+      });
+    }
     return {
       ...deck,
       lastReview,
