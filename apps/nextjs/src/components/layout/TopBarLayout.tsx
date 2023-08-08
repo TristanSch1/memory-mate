@@ -27,7 +27,7 @@ const TopBarLayout = ({
     <div className={"h-screen"}>
       <header
         className={
-          "flex h-20 items-center justify-center border-b p-4 shadow-sm"
+          "bg-background fixed inset-x-0 top-0 flex h-20 items-center justify-center border-b p-4 shadow-sm"
         }
       >
         <ChevronLeft
@@ -40,10 +40,7 @@ const TopBarLayout = ({
         <h1 className={"heading text-2xl"}>{title}</h1>
       </header>
       <main
-        className={clsx(
-          className,
-          "container h-[calc(100vh-80px)] overflow-y-auto py-6",
-        )}
+        className={clsx(className, "container h-[calc(100vh-80px)] pb-8 pt-28")}
         {...props}
       >
         {children}
