@@ -6,6 +6,7 @@ export const useReviewStates = (
   deck: NonNullable<RouterOutputs["deck"]["forReview"]>,
   deckReview: NonNullable<RouterOutputs["deckReview"]["create"]>,
 ) => {
+  console.log("deckReview", deckReview);
   const [reviewState, setReviewState] = useState<TReviewState>("REVIEWING");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);

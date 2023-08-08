@@ -7,19 +7,11 @@ export const deckReviewRouter = createTRPCRouter({
   create: protectedProcedure
     .input(z.object({ deckId: z.string(), duration: z.number() }))
     .mutation(async ({ input, ctx }) => {
-      const gradeAverage = await ctx.prisma.card.aggregate({
-        where: {
-          deckId: input.deckId,
-        },
-        _avg: {
-          grade: true,
-        },
-      });
       return ctx.prisma.deckReview.create({
         data: {
           deckId: input.deckId,
           duration: input.duration,
-          gradeAvg: formatGradeAverage(gradeAverage._avg.grade || 0),
+          gradeAvg: 0,
         },
       });
     }),
@@ -69,6 +61,7 @@ export const deckReviewRouter = createTRPCRouter({
           },
         },
       });
+      console.log("lastReviews", lastReviews);
       const averageReviewDuration = await ctx.prisma.deckReview.aggregate({
         where: {
           deckId: input.deckId,

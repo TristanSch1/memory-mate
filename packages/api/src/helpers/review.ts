@@ -38,6 +38,7 @@ export const getStreak = (grade: number, streak = 0) => {
  * @returns grade average progress in percentage
  */
 export const getGradeAverageProgress = (current: number, to: number) => {
+  if (current === 0) return 100;
   const progress = (to * 100) / current;
 
   return parseFloat((progress - 100).toFixed(2));
