@@ -1,11 +1,12 @@
+import { useState } from "react";
+import { GRADE_COLORS } from "@/features/decks/review/config/colors";
 import { Grade } from "@/features/decks/review/types";
 import {
   Bar,
   BarChart,
   CartesianGrid,
-  Legend,
+  Cell,
   ResponsiveContainer,
-  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
@@ -17,19 +18,33 @@ type Props = {
 };
 
 export const Graph = ({ review }: Props) => {
-  const data = Grade.map((grade) => ({
-    name: grade,
-    value: review.cardReviews.filter((review) => review.grade === grade).length,
-  }));
+  const [maxAmount, setMaxAmount] = useState(0);
+  const data = Grade.map((grade) => {
+    const amount = review.cardReviews.filter(
+      (review) => review.grade === grade,
+    ).length;
+    if (amount > maxAmount) {
+      setMaxAmount(amount);
+    }
+    return {
+      name: grade,
+      amount,
+    };
+  });
   return (
-    <ResponsiveContainer width={"100%"} height={"100%"}>
-      <BarChart width={500} height={300} data={data}>
+    <ResponsiveContainer width={"100%"} height={300}>
+      <BarChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey={"value"} fill="#8884d8" />
+        <YAxis allowDecimals={false} tickCount={maxAmount + 1} />
+        <Bar dataKey={"amount"} minPointSize={3}>
+          {data.map((entry, index) => (
+            <Cell
+              key={entry.name.toString() + index.toString()}
+              fill={GRADE_COLORS[entry.name]}
+            />
+          ))}
+        </Bar>
       </BarChart>
     </ResponsiveContainer>
   );
