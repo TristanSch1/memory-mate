@@ -21,6 +21,8 @@
       "averageReviewDuration": "Average review time",
       "gradeAverage": "Grade average",
       "gradeAverageProgress": "Grade average progress"
-    }
+    },
+    "retry": "Retry",
+    "back": "Back"
   }
 }

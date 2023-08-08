@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/ui/loader";
 import {
   StatisticSection,
@@ -7,15 +9,20 @@ import {
 } from "@/components/ui/statistic-section";
 import { useReview } from "@/features/decks/review";
 import { Graph } from "@/features/decks/statistics/components/Graph";
-import { api } from "@/utils/api";
+import { URLPath } from "@/routes";
+import { api, type RouterOutputs } from "@/utils/api";
 import { useTranslation } from "next-i18next";
 
 import { formatDeckReviewDuration } from "@memory-mate/utils";
 
 type SessionReviewRecapProps = {
+  lastReview: RouterOutputs["deckReview"]["recap"]["lastReview"];
   duration: number;
 };
-const SessionReviewRecap = ({ duration }: SessionReviewRecapProps) => {
+const SessionReviewRecap = ({
+  lastReview,
+  duration,
+}: SessionReviewRecapProps) => {
   const { t } = useTranslation("review");
   return (
     <StatisticSection>
@@ -24,6 +31,7 @@ const SessionReviewRecap = ({ duration }: SessionReviewRecapProps) => {
         label={t("recap.session.duration")}
         value={formatDeckReviewDuration(duration)}
       />
+      <Graph review={lastReview} />
     </StatisticSection>
   );
 };
@@ -69,7 +77,9 @@ const DeckReviewRecap = ({
   );
 };
 export const ReviewRecap = () => {
+  const { t } = useTranslation("review");
   const { deckId } = useReview();
+  const { push, reload } = useRouter();
   const { data: recap, isLoading } = api.deckReview.recap.useQuery({ deckId });
   const lastReview = recap?.lastReview;
   if (isLoading) {
@@ -79,17 +89,39 @@ export const ReviewRecap = () => {
   if (!recap || !lastReview) {
     return null;
   }
-  console.log(recap);
+
+  const handleBack = () => {
+    void push(URLPath.deck(deckId));
+  };
+
+  const handleRetry = () => {
+    void reload();
+  };
   return (
-    <div className={"w-full space-y-4"}>
-      <SessionReviewRecap duration={lastReview?.duration ?? 0} />
+    <div className={"w-full space-y-8"}>
+      <SessionReviewRecap
+        lastReview={lastReview}
+        duration={lastReview?.duration ?? 0}
+      />
       <DeckReviewRecap
         totalReviews={recap.totalReviews}
         averageReviewDuration={recap.averageReviewDuration ?? undefined}
         gradeAverage={recap.gradeAverage ?? undefined}
         gradeAverageProgress={recap.gradeAverageProgress ?? undefined}
       />
-      <Graph review={lastReview} />
+      <div className={"flex gap-4 pt-4"}>
+        <Button
+          size={"lg"}
+          className={"flex-1"}
+          variant={"outline"}
+          onClick={handleBack}
+        >
+          {t("recap.back")}
+        </Button>
+        <Button size={"lg"} className={"flex-1"} onClick={handleRetry}>
+          {t("recap.retry")}
+        </Button>
+      </div>
     </div>
   );
 };

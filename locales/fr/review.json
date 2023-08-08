@@ -21,6 +21,8 @@
       "averageReviewDuration": "Durée moyenne d'une revue",
       "gradeAverage": "Note moyenne",
       "gradeAverageProgress": "Progression de la note moyenne"
-    }
+    },
+    "retry": "Recommencer",
+    "back": "Retour"
   }
 }
