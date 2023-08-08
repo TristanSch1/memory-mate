@@ -22,10 +22,11 @@ const CardList = () => {
     );
   }
   return (
-    <div className={"space-y-4"}>
+    <div className={"grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"}>
       {cards?.map((card) => (
         <Card
           key={card.id}
+          className={"h-[300px] text-sm sm:h-[375px] sm:text-base md:h-[450px]"}
           card={card}
           editMode={editMode}
           active={selectedCards.includes(card.id)}
