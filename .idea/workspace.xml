@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/icon-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/icon-button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/dropdown-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/dropdown-menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCardOptions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCardOptions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/deck.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/fr/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/deck.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +118,7 @@
       <workItem from="1691437001387" duration="833000" />
       <workItem from="1691437855488" duration="504000" />
       <workItem from="1691521985891" duration="5980000" />
-      <workItem from="1691609188979" duration="746000" />
+      <workItem from="1691609188979" duration="1395000" />
     </task>
     <servers />
   </component>

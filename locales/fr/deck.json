@@ -3,6 +3,12 @@
   "create": "Créer un nouveau deck",
   "new": "Nouveau deck",
   "noDeck": "Vous n'avez pas encore de deck.",
+  "deckCard": {
+    "menu": {
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    }
+  },
   "review": {
     "title": "Réviser",
     "start": "Commencer"

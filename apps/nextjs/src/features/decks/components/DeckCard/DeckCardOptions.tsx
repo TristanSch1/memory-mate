@@ -2,14 +2,15 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import IconButton, { type IconButtonProps } from "@/components/ui/icon-button";
-import { MoreVertical } from "lucide-react";
+import { MoreVertical, Pencil, Trash } from "lucide-react";
+import { useTranslation } from "next-i18next";
 
 export const DeckCardOptions = (props: IconButtonProps) => {
+  const { t } = useTranslation("deck");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -20,9 +21,15 @@ export const DeckCardOptions = (props: IconButtonProps) => {
         </IconButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>Test</DropdownMenuLabel>
+        <DropdownMenuItem>
+          <Pencil className={"mr-2 h-4 w-4"} />
+          <span>{t("deckCard.menu.edit")}</span>
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Modifier</DropdownMenuItem>
+        <DropdownMenuItem className={"text-destructive"}>
+          <Trash className={"mr-2 h-4 w-4"} />
+          <span>{t("deckCard.menu.delete")}</span>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

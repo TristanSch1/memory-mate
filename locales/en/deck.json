@@ -3,11 +3,17 @@
   "create": "Create new deck",
   "new": "New deck",
   "noDeck": "You don't have any decks yet",
+  "deckCard": {
+    "menu": {
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
   "review": {
     "title": "Review",
     "start": "Start review"
   },
-  "cards": ",Cards",
+  "cards": "Cards",
   "form": {
     "name": "Deck name",
     "description": "Description",
