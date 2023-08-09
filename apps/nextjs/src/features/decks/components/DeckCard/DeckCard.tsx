@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { DeckCardOptions } from "@/features/decks/components/DeckCard/DeckCardOptions";
 import { URLPath } from "@/routes";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -19,8 +20,12 @@ type Props = {
 dayjs.extend(relativeTime);
 const DeckCard = ({ deck }: Props) => {
   return (
-    <Link href={URLPath.deck(deck.id)} className={"block"}>
-      <Card className={"hover:border-primary cursor-pointer transition-all"}>
+    <Card
+      className={
+        "hover:border-primary relative flex cursor-pointer items-start justify-between transition-all"
+      }
+    >
+      <Link href={URLPath.deck(deck.id)} className={"block"}>
         <CardHeader>
           <CardTitle>{deck.name}</CardTitle>
           <CardDescription>{deck.description}</CardDescription>
@@ -65,8 +70,11 @@ const DeckCard = ({ deck }: Props) => {
             <p>{dayjs(deck.createdAt).fromNow()}</p>
           </div>
         </CardFooter>
-      </Card>
-    </Link>
+      </Link>
+      <div className={"p-4"}>
+        <DeckCardOptions />
+      </div>
+    </Card>
   );
 };
 

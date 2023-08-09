@@ -1,4 +1,4 @@
-import DeckCard from "@/features/decks/components/DeckCard";
+import DeckCard from "@/features/decks/components/DeckCard/DeckCard";
 import { api } from "@/utils/api";
 import { useTranslation } from "next-i18next";
 
