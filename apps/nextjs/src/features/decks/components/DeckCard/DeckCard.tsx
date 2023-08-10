@@ -6,10 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { DeckCardOptions } from "@/features/decks/components/DeckCard/DeckCardOptions";
+import { DeckOptionsDropdown } from "@/features/decks/components/DeckOptionsDropdown";
 import { URLPath } from "@/routes";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { MoreVertical } from "lucide-react";
 
 import { type RouterOutputs } from "@memory-mate/api";
 
@@ -72,7 +73,11 @@ const DeckCard = ({ deck }: Props) => {
         </CardFooter>
       </Link>
       <div className={"absolute right-4 top-4"}>
-        <DeckCardOptions />
+        <DeckOptionsDropdown>
+          <MoreVertical
+            className={"text-neutral-500 group-hover:text-neutral-950"}
+          />
+        </DeckOptionsDropdown>
       </div>
     </Card>
   );

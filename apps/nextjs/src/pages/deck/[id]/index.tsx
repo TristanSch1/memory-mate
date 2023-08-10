@@ -7,11 +7,13 @@ import TopBarLayout from "@/components/layout/TopBarLayout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CardTabContent } from "@/features/cards";
 import { DeckProvider, DeckReviewTabContent } from "@/features/decks";
+import { DeckOptionsDropdown } from "@/features/decks/components/DeckOptionsDropdown";
 import { type NextPageWithLayout } from "@/pages/_app";
 import { URLPath } from "@/routes";
 import { api } from "@/utils/api";
 import { authPage } from "@/utils/pages";
 import { createServerSideHelpers } from "@trpc/react-query/server";
+import { MoreHorizontal } from "lucide-react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import superjson from "superjson";
@@ -26,7 +28,17 @@ const DeckPage: NextPageWithLayout = authPage(
     const { data: deck } = api.deck.byId.useQuery(id);
     if (!deck) return null;
     return (
-      <TopBarLayout title={deck.name} backRoute={URLPath.home}>
+      <TopBarLayout
+        title={deck.name}
+        backRoute={URLPath.home}
+        renderRight={() => (
+          <DeckOptionsDropdown>
+            <MoreHorizontal
+              className={"text-neutral-500 group-hover:text-neutral-950"}
+            />
+          </DeckOptionsDropdown>
+        )}
+      >
         <DeckProvider deckId={deck.id} cardCount={deck._count.cards}>
           <Tabs defaultValue={"review"}>
             <TabsList className={"w-full"}>

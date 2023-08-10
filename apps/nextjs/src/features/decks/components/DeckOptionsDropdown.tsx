@@ -6,19 +6,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import IconButton, { type IconButtonProps } from "@/components/ui/icon-button";
-import { MoreVertical, Pencil, Trash } from "lucide-react";
+import { Pencil, Trash } from "lucide-react";
 import { useTranslation } from "next-i18next";
 
-export const DeckCardOptions = (props: IconButtonProps) => {
+export const DeckOptionsDropdown = ({
+  children,
+  ...props
+}: IconButtonProps) => {
   const { t } = useTranslation("deck");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <IconButton {...props}>
-          <MoreVertical
-            className={"text-neutral-500 group-hover:text-neutral-950"}
-          />
-        </IconButton>
+        <IconButton {...props}>{children}</IconButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
