@@ -25,7 +25,7 @@ const DeckCard = ({ deck }: Props) => {
         "hover:border-primary relative flex cursor-pointer items-start justify-between transition-all"
       }
     >
-      <Link href={URLPath.deck(deck.id)} className={"block"}>
+      <Link href={URLPath.deck(deck.id)} className={"block flex-1"}>
         <CardHeader>
           <CardTitle>{deck.name}</CardTitle>
           <CardDescription>{deck.description}</CardDescription>
@@ -71,7 +71,7 @@ const DeckCard = ({ deck }: Props) => {
           </div>
         </CardFooter>
       </Link>
-      <div className={"p-4"}>
+      <div className={"absolute right-4 top-4"}>
         <DeckCardOptions />
       </div>
     </Card>
