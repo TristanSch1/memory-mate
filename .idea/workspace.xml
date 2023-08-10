@@ -7,8 +7,6 @@
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/layout/TopBarLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/layout/TopBarLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCardOptions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckOptionsDropdown.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +117,8 @@
       <workItem from="1691437855488" duration="504000" />
       <workItem from="1691521985891" duration="5980000" />
       <workItem from="1691609188979" duration="1993000" />
-      <workItem from="1691697502210" duration="2129000" />
+      <workItem from="1691697502210" duration="2199000" />
+      <workItem from="1691701102247" duration="298000" />
     </task>
     <servers />
   </component>

@@ -29,15 +29,17 @@ const DeckPage: NextPageWithLayout = authPage(
     if (!deck) return null;
     return (
       <TopBarLayout
-        title={deck.name}
-        backRoute={URLPath.home}
-        renderRight={() => (
-          <DeckOptionsDropdown>
-            <MoreHorizontal
-              className={"text-neutral-500 group-hover:text-neutral-950"}
-            />
-          </DeckOptionsDropdown>
-        )}
+        headerProps={{
+          title: deck.name,
+          backRoute: URLPath.home,
+          renderRight: () => (
+            <DeckOptionsDropdown>
+              <MoreHorizontal
+                className={"text-neutral-500 group-hover:text-neutral-950"}
+              />
+            </DeckOptionsDropdown>
+          ),
+        }}
       >
         <DeckProvider deckId={deck.id} cardCount={deck._count.cards}>
           <Tabs defaultValue={"review"}>
