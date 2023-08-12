@@ -1,0 +1,19 @@
+{
+  "folder": "Dossier",
+  "page": {
+    "title": "Dossiers",
+    "description": "Créez des dossiers pour organiser vos decks."
+  },
+  "create": "Créer un nouveau dossier",
+  "new": "Nouveau dossier",
+  "noFolder": "Vous n'avez pas encore de dossiers.",
+  "decks": "Decks",
+  "form": {
+    "name": "Nom du dossier",
+    "cta": "Créer",
+    "error": {
+      "NAME_REQUIRED": "Veuillez entrer un nom pour votre dossier",
+      "NAME_LENGTH": "Le nom de votre dossier doit être entre 3 et 50 caractères"
+    }
+  }
+}

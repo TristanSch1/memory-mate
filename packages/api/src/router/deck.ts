@@ -1,6 +1,7 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
+import { listQuery } from "../helpers/query";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const deckRouter = createTRPCRouter({
@@ -34,16 +35,21 @@ export const deckRouter = createTRPCRouter({
       lastReview,
     };
   }),
-  all: protectedProcedure.query(({ ctx }) => {
+  all: protectedProcedure.input(listQuery).query(({ input, ctx }) => {
     return ctx.prisma.deck.findMany({
       where: {
         ownerId: ctx.session.user.id,
+        name: {
+          contains: input?.search,
+        },
       },
       include: {
         _count: {
           select: { cards: true },
         },
       },
+      skip: input?.offset,
+      take: input?.limit,
     });
   }),
   create: protectedProcedure

@@ -1,0 +1,15 @@
+{
+  "folder": "Folder",
+  "create": "Create a new folder",
+  "new": "New folder",
+  "noFolder": "You don't have any folders yet.",
+  "decks": "Decks",
+  "form": {
+    "name": "Folder name",
+    "cta": "Create",
+    "error": {
+      "NAME_REQUIRED": "Please enter a name for your folder",
+      "NAME_LENGTH": "The name of your folder must be between 3 and 50 characters".
+    }
+  }
+}

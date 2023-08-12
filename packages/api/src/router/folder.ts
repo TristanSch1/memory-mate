@@ -10,8 +10,12 @@ export const folderRouter = createTRPCRouter({
         id: input,
       },
       include: {
-        _count: {
-          select: { decks: true },
+        decks: {
+          include: {
+            _count: {
+              select: { cards: true },
+            },
+          },
         },
       },
     });

@@ -2,6 +2,7 @@
   "deck": "Deck",
   "create": "Créer un nouveau deck",
   "new": "Nouveau deck",
+  "search": "Rechercher un deck",
   "noDeck": "Vous n'avez pas encore de deck.",
   "deckCard": {
     "menu": {
