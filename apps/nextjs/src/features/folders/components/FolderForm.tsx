@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -34,7 +35,7 @@ export const FolderForm = (props: Props) => {
   });
   const utils = api.useContext();
 
-  const { mutate, error } = api.folder.create.useMutation({
+  const { mutate } = api.folder.create.useMutation({
     async onSuccess() {
       await utils.folder.all.invalidate();
       props.onSuccess();
@@ -60,6 +61,9 @@ export const FolderForm = (props: Props) => {
             </FormItem>
           )}
         />
+        <Button type={"submit"} disabled={form.formState.isSubmitting}>
+          {t("form.cta")}
+        </Button>
       </form>
     </Form>
   );

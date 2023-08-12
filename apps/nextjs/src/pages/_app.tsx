@@ -8,6 +8,8 @@ import {
 import { type NextPage } from "next";
 import { type AppProps } from "next/app";
 import { api } from "@/utils/api";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { type Session } from "next-auth";
 import { SessionProvider, useSession } from "next-auth/react";
 import { appWithTranslation } from "next-i18next";
@@ -23,6 +25,7 @@ type AppPropsWithLayout = AppProps & {
   session: Session | null;
 };
 
+dayjs.extend(relativeTime);
 const MyApp = ({ Component, session, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout || ((page) => page);
   const ComponentWithLayout = getLayout(<Component {...pageProps} />);

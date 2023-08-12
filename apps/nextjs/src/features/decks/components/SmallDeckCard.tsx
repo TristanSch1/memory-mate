@@ -1,16 +1,9 @@
 import Link from "next/link";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { IconWithLabel } from "@/components/ui/icon-with-label";
-import { DeckOptionsDropdown } from "@/features/decks/components/DeckOptionsDropdown";
 import { URLPath } from "@/routes";
 import dayjs from "dayjs";
-import { MoreVertical, PenSquare, WalletCards } from "lucide-react";
+import { PenSquare, WalletCards } from "lucide-react";
 
 import { type RouterOutputs } from "@memory-mate/api";
 
@@ -18,7 +11,7 @@ type Props = {
   deck: RouterOutputs["deck"]["all"][number];
 };
 
-const DeckCard = ({ deck }: Props) => {
+export const SmallDeckCard = ({ deck }: Props) => {
   return (
     <Card
       className={
@@ -28,7 +21,6 @@ const DeckCard = ({ deck }: Props) => {
       <Link href={URLPath.deck(deck.id)} className={"block flex-1"}>
         <CardHeader>
           <CardTitle>{deck.name}</CardTitle>
-          <CardDescription>{deck.description}</CardDescription>
         </CardHeader>
         <CardFooter className={"space-x-2"}>
           <IconWithLabel label={deck._count.cards} icon={WalletCards} />
@@ -38,15 +30,6 @@ const DeckCard = ({ deck }: Props) => {
           />
         </CardFooter>
       </Link>
-      <div className={"absolute right-4 top-4"}>
-        <DeckOptionsDropdown>
-          <MoreVertical
-            className={"text-neutral-500 group-hover:text-neutral-950"}
-          />
-        </DeckOptionsDropdown>
-      </div>
     </Card>
   );
 };
-
-export default DeckCard;

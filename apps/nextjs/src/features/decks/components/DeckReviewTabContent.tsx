@@ -1,4 +1,4 @@
-import { StartReview } from "@/features/decks/review";
+import { StartReview } from "@/features/decks";
 import { useTranslation } from "next-i18next";
 
 export const DeckReviewTabContent = () => {

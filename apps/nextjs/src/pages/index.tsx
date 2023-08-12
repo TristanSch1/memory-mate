@@ -16,7 +16,7 @@ const Home: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={"mb-8 flex items-center justify-between"}>
-        <h1 className={"heading text-5xl capitalize"}>{t("deck")}</h1>
+        <h1 className={"page-title"}>{t("deck")}</h1>
         <CreateDeck />
       </div>
       <DeckList />

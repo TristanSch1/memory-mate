@@ -6,8 +6,11 @@ import { appConfig } from "@/_config";
 import TopBarLayout from "@/components/layout/TopBarLayout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CardTabContent } from "@/features/cards";
-import { DeckProvider, DeckReviewTabContent } from "@/features/decks";
-import { DeckOptionsDropdown } from "@/features/decks/components/DeckOptionsDropdown";
+import {
+  DeckOptionsDropdown,
+  DeckProvider,
+  DeckReviewTabContent,
+} from "@/features/decks";
 import { type NextPageWithLayout } from "@/pages/_app";
 import { URLPath } from "@/routes";
 import { api } from "@/utils/api";

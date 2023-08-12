@@ -4,38 +4,30 @@ import {
 } from "next";
 import { appConfig } from "@/_config";
 import TopBarLayout from "@/components/layout/TopBarLayout";
-import { ReviewPageBody, ReviewProvider } from "@/features/decks/review";
-import { ReviewContainer } from "@/features/decks/review/components/ReviewContainer";
-import { URLPath } from "@/routes";
+import { FolderDecks } from "@/features/folders/components/FolderDecks";
+import { type NextPageWithLayout } from "@/pages/_app";
 import { api } from "@/utils/api";
 import { createServerSideHelpers } from "@trpc/react-query/server";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import superjson from "superjson";
 
 import { appRouter } from "@memory-mate/api";
 import { createInnerTRPCContext } from "@memory-mate/api/src/trpc";
 import { getServerSession } from "@memory-mate/auth";
-import { prisma } from "@memory-mate/db";
 
-const ReviewPage = ({
+const FolderPage: NextPageWithLayout = ({
   id,
-  deckReview,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { data: deck } = api.deck.forReview.useQuery({ deckId: id });
-
-  if (!deck || !deckReview) {
-    return <p>Error not found</p>;
-  }
-
+  const { t } = useTranslation("folder");
+  const { data: folder } = api.folder.byId.useQuery(id);
+  if (!folder) return null;
   return (
-    <TopBarLayout
-      headerProps={{ title: deck.name, backRoute: URLPath.deck(id) }}
-    >
-      <ReviewProvider deck={deck} deckReview={deckReview}>
-        <ReviewContainer>
-          <ReviewPageBody />
-        </ReviewContainer>
-      </ReviewProvider>
+    <TopBarLayout headerProps={{ title: folder.name }}>
+      <div className={"space-y-4"}>
+        <h1 className={"heading text-2xl"}>{t("decks")}</h1>
+        <FolderDecks decks={folder.decks} />
+      </div>
     </TopBarLayout>
   );
 };
@@ -52,27 +44,19 @@ export const getServerSideProps = async ({
     ctx: createInnerTRPCContext({ session }),
     transformer: superjson,
   });
-  const deckId = params?.id as string;
-  await helpers.deck.forReview.prefetch({ deckId: deckId });
-
-  const deckReview = await prisma.deckReview.create({
-    data: {
-      deckId: deckId,
-      duration: 0,
-      gradeAvg: 0,
-    },
-  });
+  const id = params?.id as string;
+  await helpers.folder.byId.prefetch(id);
   return {
     props: {
       trpcState: helpers.dehydrate(),
-      id: deckId,
-      deckReview: JSON.parse(JSON.stringify(deckReview)),
+      id,
       ...(await serverSideTranslations(locale ?? appConfig.defaultLocale, [
         "common",
-        "review",
+        "folder",
+        "deck",
       ])),
     },
   };
 };
 
-export default ReviewPage;
+export default FolderPage;
