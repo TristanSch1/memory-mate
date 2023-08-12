@@ -80,4 +80,25 @@ export const folderRouter = createTRPCRouter({
         },
       });
     }),
+  addDeck: protectedProcedure
+    .input(
+      z.object({
+        folderId: z.string(),
+        deckId: z.string(),
+      }),
+    )
+    .mutation(async ({ input, ctx }) => {
+      return ctx.prisma.folder.update({
+        where: {
+          id: input.folderId,
+        },
+        data: {
+          decks: {
+            connect: {
+              id: input.deckId,
+            },
+          },
+        },
+      });
+    }),
 });

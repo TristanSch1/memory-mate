@@ -6,25 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckReviewTabContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckReviewTabContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FolderForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FolderForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FoldersList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FoldersList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/review/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/review/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/routes/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/deck.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/fr/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/deck.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/router/deck.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/deck.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckFinder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckFinder.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/SmallDeckCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/SmallDeckCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FolderDecks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FolderDecks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/folders/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/folders/[id]/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/api/src/router/folder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/folder.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/eslint-config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +129,7 @@
       <workItem from="1691791085310" duration="103000" />
       <workItem from="1691840699293" duration="953000" />
       <workItem from="1691841664356" duration="3123000" />
-      <workItem from="1691844800923" duration="3679000" />
+      <workItem from="1691844800923" duration="5397000" />
     </task>
     <servers />
   </component>

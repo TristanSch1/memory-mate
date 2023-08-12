@@ -32,9 +32,10 @@ export const DeckFinder = ({ onSelect }: DeckFinderProps) => {
         {decks?.map((deck) => (
           <CommandItem
             key={deck.id}
-            onSelect={(currentValue) => {
-              onSelect?.(currentValue);
+            onSelect={(value) => {
+              onSelect?.(value);
             }}
+            value={deck.id}
           >
             {deck.name}
           </CommandItem>

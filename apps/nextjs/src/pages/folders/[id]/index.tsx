@@ -4,7 +4,7 @@ import {
 } from "next";
 import { appConfig } from "@/_config";
 import TopBarLayout from "@/components/layout/TopBarLayout";
-import { FolderDecks } from "@/features/folders/components/FolderDecks";
+import { FolderDecks, FolderProvider } from "@/features/folders";
 import { type NextPageWithLayout } from "@/pages/_app";
 import { api } from "@/utils/api";
 import { createServerSideHelpers } from "@trpc/react-query/server";
@@ -24,10 +24,12 @@ const FolderPage: NextPageWithLayout = ({
   if (!folder) return null;
   return (
     <TopBarLayout headerProps={{ title: folder.name }}>
-      <div className={"space-y-4"}>
-        <h1 className={"heading text-2xl"}>{t("decks")}</h1>
-        <FolderDecks decks={folder.decks} />
-      </div>
+      <FolderProvider value={{ folderId: id }}>
+        <div className={"space-y-4"}>
+          <h1 className={"heading text-2xl"}>{t("decks")}</h1>
+          <FolderDecks decks={folder.decks} />
+        </div>
+      </FolderProvider>
     </TopBarLayout>
   );
 };
