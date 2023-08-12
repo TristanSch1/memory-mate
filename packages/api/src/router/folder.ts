@@ -101,4 +101,25 @@ export const folderRouter = createTRPCRouter({
         },
       });
     }),
+  removeDeck: protectedProcedure
+    .input(
+      z.object({
+        folderId: z.string(),
+        deckId: z.string(),
+      }),
+    )
+    .mutation(async ({ input, ctx }) => {
+      return ctx.prisma.folder.update({
+        where: {
+          id: input.folderId,
+        },
+        data: {
+          decks: {
+            disconnect: {
+              id: input.deckId,
+            },
+          },
+        },
+      });
+    }),
 });

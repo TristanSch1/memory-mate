@@ -3,6 +3,7 @@
   "create": "Create a new folder",
   "new": "New folder",
   "noFolder": "You don't have any folders yet.",
+  "removeDeck": "Remove from folder",
   "decks": "Decks",
   "form": {
     "name": "Folder name",

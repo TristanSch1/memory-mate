@@ -6,6 +6,7 @@
   },
   "create": "Créer un nouveau dossier",
   "new": "Nouveau dossier",
+  "removeDeck": "Retirer du dossier",
   "noFolder": "Vous n'avez pas encore de dossiers.",
   "decks": "Decks",
   "form": {

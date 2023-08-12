@@ -52,6 +52,9 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
       },
+      screens: {
+        xs: "475px",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

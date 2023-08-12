@@ -39,7 +39,7 @@ const TopBarHeader = ({
         }
         onClick={handleBack}
       />
-      <h1 className={"heading text-2xl"}>{title}</h1>
+      <h1 className={"page-title"}>{title}</h1>
       <div className={"absolute right-3 flex items-center"}>
         {renderRight && renderRight()}
       </div>
