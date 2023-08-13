@@ -2,6 +2,7 @@ import {
   type GetServerSidePropsContext,
   type InferGetServerSidePropsType,
 } from "next";
+import { useRouter } from "next/router";
 import { appConfig } from "@/_config";
 import TopBarLayout from "@/components/layout/TopBarLayout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -28,6 +29,8 @@ import { getServerSession } from "@memory-mate/auth";
 const DeckPage: NextPageWithLayout = authPage(
   ({ id }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const { t } = useTranslation("deck");
+    const { query } = useRouter();
+    const defaultTab = query.tab as string;
     const { data: deck } = api.deck.byId.useQuery(id);
     if (!deck) return null;
     return (
@@ -45,7 +48,7 @@ const DeckPage: NextPageWithLayout = authPage(
         }}
       >
         <DeckProvider deckId={deck.id} cardCount={deck._count.cards}>
-          <Tabs defaultValue={"review"}>
+          <Tabs defaultValue={defaultTab ?? "review"}>
             <TabsList className={"w-full"}>
               <TabsTrigger value={"review"}>{t("review.title")}</TabsTrigger>
               <TabsTrigger value={"cards"}>{t("cards")}</TabsTrigger>

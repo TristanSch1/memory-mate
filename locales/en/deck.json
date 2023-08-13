@@ -6,6 +6,7 @@
   "noDeck": "You don't have any decks yet",
   "deckCard": {
     "menu": {
+      "addCard": "Create new card",
       "edit": "Edit",
       "delete": "Delete"
     }

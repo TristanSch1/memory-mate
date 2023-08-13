@@ -4,8 +4,11 @@ import {
 } from "next";
 import { appConfig } from "@/_config";
 import TopBarLayout from "@/components/layout/TopBarLayout";
-import { ReviewPageBody, ReviewProvider } from "@/features/decks/review";
-import { ReviewContainer } from "@/features/decks/review/components/ReviewContainer";
+import {
+  ReviewContainer,
+  ReviewPageBody,
+  ReviewProvider,
+} from "@/features/decks";
 import { URLPath } from "@/routes";
 import { api } from "@/utils/api";
 import { createServerSideHelpers } from "@trpc/react-query/server";

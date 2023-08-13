@@ -1,8 +1,9 @@
-import DeckCard from "@/features/decks/components/DeckCard/DeckCard";
 import { api } from "@/utils/api";
 import { useTranslation } from "next-i18next";
 
-const DeckList = () => {
+import { DeckCard } from "./DeckCard";
+
+export const DeckList = () => {
   const { t } = useTranslation("deck");
   const deckQuery = api.deck.all.useQuery();
   if (deckQuery.status === "loading") {
@@ -25,5 +26,3 @@ const DeckList = () => {
     </div>
   );
 };
-
-export default DeckList;

@@ -6,7 +6,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import IconButton, { type IconButtonProps } from "@/components/ui/icon-button";
-import { Pencil, Trash } from "lucide-react";
+import { useModal } from "@/providers/ModalProvider";
+import { Pencil, Trash, WalletCards } from "lucide-react";
 import { useTranslation } from "next-i18next";
 
 export const DeckOptionsDropdown = ({
@@ -14,12 +15,17 @@ export const DeckOptionsDropdown = ({
   ...props
 }: IconButtonProps) => {
   const { t } = useTranslation("deck");
+  const { open } = useModal();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <IconButton {...props}>{children}</IconButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
+        <DropdownMenuItem onClick={() => open("createCard")}>
+          <WalletCards className={"mr-2 h-4 w-4"} />
+          <span>{t("deckCard.menu.addCard")}</span>
+        </DropdownMenuItem>
         <DropdownMenuItem>
           <Pencil className={"mr-2 h-4 w-4"} />
           <span>{t("deckCard.menu.edit")}</span>

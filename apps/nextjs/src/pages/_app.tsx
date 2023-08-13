@@ -7,6 +7,7 @@ import {
 } from "react";
 import { type NextPage } from "next";
 import { type AppProps } from "next/app";
+import { ModalProvider } from "@/providers/ModalProvider";
 import { api } from "@/utils/api";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -32,11 +33,13 @@ const MyApp = ({ Component, session, pageProps }: AppPropsWithLayout) => {
   return (
     <SessionProvider session={session}>
       <ThemeProvider>
-        {Component.auth ? (
-          <Auth>{ComponentWithLayout}</Auth>
-        ) : (
-          ComponentWithLayout
-        )}
+        <ModalProvider>
+          {Component.auth ? (
+            <Auth>{ComponentWithLayout}</Auth>
+          ) : (
+            ComponentWithLayout
+          )}
+        </ModalProvider>
       </ThemeProvider>
     </SessionProvider>
   );

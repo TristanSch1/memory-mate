@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { IconWithLabel } from "@/components/ui/icon-with-label";
-import { DeckOptionsDropdown } from "@/features/decks/components/DeckOptionsDropdown";
+import { DeckOptionsDropdown } from "@/features/decks";
 import { URLPath } from "@/routes";
 import dayjs from "dayjs";
 import { MoreVertical, PenSquare, WalletCards } from "lucide-react";
@@ -18,7 +18,7 @@ type Props = {
   deck: RouterOutputs["deck"]["all"][number];
 };
 
-const DeckCard = ({ deck }: Props) => {
+export const DeckCard = ({ deck }: Props) => {
   return (
     <Card
       className={
@@ -48,5 +48,3 @@ const DeckCard = ({ deck }: Props) => {
     </Card>
   );
 };
-
-export default DeckCard;

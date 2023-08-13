@@ -1,13 +1,18 @@
 import Head from "next/head";
 import { MainLayout } from "@/components/layout";
-import CreateDeck from "@/features/decks/components/CreateDeck";
-import DeckList from "@/features/decks/components/DeckList";
+import { Button } from "@/components/ui/button";
+import { DeckList } from "@/features/decks";
 import { type NextPageWithLayout } from "@/pages/_app";
+import { useModal } from "@/providers/ModalProvider";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Home: NextPageWithLayout = () => {
   const { t } = useTranslation();
+  const { open } = useModal();
+  const handleNew = () => {
+    open("createDeck");
+  };
   return (
     <>
       <Head>
@@ -17,7 +22,7 @@ const Home: NextPageWithLayout = () => {
       </Head>
       <div className={"mb-8 flex items-center justify-between"}>
         <h1 className={"page-title"}>{t("deck")}</h1>
-        <CreateDeck />
+        <Button onClick={handleNew}>{t("new")}</Button>
       </div>
       <DeckList />
     </>
