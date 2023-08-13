@@ -1,9 +1,9 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { CreateCard, type CreateCardProps } from "@/features/cards";
-import { CreateDeck } from "@/features/decks";
+import { CreateDeck, EditDeck, type EditDeckProps } from "@/features/decks";
 
-const MODALS = ["createCard", "createDeck"] as const;
+const MODALS = ["createCard", "createDeck", "editDeck"] as const;
 export type ModalName = typeof MODALS[number];
 
 interface ModalState {
@@ -23,6 +23,7 @@ const MODAL_CONTENT: {
 } = {
   createCard: (props: CreateCardProps) => <CreateCard {...props} />,
   createDeck: () => <CreateDeck />,
+  editDeck: (props: EditDeckProps) => <EditDeck {...props} />,
 };
 
 type Props = {

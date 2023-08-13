@@ -29,28 +29,41 @@ const deckSchema = z.object({
 
 const errorTranslation = { namespace: "deck", baseKey: "form.error" };
 
-type DeckFormInputs = z.infer<typeof deckSchema>;
+export type DeckFormInputs = z.infer<typeof deckSchema>;
 
 type Props = {
-  onSuccess: () => void;
+  data?: DeckFormInputs & { id: string };
+  onSuccess?: () => void;
 };
 
-const DeckForm = (props: Props) => {
+export const DeckForm = (props: Props) => {
   const { t } = useTranslation("deck");
   const form = useForm({
     resolver: zodResolver(deckSchema),
+    defaultValues: props.data,
   });
   const utils = api.useContext();
 
-  const { mutate, error } = api.deck.create.useMutation({
+  const { mutate: createMutate } = api.deck.create.useMutation({
     async onSuccess() {
       await utils.deck.all.invalidate();
-      props.onSuccess();
+      props.onSuccess?.();
+    },
+  });
+
+  const { mutate: editMutate } = api.deck.update.useMutation({
+    async onSuccess() {
+      await utils.deck.all.invalidate();
+      props.onSuccess?.();
     },
   });
 
   const onSubmit = (data: DeckFormInputs) => {
-    mutate(data);
+    if (props.data) {
+      editMutate({ ...data, id: props.data.id });
+    } else {
+      createMutate(data);
+    }
   };
   return (
     <Form {...form}>
@@ -88,5 +101,3 @@ const DeckForm = (props: Props) => {
     </Form>
   );
 };
-
-export default DeckForm;

@@ -6,7 +6,7 @@ import {
 import { useModal } from "@/providers/ModalProvider";
 import { useTranslation } from "next-i18next";
 
-import DeckForm from "../components/DeckForm";
+import { DeckForm } from "../components/DeckForm";
 
 export const CreateDeck = () => {
   const { t } = useTranslation("deck");

@@ -39,7 +39,7 @@ const DeckPage: NextPageWithLayout = authPage(
           title: deck.name,
           backRoute: URLPath.home,
           renderRight: () => (
-            <DeckOptionsDropdown deckId={deck.id}>
+            <DeckOptionsDropdown deck={deck}>
               <MoreHorizontal
                 className={"text-neutral-500 group-hover:text-neutral-950"}
               />

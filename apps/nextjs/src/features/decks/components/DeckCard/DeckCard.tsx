@@ -39,7 +39,7 @@ export const DeckCard = ({ deck }: Props) => {
         </CardFooter>
       </Link>
       <div className={"absolute right-4 top-4"}>
-        <DeckOptionsDropdown deckId={deck.id}>
+        <DeckOptionsDropdown deck={deck}>
           <MoreVertical
             className={"text-neutral-500 group-hover:text-neutral-950"}
           />

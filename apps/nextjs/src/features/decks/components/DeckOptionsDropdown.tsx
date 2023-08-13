@@ -10,10 +10,12 @@ import { useModal } from "@/providers/ModalProvider";
 import { Pencil, Trash, WalletCards } from "lucide-react";
 import { useTranslation } from "next-i18next";
 
+import { type RouterOutputs } from "@memory-mate/api";
+
 type Props = IconButtonProps & {
-  deckId: string;
+  deck: RouterOutputs["deck"]["create"];
 };
-export const DeckOptionsDropdown = ({ deckId, children, ...props }: Props) => {
+export const DeckOptionsDropdown = ({ deck, children, ...props }: Props) => {
   const { t } = useTranslation("deck");
   const { open } = useModal();
   return (
@@ -22,11 +24,13 @@ export const DeckOptionsDropdown = ({ deckId, children, ...props }: Props) => {
         <IconButton {...props}>{children}</IconButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuItem onClick={() => open("createCard", { deckId })}>
+        <DropdownMenuItem
+          onClick={() => open("createCard", { deckId: deck.id })}
+        >
           <WalletCards className={"mr-2 h-4 w-4"} />
           <span>{t("deckCard.menu.addCard")}</span>
         </DropdownMenuItem>
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={() => open("editDeck", { deck })}>
           <Pencil className={"mr-2 h-4 w-4"} />
           <span>{t("deckCard.menu.edit")}</span>
         </DropdownMenuItem>

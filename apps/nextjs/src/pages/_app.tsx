@@ -33,13 +33,13 @@ const MyApp = ({ Component, session, pageProps }: AppPropsWithLayout) => {
   return (
     <SessionProvider session={session}>
       <ThemeProvider>
-        <ModalProvider>
-          {Component.auth ? (
-            <Auth>{ComponentWithLayout}</Auth>
-          ) : (
-            ComponentWithLayout
-          )}
-        </ModalProvider>
+        {Component.auth ? (
+          <Auth>
+            <ModalProvider>{ComponentWithLayout}</ModalProvider>
+          </Auth>
+        ) : (
+          ComponentWithLayout
+        )}
       </ThemeProvider>
     </SessionProvider>
   );
