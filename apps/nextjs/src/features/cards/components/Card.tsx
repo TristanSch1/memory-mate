@@ -1,7 +1,8 @@
 import { type ComponentPropsWithoutRef } from "react";
 import { Card as GenericCard } from "@/components/ui/card";
-import { type TCard } from "@/features/cards/types";
 import { cn } from "@/lib/utils";
+
+import { type TCard } from "../types";
 
 type Props = ComponentPropsWithoutRef<"div"> & {
   card: TCard;
@@ -9,7 +10,13 @@ type Props = ComponentPropsWithoutRef<"div"> & {
   active?: boolean;
 };
 
-const Card = ({ card, editMode, active, className, ...props }: Props) => {
+export const Card = ({
+  card,
+  editMode,
+  active,
+  className,
+  ...props
+}: Props) => {
   return (
     <GenericCard
       {...props}
@@ -26,5 +33,3 @@ const Card = ({ card, editMode, active, className, ...props }: Props) => {
     </GenericCard>
   );
 };
-
-export default Card;

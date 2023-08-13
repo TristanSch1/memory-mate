@@ -8,7 +8,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useDeck } from "@/features/decks/components/DeckProvider";
 import { api, type RouterInputs } from "@/utils/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Editor } from "@tinymce/tinymce-react";
@@ -42,30 +41,30 @@ const errorTranslation = { namespace: "card", baseKey: "form.error" };
 type CardFormInputs = z.infer<typeof cardSchema>;
 
 type Props = {
+  deckId?: string;
   card?: RouterInputs["card"]["update"];
-  onSuccess: () => void;
+  onSuccess?: () => void;
 };
 
 const CardForm = (props: Props) => {
   const { t } = useTranslation("card");
-  const { deckId } = useDeck();
   const form = useForm({
     defaultValues: props.card ?? { front: "", back: "" },
     resolver: zodResolver(cardSchema),
   });
 
   const utils = api.useContext();
-  const { mutate: createMutate, error } = api.card.create.useMutation({
+  const { mutate: createMutate } = api.card.create.useMutation({
     async onSuccess() {
       await utils.card.all.invalidate();
-      props.onSuccess();
+      props.onSuccess?.();
     },
   });
 
   const { mutate: updateMutate } = api.card.update.useMutation({
     async onSuccess() {
       await utils.card.all.invalidate();
-      props.onSuccess();
+      props.onSuccess?.();
     },
   });
 
@@ -73,7 +72,7 @@ const CardForm = (props: Props) => {
     if (props.card) {
       updateMutate({ ...data, id: props.card.id });
     } else {
-      createMutate({ ...data, deckId });
+      createMutate({ ...data, deckId: props.deckId });
     }
   };
   return (

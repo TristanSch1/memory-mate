@@ -1,13 +1,13 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { CreateCard } from "@/features/cards";
+import { CreateCard, type CreateCardProps } from "@/features/cards";
 import { CreateDeck } from "@/features/decks";
 
 const MODALS = ["createCard", "createDeck"] as const;
 export type ModalName = typeof MODALS[number];
 
 interface ModalState {
-  modal: ModalName | null;
+  modal: { name: ModalName; props?: any } | null;
   open: (modalName: ModalName, props?: any) => void;
   close: () => void;
 }
@@ -19,10 +19,10 @@ const ModalContext = createContext<ModalState>({
 });
 
 const MODAL_CONTENT: {
-  [key in ModalName]: ReactNode;
+  [key in ModalName]: (props?: any) => ReactNode;
 } = {
-  createCard: <CreateCard />,
-  createDeck: <CreateDeck />,
+  createCard: (props: CreateCardProps) => <CreateCard {...props} />,
+  createDeck: () => <CreateDeck />,
 };
 
 type Props = {
@@ -37,8 +37,8 @@ export const ModalProvider = ({ children }: Props) => {
     }
   };
 
-  const open = (modalName: ModalName) => {
-    setModal(modalName);
+  const open = (modalName: ModalName, props?: any) => {
+    setModal({ name: modalName, props });
   };
 
   const close = () => {
@@ -48,7 +48,9 @@ export const ModalProvider = ({ children }: Props) => {
   return (
     <ModalContext.Provider value={{ modal, open, close }}>
       <Dialog open={!!modal} onOpenChange={handleOpenChange}>
-        <DialogContent>{modal && MODAL_CONTENT[modal]}</DialogContent>
+        <DialogContent>
+          {modal && MODAL_CONTENT[modal.name](modal.props)}
+        </DialogContent>
       </Dialog>
       {children}
     </ModalContext.Provider>

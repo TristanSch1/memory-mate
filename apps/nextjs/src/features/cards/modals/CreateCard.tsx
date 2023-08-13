@@ -8,7 +8,10 @@ import { useTranslation } from "next-i18next";
 
 import CardForm from "../components/CardForm";
 
-export const CreateCard = () => {
+export type CreateCardProps = {
+  deckId: string;
+};
+export const CreateCard = (props: CreateCardProps) => {
   const { t } = useTranslation("card");
   const { close } = useModal();
   return (
@@ -17,7 +20,7 @@ export const CreateCard = () => {
         <DialogTitle>{t("create.title")}</DialogTitle>
         <DialogDescription>{t("create.description")}</DialogDescription>
       </DialogHeader>
-      <CardForm onSuccess={close} />
+      <CardForm onSuccess={close} deckId={props.deckId} />
     </>
   );
 };

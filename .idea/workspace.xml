@@ -6,25 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardEdit.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardTabContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardTabContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CreateCard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/CreateDeck.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/modals/CreateDeck.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/CreateCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/CreateCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard/DeckCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckOptionsDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckOptionsDropdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/review/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/deck/[id]/review/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/routes/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/tailwind.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/deck.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/fr/deck.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/deck.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/providers/ModalProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/providers/ModalProvider.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +135,7 @@
       <workItem from="1691840699293" duration="953000" />
       <workItem from="1691841664356" duration="3123000" />
       <workItem from="1691844800923" duration="8424000" />
-      <workItem from="1691926691263" duration="3193000" />
+      <workItem from="1691926691263" duration="4289000" />
     </task>
     <servers />
   </component>

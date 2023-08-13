@@ -3,7 +3,6 @@ import { useDeck } from "@/features/decks";
 import { useModal } from "@/providers/ModalProvider";
 import { useTranslation } from "next-i18next";
 
-import CardEdit from "./CardEdit";
 import CardList from "./CardList";
 import CardListMenuBar from "./CardListMenuBar";
 import { CardStoreProvider } from "./CardsProvider";
@@ -13,7 +12,7 @@ export const CardTabContent = () => {
   const { deckId } = useDeck();
   const { open } = useModal();
   const handleNew = () => {
-    open("createCard");
+    open("createCard", { deckId });
   };
   return (
     <CardStoreProvider deckId={deckId}>
@@ -27,7 +26,6 @@ export const CardTabContent = () => {
         <CardListMenuBar />
         <CardList />
       </div>
-      <CardEdit />
     </CardStoreProvider>
   );
 };

@@ -1,6 +1,7 @@
-import Card from "@/features/cards/components/Card";
-import { useCardStore } from "@/features/cards/components/CardsProvider";
 import { useStore } from "zustand";
+
+import { Card } from "./Card";
+import { useCardStore } from "./CardsProvider";
 
 const CardList = () => {
   const store = useCardStore();
