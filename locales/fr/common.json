@@ -1,2 +1,13 @@
 {
+  "test": "Tedwqdqwdwqdqwdwqst",
+  "card": {
+    "delete": {
+      "button": "Supprimer",
+      "title_one": "Êtes-vous sûr de vouloir supprimer cette carte ?",
+      "title_other": "Êtes-vous sûr de vouloir supprimer ces cartes ?",
+      "description": "Cette action est irréversible.",
+      "confirm": "Supprimer",
+      "cancel": "Annuler"
+    }
+  }
 }

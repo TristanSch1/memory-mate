@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,13 +6,20 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import DeleteCards from "@/features/cards/components/DeleteCards";
+import { useModal } from "@/providers/ModalProvider";
 import { MoreVertical, TrashIcon } from "lucide-react";
 import { useTranslation } from "next-i18next";
+import { useStore } from "zustand";
+
+import { useCardStore } from "./CardsProvider";
 
 const CardActions = () => {
   const { t } = useTranslation("card");
-  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const cardStore = useCardStore();
+  const { selectedCards } = useStore(cardStore, (state) => ({
+    selectedCards: state.selectedCards,
+  }));
+  const { open } = useModal();
   return (
     <>
       <DropdownMenu>
@@ -23,13 +29,14 @@ const CardActions = () => {
         <DropdownMenuContent>
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => setDeleteDialogOpen(true)}>
+          <DropdownMenuItem
+            onClick={() => open("deleteCard", { cardIds: selectedCards })}
+          >
             <TrashIcon className={"mr-2 h-4 w-4"} />
             {t("delete")}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <DeleteCards open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen} />
     </>
   );
 };

@@ -1,14 +1,6 @@
 {
   "selected_one": "{{count}} carte sélectionnée",
   "selected_other": "{{count}} cartes sélectionnées",
-  "delete:": {
-    "button": "Supprimer",
-    "title_one": "Êtes-vous sûr de vouloir supprimer cette carte ?",
-    "title_other": "Êtes-vous sûr de vouloir supprimer ces cartes ?",
-    "description": "Cette action est irréversible.",
-    "confirm": "Supprimer",
-    "cancel": "Annuler"
-  },
   "edit": {
     "title": "Modifier",
     "save": "Sauvegarder",

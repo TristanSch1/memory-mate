@@ -1,11 +1,39 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
+import { AlertDialog, AlertDialogContent } from "@/components/ui/alert-dialog";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { CreateCard, type CreateCardProps } from "@/features/cards";
+import {
+  CreateCard,
+  DeleteCards,
+  type CreateCardProps,
+  type DeleteCardsProps,
+} from "@/features/cards";
 import { CreateDeck, EditDeck, type EditDeckProps } from "@/features/decks";
 
-const MODALS = ["createCard", "createDeck", "editDeck"] as const;
-export type ModalName = typeof MODALS[number];
+export type ModalName = "createCard" | "deleteCard" | "createDeck" | "editDeck";
 
+type Modal = {
+  type: "alert" | "dialog";
+  content: (props?: any) => ReactNode;
+};
+
+const MODALS: { [key in ModalName]: Modal } = {
+  createCard: {
+    type: "dialog",
+    content: (props: CreateCardProps) => <CreateCard {...props} />,
+  },
+  deleteCard: {
+    type: "alert",
+    content: (props: DeleteCardsProps) => <DeleteCards {...props} />,
+  },
+  createDeck: {
+    type: "dialog",
+    content: () => <CreateDeck />,
+  },
+  editDeck: {
+    type: "dialog",
+    content: (props: EditDeckProps) => <EditDeck {...props} />,
+  },
+};
 interface ModalState {
   modal: { name: ModalName; props?: any } | null;
   open: (modalName: ModalName, props?: any) => void;
@@ -17,14 +45,6 @@ const ModalContext = createContext<ModalState>({
   open: () => void {},
   close: () => void {},
 });
-
-const MODAL_CONTENT: {
-  [key in ModalName]: (props?: any) => ReactNode;
-} = {
-  createCard: (props: CreateCardProps) => <CreateCard {...props} />,
-  createDeck: () => <CreateDeck />,
-  editDeck: (props: EditDeckProps) => <EditDeck {...props} />,
-};
 
 type Props = {
   children: ReactNode;
@@ -48,11 +68,22 @@ export const ModalProvider = ({ children }: Props) => {
 
   return (
     <ModalContext.Provider value={{ modal, open, close }}>
-      <Dialog open={!!modal} onOpenChange={handleOpenChange}>
+      <Dialog
+        open={!!modal && MODALS[modal.name].type === "dialog"}
+        onOpenChange={handleOpenChange}
+      >
         <DialogContent>
-          {modal && MODAL_CONTENT[modal.name](modal.props)}
+          {modal && MODALS[modal.name].content(modal.props)}
         </DialogContent>
       </Dialog>
+      <AlertDialog
+        open={!!modal && MODALS[modal.name].type === "alert"}
+        onOpenChange={handleOpenChange}
+      >
+        <AlertDialogContent>
+          {modal && MODALS[modal.name].content(modal.props)}
+        </AlertDialogContent>
+      </AlertDialog>
       {children}
     </ModalContext.Provider>
   );
