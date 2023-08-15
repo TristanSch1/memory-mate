@@ -3,7 +3,7 @@
   "create": "Créer un nouveau deck",
   "new": "Nouveau deck",
   "search": "Rechercher un deck",
-  "noDeck": "Vous n'avez pas encore de deck.",
+  "noDeck": "Aucun deck trouvé",
   "deckCard": {
     "menu": {
       "addCard": "Ajouter une carte",
@@ -14,6 +14,16 @@
   "review": {
     "title": "Réviser",
     "start": "Commencer"
+  },
+  "stats": {
+    "graph": {
+      "title": "Notes"
+    },
+    "title": "Statistiques",
+    "totalReviews": "Nombre de révisions",
+    "averageReviewTime": "Temps moyen de révision",
+    "totalCards": "Nombre de cartes",
+    "todayReviews": "Revues aujourd'hui"
   },
   "cards": "Cartes",
   "form": {

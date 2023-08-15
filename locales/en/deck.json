@@ -3,7 +3,7 @@
   "create": "Create new deck",
   "new": "New deck",
   "search": "Search decks",
-  "noDeck": "You don't have any decks yet",
+  "noDeck": "No deck found",
   "deckCard": {
     "menu": {
       "addCard": "Create new card",
@@ -14,6 +14,16 @@
   "review": {
     "title": "Review",
     "start": "Start review"
+  },
+  "stats": {
+    "graph": {
+      "title": "Grade"
+    },
+    "title": "Stats",
+    "totalReviews": "Number of reviews",
+    "averageReviewTime": "Average review time",
+    "totalCards": "Number of cards",
+    "todayReviews": "Reviews today"
   },
   "cards": "Cards",
   "form": {

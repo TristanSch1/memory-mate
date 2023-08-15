@@ -65,7 +65,6 @@ model Card {
     back      String
     deck        Deck     @relation(fields: [deckId], references: [id], onDelete: Cascade)
     deckId      String
-    grade      Int?
     reviews     CardReview[]
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt

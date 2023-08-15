@@ -61,7 +61,6 @@ export const deckReviewRouter = createTRPCRouter({
           },
         },
       });
-      console.log("lastReviews", lastReviews);
       const averageReviewDuration = await ctx.prisma.deckReview.aggregate({
         where: {
           deckId: input.deckId,

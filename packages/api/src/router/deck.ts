@@ -14,13 +14,42 @@ export const deckRouter = createTRPCRouter({
         createdAt: "desc",
       },
     });
+
+    const avgDuration = await ctx.prisma.deckReview.aggregate({
+      where: {
+        deckId: input,
+      },
+      _avg: {
+        duration: true,
+      },
+    });
+
+    const todayReviewCount = await ctx.prisma.deckReview.count({
+      where: {
+        deckId: input,
+        createdAt: {
+          gt: new Date(new Date().setHours(0, 0, 0, 0)),
+        },
+      },
+    });
+
     const deck = await ctx.prisma.deck.findUnique({
       where: {
         id: input,
       },
       include: {
         _count: {
-          select: { cards: true },
+          select: { reviews: true },
+        },
+        cards: {
+          include: {
+            reviews: {
+              take: 1,
+              orderBy: {
+                createdAt: "desc",
+              },
+            },
+          },
         },
       },
     });
@@ -33,6 +62,8 @@ export const deckRouter = createTRPCRouter({
     return {
       ...deck,
       lastReview,
+      todayReviewCount,
+      avgDeckReviewDuration: avgDuration._avg.duration,
     };
   }),
   all: protectedProcedure.input(listQuery).query(({ input, ctx }) => {
@@ -41,6 +72,7 @@ export const deckRouter = createTRPCRouter({
         ownerId: ctx.session.user.id,
         name: {
           contains: input?.search,
+          mode: "insensitive",
         },
       },
       include: {
