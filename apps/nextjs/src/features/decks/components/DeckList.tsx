@@ -3,9 +3,12 @@ import { useTranslation } from "next-i18next";
 
 import { DeckCard } from "./DeckCard";
 
-export const DeckList = () => {
+type Props = {
+  search?: string;
+};
+export const DeckList = ({ search }: Props) => {
   const { t } = useTranslation("deck");
-  const deckQuery = api.deck.all.useQuery();
+  const deckQuery = api.deck.all.useQuery({ search });
   if (deckQuery.status === "loading") {
     //TODO LOADER
     return <div>Chargement...</div>;
