@@ -1,4 +1,8 @@
 {
+  "nav": {
+    "decks": "Decks",
+    "folders": "Folders"
+  },
   "card": {
     "delete": {
       "button": "Delete",
