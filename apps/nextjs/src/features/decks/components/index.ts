@@ -5,3 +5,4 @@ export * from "./SmallDeckCard";
 export * from "./DeckFinder";
 export * from "./DeckOptionsDropdown";
 export * from "./DeckProvider";
+export * from "./DeckSearchBar";

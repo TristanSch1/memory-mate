@@ -47,7 +47,7 @@ const DeckPage: NextPageWithLayout = authPage(
           ),
         }}
       >
-        <DeckProvider deckId={deck.id} cardCount={deck._count.cards}>
+        <DeckProvider deck={deck}>
           <Tabs defaultValue={defaultTab ?? "review"}>
             <TabsList className={"w-full"}>
               <TabsTrigger value={"review"}>{t("review.title")}</TabsTrigger>

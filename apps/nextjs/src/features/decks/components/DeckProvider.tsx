@@ -1,23 +1,20 @@
 import { createContext, useContext, type ReactNode } from "react";
 
-const DeckContext = createContext<{ deckId: string; cardCount: number }>({
-  deckId: "",
-  cardCount: 0,
+import { type RouterOutputs } from "@memory-mate/api";
+
+type DeckContextType = {
+  deck: RouterOutputs["deck"]["byId"];
+};
+const DeckContext = createContext<DeckContextType>({
+  deck: {} as DeckContextType["deck"],
 });
 
 export const DeckProvider = ({
-  deckId,
-  cardCount,
+  deck,
   children,
-}: {
-  deckId: string;
-  cardCount: number;
-  children: ReactNode;
-}) => {
+}: DeckContextType & { children: ReactNode }) => {
   return (
-    <DeckContext.Provider value={{ deckId, cardCount }}>
-      {children}
-    </DeckContext.Provider>
+    <DeckContext.Provider value={{ deck }}>{children}</DeckContext.Provider>
   );
 };
 
