@@ -7,13 +7,14 @@ import {
   StatisticSectionProgressItem,
   StatisticSectionTitle,
 } from "@/components/ui/statistic-section";
-import { useReview } from "@/features/decks/review";
-import { Graph } from "@/features/decks/statistics/components/Graph";
+import { Graph, useReview } from "@/features/decks";
 import { URLPath } from "@/routes";
 import { api, type RouterOutputs } from "@/utils/api";
 import { useTranslation } from "next-i18next";
 
 import { formatDeckReviewDuration } from "@memory-mate/utils";
+
+import { getReviewStats } from "../../review/utils";
 
 type SessionReviewRecapProps = {
   lastReview: RouterOutputs["deckReview"]["recap"]["lastReview"];
@@ -24,6 +25,7 @@ const SessionReviewRecap = ({
   duration,
 }: SessionReviewRecapProps) => {
   const { t } = useTranslation("review");
+  const stats = getReviewStats(lastReview);
   return (
     <StatisticSection>
       <StatisticSectionTitle>{t("recap.session.title")}</StatisticSectionTitle>
@@ -31,7 +33,7 @@ const SessionReviewRecap = ({
         label={t("recap.session.duration")}
         value={formatDeckReviewDuration(duration)}
       />
-      <Graph review={lastReview} />
+      <Graph stats={stats} />
     </StatisticSection>
   );
 };

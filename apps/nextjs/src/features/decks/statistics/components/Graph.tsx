@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { GRADE_COLORS } from "@/features/decks/review/config/colors";
-import { Grade } from "@/features/decks/review/types";
+import { useMemo } from "react";
 import {
   Bar,
   BarChart,
@@ -11,26 +9,25 @@ import {
   YAxis,
 } from "recharts";
 
-import { type RouterOutputs } from "@memory-mate/api";
+import { GRADE_COLORS } from "../../review/config/colors";
+import { type TGrade } from "../../review/types";
 
-type Props = {
-  review: RouterOutputs["deckReview"]["recap"]["lastReview"];
+export type GraphProps = {
+  stats: { [key in TGrade]: number };
 };
 
-export const Graph = ({ review }: Props) => {
-  const [maxAmount, setMaxAmount] = useState(0);
-  const data = Grade.map((grade) => {
-    const amount = review.cardReviews.filter(
-      (review) => review.grade === grade,
-    ).length;
-    if (amount > maxAmount) {
-      setMaxAmount(amount);
-    }
-    return {
-      name: grade,
-      amount,
-    };
-  });
+export const Graph = ({ stats }: GraphProps) => {
+  const { data, maxAmount } = useMemo(() => {
+    let maxAmount = 0;
+    const data = Object.entries(stats).map(([name, amount]) => {
+      if (amount > maxAmount) {
+        maxAmount = amount;
+      }
+      return { name, amount };
+    });
+
+    return { data, maxAmount };
+  }, [stats]);
   return (
     <ResponsiveContainer width={"100%"} height={300}>
       <BarChart data={data}>

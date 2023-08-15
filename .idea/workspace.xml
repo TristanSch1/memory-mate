@@ -6,13 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardActions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/providers/ModalProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/providers/ModalProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/card.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckReviewTabContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckReviewTabContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/RateCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/RateCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewRecap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewRecap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/StartReview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/StartReviewButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/statistics/components/Graph.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/statistics/components/Graph.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locales/en/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/fr/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/card.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locales/fr/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/common.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +134,7 @@
       <workItem from="1691841664356" duration="3123000" />
       <workItem from="1691844800923" duration="8424000" />
       <workItem from="1691926691263" duration="7679000" />
-      <workItem from="1692031593464" duration="2901000" />
+      <workItem from="1692031593464" duration="5693000" />
     </task>
     <servers />
   </component>

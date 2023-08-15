@@ -1,4 +1,4 @@
-import { StartReview } from "@/features/decks";
+import { StartReviewButton } from "@/features/decks";
 import { useTranslation } from "next-i18next";
 
 export const DeckReviewTabContent = () => {
@@ -9,7 +9,7 @@ export const DeckReviewTabContent = () => {
         <h2 className={"heading text-2xl"}>{t("review.title")}</h2>
         <label>{}</label>
       </div>
-      <StartReview />
+      <StartReviewButton />
     </div>
   );
 };

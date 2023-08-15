@@ -5,7 +5,7 @@ import { useDeck } from "@/features/decks";
 import { URLPath } from "@/routes";
 import { useTranslation } from "next-i18next";
 
-export const StartReview = () => {
+export const StartReviewButton = () => {
   const { t } = useTranslation("deck");
   const { cardCount, deckId } = useDeck();
   const { push } = useRouter();

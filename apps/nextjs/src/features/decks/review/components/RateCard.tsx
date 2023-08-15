@@ -6,7 +6,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useReview } from "@/features/decks/review";
-import { Grade, type TGrade } from "@/features/decks/review/types";
+import { GRADES, type TGrade } from "@/features/decks/review/types";
 import { clsx } from "clsx";
 import { useTranslation } from "next-i18next";
 
@@ -58,7 +58,7 @@ const RateTooltip = ({ grade }: { grade: TGrade }) => {
 export const RateCard = () => {
   return (
     <div className={"flex w-full rounded-lg border"}>
-      {Grade.map((grade) => (
+      {GRADES.map((grade) => (
         <RateTooltip grade={grade} key={grade} />
       ))}
     </div>
