@@ -13,6 +13,7 @@
   "dependencies": {
     "@memory-mate/auth": "^0.1.0",
     "@memory-mate/db": "^0.1.0",
+    "@memory-mate/utils": "workspace:*",
     "@trpc/client": "^10.32.0",
     "@trpc/server": "^10.32.0",
     "superjson": "1.9.1",

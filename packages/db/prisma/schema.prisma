@@ -103,7 +103,7 @@ model CardReview {
     deckReviewId String
     grade       Int
     easiness    Float
-    interval    Int
+    dueDate     DateTime
     streak      Int
     duration    Int
     createdAt   DateTime @default(now())

@@ -1,7 +1,10 @@
 import { z } from "zod";
 
+import { daysToMilliseconds } from "@memory-mate/utils";
+
 import {
   calculateEasinessFactor,
+  dueDateToInterval,
   getInterval,
   getStreak,
 } from "../helpers/review";
@@ -29,10 +32,14 @@ export const cardReviewRouter = createTRPCRouter({
         lastReview?.easiness,
       );
 
+      const previousInterval = lastReview?.dueDate
+        ? dueDateToInterval(lastReview.dueDate)
+        : 1;
+
       const interval = getInterval(
         input.grade,
         easiness,
-        lastReview?.interval,
+        previousInterval,
         lastReview?.streak,
       );
 
@@ -45,8 +52,8 @@ export const cardReviewRouter = createTRPCRouter({
           grade: input.grade,
           duration: input.duration,
           easiness,
-          interval,
           streak,
+          dueDate: new Date(Date.now() + daysToMilliseconds(interval)),
         },
       });
     }),

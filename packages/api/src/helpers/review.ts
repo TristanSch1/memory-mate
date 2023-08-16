@@ -1,3 +1,5 @@
+import { millisecondsToDays } from "@memory-mate/utils";
+
 export const calculateEasinessFactor = (
   grade: number,
   easinessFactor = 2.5,
@@ -6,6 +8,20 @@ export const calculateEasinessFactor = (
   return EF < 1.3 ? 1.3 : EF;
 };
 
+export const dueDateToInterval = (dueDate: Date) => {
+  const now = new Date();
+  const diff = dueDate.getTime() - now.getTime();
+
+  return Math.round(millisecondsToDays(diff));
+};
+
+/**
+ * Calculates interval in days for next review based on grade, easiness factor, interval and streak
+ * @param grade
+ * @param easinessFactor
+ * @param interval
+ * @param streak
+ */
 export const getInterval = (
   grade: number,
   easinessFactor: number,
