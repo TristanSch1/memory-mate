@@ -1,19 +1,15 @@
-import { useCallback } from "react";
-import { useRouter } from "next/router";
 import { Button } from "@/components/ui/button";
-import { useDeck } from "@/features/decks";
-import { URLPath } from "@/routes";
 import { useTranslation } from "next-i18next";
 
-export const StartReviewButton = () => {
-  const { t } = useTranslation("deck");
-  const { cardCount, deckId } = useDeck();
-  const { push } = useRouter();
+import { useStartReview } from "../hooks/useStartReview";
 
-  const startReview = useCallback(() => {
-    if (cardCount === 0) return alert("No cards to review");
-    void push(URLPath.review(deckId));
-  }, [cardCount]);
+type Props = {
+  deckId: string;
+};
+export const StartReviewButton = ({ deckId }: Props) => {
+  const { t } = useTranslation("deck");
+  const { startReview } = useStartReview(deckId);
+
   return (
     <Button size={"lg"} onClick={startReview}>
       {t("review.start")}

@@ -55,10 +55,14 @@ export const cardRouter = createTRPCRouter({
     .mutation(({ input, ctx }) => {
       return ctx.prisma.card.create({
         data: {
-          deckId: input.deckId,
           front: input.front,
           back: input.back,
           dueDate: new Date(),
+          deck: {
+            connect: {
+              id: input.deckId,
+            },
+          },
         },
       });
     }),

@@ -9,13 +9,13 @@ import { CardStoreProvider } from "./CardsProvider";
 
 export const CardTabContent = () => {
   const { t } = useTranslation("card");
-  const { deckId } = useDeck();
+  const { deck } = useDeck();
   const { open } = useModal();
   const handleNew = () => {
-    open("createCard", { deckId });
+    open("createCard", { deckId: deck.id });
   };
   return (
-    <CardStoreProvider deckId={deckId}>
+    <CardStoreProvider deckId={deck.id}>
       <div className={"space-y-4"}>
         <div className={"mb-4 flex items-center justify-between"}>
           <h2 className={"heading text-2xl"}>{t("cards")}</h2>

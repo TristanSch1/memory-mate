@@ -7,7 +7,7 @@ import {
   StatisticSectionProgressItem,
   StatisticSectionTitle,
 } from "@/components/ui/statistic-section";
-import { getStatsForGraph, Graph, useReview } from "@/features/decks";
+import { getStatsForGraph, Graph } from "@/features/decks";
 import { URLPath } from "@/routes";
 import { api, type RouterOutputs } from "@/utils/api";
 import { useTranslation } from "next-i18next";
@@ -76,9 +76,12 @@ const DeckReviewRecap = ({
     </StatisticSection>
   );
 };
-export const ReviewRecap = () => {
+
+type Props = {
+  deckId: string;
+};
+export const ReviewRecap = ({ deckId }: Props) => {
   const { t } = useTranslation("review");
-  const { deckId } = useReview();
   const { push, reload } = useRouter();
   const { data: recap, isLoading } = api.deckReview.recap.useQuery({ deckId });
   const lastReview = recap?.lastReview;

@@ -1,16 +1,20 @@
 import { useRef, useState } from "react";
-import { type TGrade, type TReviewState } from "@/features/decks";
+import { useRouter } from "next/router";
+import { type TGrade } from "@/features/decks";
+import { URLPath } from "@/routes";
 import { api, type RouterOutputs } from "@/utils/api";
 
 export const useReviewStates = (
   deck: NonNullable<RouterOutputs["deck"]["forReview"]>,
   deckReview: NonNullable<RouterOutputs["deckReview"]["create"]>,
 ) => {
-  const [reviewState, setReviewState] = useState<TReviewState>("REVIEWING");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+
   const deckReviewStartTimestamp = useRef(Date.now());
   const cardReviewStartTimestamp = useRef(Date.now());
+
+  const router = useRouter();
 
   const card = deck.cards[currentIndex];
 
@@ -26,7 +30,7 @@ export const useReviewStates = (
   const { mutate: deckReviewMutation } = api.deckReview.update.useMutation({
     onSuccess() {
       deckReviewStartTimestamp.current = Date.now();
-      setReviewState("FINISHED");
+      void router.push(URLPath.reviewRecap(deck.id, deckReview.id));
     },
   });
   const onFinish = (duration: number) => {
@@ -78,7 +82,6 @@ export const useReviewStates = (
     flip,
     isFlipped,
     review,
-    reviewState,
     card,
   };
 };

@@ -1,7 +1,8 @@
-import { useReview } from "@/features/decks/review";
-import { FlipButton } from "@/features/decks/review/components/FlipButton";
-import { RateCard } from "@/features/decks/review/components/RateCard";
-import { ReviewCard } from "@/features/decks/review/components/ReviewCard";
+import { useReview } from "@/features/decks";
+
+import { FlipButton } from "./FlipButton";
+import { RateCard } from "./RateCard";
+import { ReviewCard } from "./ReviewCard";
 
 export const Review = () => {
   const { card, isFlipped, flip } = useReview();

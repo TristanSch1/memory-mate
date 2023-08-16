@@ -4,11 +4,7 @@ import {
 } from "next";
 import { appConfig } from "@/_config";
 import TopBarLayout from "@/components/layout/TopBarLayout";
-import {
-  ReviewContainer,
-  ReviewPageBody,
-  ReviewProvider,
-} from "@/features/decks";
+import { Review, ReviewContainer, ReviewProvider } from "@/features/decks";
 import { URLPath } from "@/routes";
 import { api } from "@/utils/api";
 import { createServerSideHelpers } from "@trpc/react-query/server";
@@ -21,10 +17,10 @@ import { getServerSession } from "@memory-mate/auth";
 import { prisma } from "@memory-mate/db";
 
 const ReviewPage = ({
-  id,
+  deckId,
   deckReview,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { data: deck } = api.deck.forReview.useQuery({ deckId: id });
+  const { data: deck } = api.deck.forReview.useQuery({ deckId });
 
   if (!deck || !deckReview) {
     return <p>Error not found</p>;
@@ -32,11 +28,11 @@ const ReviewPage = ({
 
   return (
     <TopBarLayout
-      headerProps={{ title: deck.name, backRoute: URLPath.deck(id) }}
+      headerProps={{ title: deck.name, backRoute: URLPath.deck(deckId) }}
     >
       <ReviewProvider deck={deck} deckReview={deckReview}>
         <ReviewContainer>
-          <ReviewPageBody />
+          <Review />
         </ReviewContainer>
       </ReviewProvider>
     </TopBarLayout>
@@ -48,27 +44,30 @@ export const getServerSideProps = async ({
   req,
   res,
   locale,
-}: GetServerSidePropsContext<{ id: string }>) => {
+}: GetServerSidePropsContext<{ deckId: string; reviewId: string }>) => {
   const session = await getServerSession({ req, res });
   const helpers = createServerSideHelpers({
     router: appRouter,
     ctx: createInnerTRPCContext({ session }),
     transformer: superjson,
   });
-  const deckId = params?.id as string;
+  const deckId = params?.deckId;
+  const reviewId = params?.reviewId;
+  if (!deckId || !reviewId) {
+    return {
+      notFound: true,
+    };
+  }
+
   await helpers.deck.forReview.prefetch({ deckId: deckId });
 
-  const deckReview = await prisma.deckReview.create({
-    data: {
-      deckId: deckId,
-      duration: 0,
-      gradeAvg: 0,
-    },
+  const deckReview = await prisma.deckReview.findUnique({
+    where: { id: reviewId },
   });
   return {
     props: {
       trpcState: helpers.dehydrate(),
-      id: deckId,
+      deckId,
       deckReview: JSON.parse(JSON.stringify(deckReview)),
       ...(await serverSideTranslations(locale ?? appConfig.defaultLocale, [
         "common",

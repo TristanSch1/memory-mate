@@ -9,7 +9,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Home: NextPageWithLayout = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("deck");
   const [search, setSearch] = useState("");
   const { open } = useModal();
   const handleNew = () => {

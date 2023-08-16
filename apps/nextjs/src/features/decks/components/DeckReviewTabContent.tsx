@@ -16,7 +16,9 @@ import { formatDeckReviewDuration } from "@memory-mate/utils";
 export const DeckReviewTabContent = () => {
   const { t } = useTranslation("deck");
   const { deck } = useDeck();
-  const cardReviews = deck.cards.map((card) => card.reviews?.[0]);
+  const cardReviews = deck.cards
+    .map((card) => card.reviews?.[0])
+    .filter(Boolean);
   const graphStats = getStatsForGraph(cardReviews);
   return (
     <div>
@@ -55,7 +57,7 @@ export const DeckReviewTabContent = () => {
         <h2 className={"heading text-2xl"}>{t("review.title")}</h2>
         <label>{}</label>
       </div>
-      <StartReviewButton />
+      <StartReviewButton deckId={deck.id} />
     </div>
   );
 };

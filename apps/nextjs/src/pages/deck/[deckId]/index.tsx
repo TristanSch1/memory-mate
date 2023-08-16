@@ -71,14 +71,19 @@ export const getServerSideProps = async ({
   req,
   res,
   locale,
-}: GetServerSidePropsContext<{ id: string }>) => {
+}: GetServerSidePropsContext<{ deckId: string }>) => {
   const session = await getServerSession({ req, res });
   const helpers = createServerSideHelpers({
     router: appRouter,
     ctx: createInnerTRPCContext({ session }),
     transformer: superjson,
   });
-  const id = params?.id as string;
+  const id = params?.deckId;
+  if (!id) {
+    return {
+      notFound: true,
+    };
+  }
   await helpers.deck.byId.prefetch(id);
   return {
     props: {

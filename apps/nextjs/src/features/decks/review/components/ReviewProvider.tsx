@@ -1,7 +1,8 @@
 import { createContext, useContext, type ReactNode } from "react";
-import { useReviewStates } from "@/features/decks/review/hooks/useReviewStates";
-import { type TGrade, type TReviewState } from "@/features/decks/review/types";
 import { type RouterOutputs } from "@/utils/api";
+
+import { useReviewStates } from "../hooks/useReviewStates";
+import { type TGrade } from "../types";
 
 interface ReviewProviderProps {
   deckId: string;
@@ -9,7 +10,6 @@ interface ReviewProviderProps {
   isFlipped: boolean;
   flip: () => void;
   review: (rate: TGrade) => void;
-  reviewState: TReviewState;
 }
 
 const ReviewCtx = createContext<ReviewProviderProps>({
@@ -18,7 +18,6 @@ const ReviewCtx = createContext<ReviewProviderProps>({
   isFlipped: false,
   flip: () => void 0,
   review: () => void 0,
-  reviewState: "REVIEWING",
 });
 
 export const ReviewProvider = ({
@@ -30,13 +29,10 @@ export const ReviewProvider = ({
   deck: NonNullable<RouterOutputs["deck"]["forReview"]>;
   deckReview: NonNullable<RouterOutputs["deckReview"]["create"]>;
 }) => {
-  const { isFlipped, flip, reviewState, review, card } = useReviewStates(
-    deck,
-    deckReview,
-  );
+  const { isFlipped, flip, review, card } = useReviewStates(deck, deckReview);
   return (
     <ReviewCtx.Provider
-      value={{ deckId: deck.id, card, isFlipped, flip, review, reviewState }}
+      value={{ deckId: deck.id, card, isFlipped, flip, review }}
     >
       {children}
     </ReviewCtx.Provider>
