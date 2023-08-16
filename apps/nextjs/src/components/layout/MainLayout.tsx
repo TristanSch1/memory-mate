@@ -14,6 +14,8 @@ import { useTranslation } from "next-i18next";
 
 import { Logo } from "./Logo";
 
+type NavItem = { labelKey: string; icon: LucideIcon; url: string };
+
 const SideNavItem = ({
   children,
   icon: Icon,
@@ -42,7 +44,11 @@ const SideNavItem = ({
     </Link>
   );
 };
-const SideNav = ({ items }: { items: NavItem[] }) => {
+
+type SideNavProps = {
+  items: NavItem[];
+};
+const SideNav = ({ items }: SideNavProps) => {
   const { t } = useTranslation("common");
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useRouter();
@@ -69,23 +75,19 @@ const SideNav = ({ items }: { items: NavItem[] }) => {
           </SideNavItem>
         ))}
       </ul>
-      <div
+      <button
+        onClick={() => setIsOpen(!isOpen)}
         className={
           "text-muted-foreground absolute -right-5 w-fit cursor-pointer rounded-full border bg-neutral-100 p-2 transition-all hover:scale-110"
         }
       >
-        {isOpen ? (
-          <ChevronLeft size={20} onClick={() => setIsOpen(false)} />
-        ) : (
-          <ChevronRight size={20} onClick={() => setIsOpen(true)} />
-        )}
-      </div>
+        {isOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+      </button>
     </nav>
   );
 };
-type NavItem = { labelKey: string; icon: LucideIcon; url: string }[];
 
-const NAV_ITEMS: NavItem = [
+const NAV_ITEMS: NavItem[] = [
   {
     labelKey: "decks",
     icon: Book,
