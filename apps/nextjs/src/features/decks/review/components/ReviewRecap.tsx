@@ -82,7 +82,7 @@ type Props = {
 };
 export const ReviewRecap = ({ deckId }: Props) => {
   const { t } = useTranslation("review");
-  const { push, reload } = useRouter();
+  const { push } = useRouter();
   const { data: recap, isLoading } = api.deckReview.recap.useQuery({ deckId });
   const lastReview = recap?.lastReview;
   if (isLoading) {
@@ -98,7 +98,7 @@ export const ReviewRecap = ({ deckId }: Props) => {
   };
 
   const handleRetry = () => {
-    void reload();
+    void push(URLPath.review(deckId, lastReview.id));
   };
   return (
     <div className={"w-full space-y-8"}>

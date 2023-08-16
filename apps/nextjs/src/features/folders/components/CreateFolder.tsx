@@ -8,15 +8,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { FolderForm } from "@/features/folders/components/FolderForm";
 import { useTranslation } from "next-i18next";
+
+import { FolderForm } from "./FolderForm";
 
 export const CreateFolder = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation("folder");
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <Button>{t("new")}</Button>
       </DialogTrigger>
       <DialogContent>

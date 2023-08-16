@@ -1,9 +1,14 @@
 import { MainLayout } from "@/components/layout";
-import { CreateFolder } from "@/features/folders/components/CreateFolder";
-import { FoldersList } from "@/features/folders/components/FoldersList";
+import { CreateFolder, FoldersList } from "@/features/folders";
 import { type NextPageWithLayout } from "@/pages/_app";
+import { createServerSideHelpers } from "@trpc/react-query/server";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import superjson from "superjson";
+
+import { appRouter } from "@memory-mate/api";
+import { createInnerTRPCContext } from "@memory-mate/api/src/trpc";
+import { getServerSession } from "@memory-mate/auth";
 
 const FoldersPage: NextPageWithLayout = () => {
   const { t } = useTranslation("folder");
@@ -27,9 +32,18 @@ FoldersPage.getLayout = (page) => {
   return <MainLayout>{page}</MainLayout>;
 };
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ req, res, locale }) {
+  const session = await getServerSession({ req, res });
+  const helpers = createServerSideHelpers({
+    router: appRouter,
+    ctx: createInnerTRPCContext({ session }),
+    transformer: superjson,
+  });
+
+  await helpers.deck.all.prefetch();
   return {
     props: {
+      trpcState: helpers.dehydrate(),
       ...(await serverSideTranslations(locale, ["common", "folder"])),
     },
   };

@@ -1,7 +1,8 @@
 import { Loader } from "@/components/ui/loader";
-import { FolderCard } from "@/features/folders/components/FolderCard";
 import { api } from "@/utils/api";
 import { useTranslation } from "next-i18next";
+
+import { FolderCard } from "./FolderCard";
 
 export const FoldersList = () => {
   const { t } = useTranslation("folder");
