@@ -1,5 +1,12 @@
 import { z } from "zod";
 
+import { daysToMilliseconds } from "@memory-mate/utils";
+
+import {
+  calculateEasinessFactor,
+  getInterval,
+  getStreak,
+} from "../helpers/review";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const cardRouter = createTRPCRouter({
@@ -51,6 +58,7 @@ export const cardRouter = createTRPCRouter({
           deckId: input.deckId,
           front: input.front,
           back: input.back,
+          dueDate: new Date(),
         },
       });
     }),
@@ -89,6 +97,55 @@ export const cardRouter = createTRPCRouter({
         where: {
           id: {
             in: input,
+          },
+        },
+      });
+    }),
+  review: protectedProcedure
+    .input(
+      z.object({
+        deckReviewId: z.string(),
+        cardId: z.string(),
+        grade: z.number(),
+        duration: z.number(),
+      }),
+    )
+    .mutation(async ({ input, ctx }) => {
+      const lastReview = await ctx.prisma.cardReview.findFirst({
+        where: {
+          cardId: input.cardId,
+        },
+      });
+
+      const easiness = calculateEasinessFactor(
+        input.grade,
+        lastReview?.easiness,
+      );
+
+      const interval = getInterval(
+        input.grade,
+        easiness,
+        lastReview?.interval,
+        lastReview?.streak,
+      );
+
+      const streak = getStreak(input.grade, lastReview?.streak);
+
+      return ctx.prisma.card.update({
+        where: {
+          id: input.cardId,
+        },
+        data: {
+          dueDate: new Date(Date.now() + daysToMilliseconds(interval)),
+          reviews: {
+            create: {
+              deckReviewId: input.deckReviewId,
+              grade: input.grade,
+              duration: input.duration,
+              easiness,
+              streak,
+              interval,
+            },
           },
         },
       });

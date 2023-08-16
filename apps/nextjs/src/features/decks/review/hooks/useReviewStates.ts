@@ -1,12 +1,11 @@
 import { useRef, useState } from "react";
-import { type TGrade, type TReviewState } from "@/features/decks/review/types";
+import { type TGrade, type TReviewState } from "@/features/decks";
 import { api, type RouterOutputs } from "@/utils/api";
 
 export const useReviewStates = (
   deck: NonNullable<RouterOutputs["deck"]["forReview"]>,
   deckReview: NonNullable<RouterOutputs["deckReview"]["create"]>,
 ) => {
-  console.log("deckReview", deckReview);
   const [reviewState, setReviewState] = useState<TReviewState>("REVIEWING");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -54,7 +53,7 @@ export const useReviewStates = (
     setCurrentIndex((index) => index + 1);
   };
 
-  const { mutate: cardReviewMutation } = api.cardReview.create.useMutation({
+  const { mutate: cardReviewMutation } = api.card.review.useMutation({
     onSuccess() {
       next();
     },
