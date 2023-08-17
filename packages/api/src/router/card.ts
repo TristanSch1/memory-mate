@@ -42,6 +42,11 @@ export const cardRouter = createTRPCRouter({
         where: {
           deckId: input.deckId,
         },
+        include: {
+          _count: {
+            select: { reviews: true },
+          },
+        },
       });
     }),
   create: protectedProcedure
