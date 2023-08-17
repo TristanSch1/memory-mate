@@ -32,14 +32,23 @@ export const deckRouter = createTRPCRouter({
         },
       },
     });
-
+    const cardsForReview = await ctx.prisma.card.count({
+      where: {
+        deckId: input,
+        dueDate: {
+          lte: new Date(),
+        },
+      },
+    });
     const deck = await ctx.prisma.deck.findUnique({
       where: {
         id: input,
       },
       include: {
         _count: {
-          select: { reviews: true },
+          select: {
+            reviews: true,
+          },
         },
         cards: {
           include: {
@@ -64,6 +73,7 @@ export const deckRouter = createTRPCRouter({
       lastReview,
       todayReviewCount,
       avgDeckReviewDuration: avgDuration._avg.duration,
+      cardsForReview,
     };
   }),
   all: protectedProcedure.input(listQuery).query(({ input, ctx }) => {

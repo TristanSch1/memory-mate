@@ -74,7 +74,7 @@ export const StatisticSectionItem = forwardRef<
       ref={ref}
       className={cn(
         className,
-        "flex items-baseline justify-between border-b pb-1 last:border-b-0 last:pb-0",
+        "flex items-baseline justify-between border-b pb-1",
       )}
       {...props}
     >

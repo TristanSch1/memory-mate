@@ -23,7 +23,8 @@
     "totalReviews": "Number of reviews",
     "averageReviewTime": "Average review time",
     "totalCards": "Number of cards",
-    "todayReviews": "Reviews today"
+    "todayReviews": "Reviews today",
+    "cardsForReview": "Cards available for review"
   },
   "cards": "Cards",
   "form": {

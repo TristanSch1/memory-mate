@@ -53,11 +53,16 @@ export const DeckReviewTabContent = () => {
           <Graph stats={graphStats} />
         </StatisticSection>
       </div>
-      <div className={"flex items-center justify-between"}>
-        <h2 className={"heading text-2xl"}>{t("review.title")}</h2>
-        <label>{}</label>
+      <div className={"space-y-8"}>
+        <StatisticSection>
+          <StatisticSectionTitle>{t("review.title")}</StatisticSectionTitle>
+          <StatisticSectionItem
+            label={t("stats.cardsForReview")}
+            value={deck.cardsForReview.toString()}
+          />
+        </StatisticSection>
+        <StartReviewButton deckId={deck.id} />
       </div>
-      <StartReviewButton deckId={deck.id} />
     </div>
   );
 };

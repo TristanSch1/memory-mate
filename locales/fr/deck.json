@@ -23,7 +23,8 @@
     "totalReviews": "Nombre de révisions",
     "averageReviewTime": "Temps moyen de révision",
     "totalCards": "Nombre de cartes",
-    "todayReviews": "Revues aujourd'hui"
+    "todayReviews": "Revues aujourd'hui",
+    "cardsForReview": "Cartes à réviser"
   },
   "cards": "Cartes",
   "form": {
