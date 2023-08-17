@@ -1,18 +1,14 @@
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { api } from "@/utils/api";
+import { type TCard } from "@/features/cards";
 
 import CardForm from "../components/CardForm";
 import CardInfos from "../components/CardInfos";
 
-type Props = {
-  id: string;
+export type EditCardProps = {
+  card: TCard;
   onSuccess?: () => void;
 };
-export const EditCard = ({ id, onSuccess }: Props) => {
-  const { data: card, isLoading } = api.card.byId.useQuery(id || "");
-  if (isLoading || !card?.id) {
-    return null;
-  }
+export const EditCard = ({ card, onSuccess }: EditCardProps) => {
   return (
     <>
       <DialogHeader>

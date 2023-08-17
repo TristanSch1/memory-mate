@@ -1,9 +1,8 @@
+import { type TCard } from "@/features/cards";
 import dayjs from "dayjs";
 
-import { type RouterOutputs } from "@memory-mate/api";
-
 type Props = {
-  card: NonNullable<RouterOutputs["card"]["byId"]>;
+  card: TCard;
 };
 
 const InfoLine = ({ label, value }) => {

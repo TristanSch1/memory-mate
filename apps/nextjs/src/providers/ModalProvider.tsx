@@ -4,12 +4,19 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   CreateCard,
   DeleteCards,
+  EditCard,
   type CreateCardProps,
   type DeleteCardsProps,
+  type EditCardProps,
 } from "@/features/cards";
 import { CreateDeck, EditDeck, type EditDeckProps } from "@/features/decks";
 
-export type ModalName = "createCard" | "deleteCard" | "createDeck" | "editDeck";
+export type ModalName =
+  | "createCard"
+  | "deleteCard"
+  | "editCard"
+  | "createDeck"
+  | "editDeck";
 
 type Modal = {
   type: "alert" | "dialog";
@@ -24,6 +31,10 @@ const MODALS: { [key in ModalName]: Modal } = {
   deleteCard: {
     type: "alert",
     content: (props: DeleteCardsProps) => <DeleteCards {...props} />,
+  },
+  editCard: {
+    type: "dialog",
+    content: (props: EditCardProps) => <EditCard {...props} />,
   },
   createDeck: {
     type: "dialog",

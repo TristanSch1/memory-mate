@@ -159,7 +159,6 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
     if (!body) {
       return null;
     }
-    console.log(t("form.error.NAME_REQUIRED"));
     return (
       <p
         ref={ref}

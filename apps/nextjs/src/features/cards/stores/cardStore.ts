@@ -1,4 +1,4 @@
-import { type TCard } from "@/features/cards/types";
+import { type TCard } from "@/features/cards";
 import { createStore } from "zustand";
 
 interface CardStoreState {
