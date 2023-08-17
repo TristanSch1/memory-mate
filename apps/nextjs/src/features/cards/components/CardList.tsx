@@ -27,7 +27,9 @@ const CardList = () => {
       {cards?.map((card) => (
         <Card
           key={card.id}
-          className={"h-[300px] text-sm sm:h-[375px] sm:text-base md:h-[450px]"}
+          className={
+            "card-hover h-[300px] text-sm sm:h-[375px] sm:text-base md:h-[450px]"
+          }
           card={card}
           editMode={editMode}
           active={selectedCards.includes(card.id)}

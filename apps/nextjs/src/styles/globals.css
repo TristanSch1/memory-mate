@@ -83,6 +83,10 @@
     @apply bg-background text-foreground;
   }
 
+  .card-hover {
+    @apply cursor-pointer hover:scale-[101%] transition-all hover:border-primary;
+  }
+
   .heading {
     @apply font-bold leading-tight;
   }

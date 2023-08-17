@@ -20,11 +20,7 @@ type Props = {
 
 export const DeckCard = ({ deck }: Props) => {
   return (
-    <Card
-      className={
-        "hover:border-primary relative flex cursor-pointer items-start justify-between transition-all"
-      }
-    >
+    <Card className={"card-hover relative flex items-start justify-between"}>
       <Link href={URLPath.deck(deck.id)} className={"block flex-1"}>
         <CardHeader>
           <CardTitle>{deck.name}</CardTitle>
