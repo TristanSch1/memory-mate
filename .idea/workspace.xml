@@ -6,15 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardInfos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardInfos.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/EditCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/EditCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/stores/cardStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/stores/cardStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/CreateFolder.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FolderCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FolderCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FolderForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/FolderForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/folders/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/folders/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/folders/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/folders/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/folders/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/folders/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/folders/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/providers/ModalProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/providers/ModalProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/router/card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/card.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/common.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en/folder.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/folder.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/fr/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/common.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/fr/folder.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/folder.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +146,8 @@
       <workItem from="1692156639103" duration="485000" />
       <workItem from="1692157128415" duration="4660000" />
       <workItem from="1692295481173" duration="2168000" />
-      <workItem from="1692304896662" duration="3063000" />
+      <workItem from="1692304896662" duration="3209000" />
+      <workItem from="1692386390644" duration="2763000" />
     </task>
     <servers />
   </component>

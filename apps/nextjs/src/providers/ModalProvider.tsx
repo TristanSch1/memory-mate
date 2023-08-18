@@ -10,13 +10,21 @@ import {
   type EditCardProps,
 } from "@/features/cards";
 import { CreateDeck, EditDeck, type EditDeckProps } from "@/features/decks";
+import {
+  CreateOrEditFolder,
+  DeleteFolder,
+  type CreateOrEditFolderProps,
+  type DeleteFolderProps,
+} from "@/features/folders";
 
 export type ModalName =
   | "createCard"
   | "deleteCard"
   | "editCard"
   | "createDeck"
-  | "editDeck";
+  | "editDeck"
+  | "folderForm"
+  | "deleteFolder";
 
 type Modal = {
   type: "alert" | "dialog";
@@ -43,6 +51,16 @@ const MODALS: { [key in ModalName]: Modal } = {
   editDeck: {
     type: "dialog",
     content: (props: EditDeckProps) => <EditDeck {...props} />,
+  },
+  folderForm: {
+    type: "dialog",
+    content: (props: CreateOrEditFolderProps) => (
+      <CreateOrEditFolder {...props} />
+    ),
+  },
+  deleteFolder: {
+    type: "alert",
+    content: (props: DeleteFolderProps) => <DeleteFolder {...props} />,
   },
 };
 interface ModalState {

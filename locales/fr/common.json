@@ -12,5 +12,23 @@
       "confirm": "Supprimer",
       "cancel": "Annuler"
     }
+  },
+  "folder": {
+    "menu": {
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    },
+    "delete": {
+      "title": "Supprimer le dossier",
+      "description": "Cette action est irréversible",
+      "cancel": "Annuler",
+      "confirm": "Supprimer"
+    },
+    "edit": {
+      "title": "Modifier le dossier"
+    },
+    "create": {
+      "title": "Créer un dossier"
+    }
   }
 }

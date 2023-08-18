@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { IconWithLabel } from "@/components/ui/icon-with-label";
+import { FolderOptionsDropdown } from "@/features/folders";
 import { URLPath } from "@/routes";
 import dayjs from "dayjs";
-import { Book, PenSquare } from "lucide-react";
+import { Book, MoreVertical, PenSquare } from "lucide-react";
 
 import { type RouterOutputs } from "@memory-mate/api";
 
@@ -13,8 +14,8 @@ type Props = {
 
 export const FolderCard = ({ folder }: Props) => {
   return (
-    <Link href={URLPath.folder(folder.id)}>
-      <Card>
+    <Card className={"card-hover relative flex items-start justify-between"}>
+      <Link href={URLPath.folder(folder.id)} className={"block flex-1"}>
         <CardHeader>
           <CardTitle>{folder.name}</CardTitle>
         </CardHeader>
@@ -25,7 +26,14 @@ export const FolderCard = ({ folder }: Props) => {
             icon={PenSquare}
           />
         </CardFooter>
-      </Card>
-    </Link>
+      </Link>
+      <div className={"absolute right-1 top-2"}>
+        <FolderOptionsDropdown folder={folder} className={"mr-2 mt-2"}>
+          <MoreVertical
+            className={"text-neutral-500 group-hover:text-neutral-950"}
+          />
+        </FolderOptionsDropdown>
+      </div>
+    </Card>
   );
 };

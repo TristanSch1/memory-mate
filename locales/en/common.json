@@ -12,5 +12,23 @@
       "confirm": "Delete",
       "cancel": "Cancel"
     }
+  },
+  "folder": {
+    "menu": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "delete": {
+      "title": "Delete folder",
+      "description": "This action is irreversible",
+      "cancel": "Cancel",
+      "confirm": "Delete"
+    },
+    "edit": {
+      "title": "Edit folder"
+    },
+    "create": {
+      "title": "Create folder"
+    }
   }
 }

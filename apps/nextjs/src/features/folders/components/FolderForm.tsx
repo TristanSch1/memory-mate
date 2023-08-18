@@ -8,6 +8,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { type TFolder } from "@/features/folders";
 import { api } from "@/utils/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslation } from "next-i18next";
@@ -26,23 +27,37 @@ const errorTranslation = { namespace: "folder", baseKey: "form.error" };
 type FolderFormInputs = z.infer<typeof folderSchema>;
 
 type Props = {
-  onSuccess: () => void;
+  onSuccess?: () => void;
+  data?: TFolder;
 };
 export const FolderForm = (props: Props) => {
   const { t } = useTranslation("folder");
   const form = useForm({
     resolver: zodResolver(folderSchema),
+    defaultValues: props.data,
   });
   const utils = api.useContext();
 
-  const { mutate } = api.folder.create.useMutation({
+  const { mutate: createMutate } = api.folder.create.useMutation({
     async onSuccess() {
       await utils.folder.all.invalidate();
-      props.onSuccess();
+      props.onSuccess?.();
     },
   });
+
+  const { mutate: editMutate } = api.folder.update.useMutation({
+    async onSuccess(data) {
+      await utils.folder.byId.invalidate(data.id);
+      props.onSuccess?.();
+    },
+  });
+
   const onSubmit = (data: FolderFormInputs) => {
-    mutate(data);
+    if (props.data) {
+      editMutate({ ...data, id: props.data.id });
+      return;
+    }
+    createMutate(data);
   };
 
   return (
@@ -62,7 +77,7 @@ export const FolderForm = (props: Props) => {
           )}
         />
         <Button type={"submit"} disabled={form.formState.isSubmitting}>
-          {t("form.cta")}
+          {props.data ? t("form.edit.cta") : t("form.create.cta")}
         </Button>
       </form>
     </Form>

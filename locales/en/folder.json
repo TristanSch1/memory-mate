@@ -7,10 +7,15 @@
   "decks": "Decks",
   "form": {
     "name": "Folder name",
-    "cta": "Create",
+    "edit": {
+      "cta": "Modifier"
+    },
+    "create": {
+      "cta": "Create"
+    },
     "error": {
       "NAME_REQUIRED": "Please enter a name for your folder",
-      "NAME_LENGTH": "The name of your folder must be between 3 and 50 characters".
+      "NAME_LENGTH": "The name of your folder must be between 3 and 50 characters"
     }
   }
 }

@@ -1,6 +1,8 @@
 import { MainLayout } from "@/components/layout";
-import { CreateFolder, FoldersList } from "@/features/folders";
+import { Button } from "@/components/ui/button";
+import { FoldersList } from "@/features/folders";
 import { type NextPageWithLayout } from "@/pages/_app";
+import { useModal } from "@/providers/ModalProvider";
 import { createServerSideHelpers } from "@trpc/react-query/server";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -12,6 +14,10 @@ import { getServerSession } from "@memory-mate/auth";
 
 const FoldersPage: NextPageWithLayout = () => {
   const { t } = useTranslation("folder");
+  const { open, close } = useModal();
+  const handleNew = () => {
+    open("folderForm", { onSuccess: close });
+  };
   return (
     <>
       <div className={"mb-8 flex items-center justify-between"}>
@@ -19,7 +25,7 @@ const FoldersPage: NextPageWithLayout = () => {
           <h1 className={"heading text-5xl capitalize"}>{t("page.title")}</h1>
           <p className={"text-foreground/70"}>{t("page.description")}</p>
         </div>
-        <CreateFolder />
+        <Button onClick={handleNew}>{t("new")}</Button>
       </div>
       <FoldersList />
     </>
