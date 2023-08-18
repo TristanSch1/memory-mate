@@ -38,7 +38,7 @@ export const MobileNav = ({ items }: Props) => {
   const { pathname } = useRouter();
 
   return (
-    <BottomBar asChild>
+    <BottomBar asChild className={"sm:hidden"}>
       <nav>
         {items.map((item) => {
           return (

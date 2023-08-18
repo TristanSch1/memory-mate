@@ -16,7 +16,7 @@ export const BottomBar = ({
   return (
     <Comp
       className={cn(
-        "fixed inset-x-0 bottom-0 flex h-16 border-t bg-neutral-50 sm:hidden",
+        "fixed inset-x-0 bottom-0 flex h-16 border-t bg-neutral-50",
         className,
       )}
       {...props}

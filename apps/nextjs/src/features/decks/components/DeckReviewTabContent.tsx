@@ -1,3 +1,4 @@
+import { BottomBar } from "@/components/ui/bottom-bar";
 import {
   StatisticSection,
   StatisticSectionItem,
@@ -63,8 +64,10 @@ export const DeckReviewTabContent = () => {
             value={deck.cardsForReview.toString()}
           />
         </StatisticSection>
-        <StartReviewButton deckId={deck.id} />
       </div>
+      <BottomBar className={"flex items-center justify-center"}>
+        <StartReviewButton deckId={deck.id} />
+      </BottomBar>
     </div>
   );
 };
