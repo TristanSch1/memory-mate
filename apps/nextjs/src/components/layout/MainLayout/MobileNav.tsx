@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { type NavItem } from "@/components/layout";
+import { BottomBar } from "@/components/ui/bottom-bar";
 import { clsx } from "clsx";
 
 type MobileNavItemProps = {
@@ -37,20 +38,18 @@ export const MobileNav = ({ items }: Props) => {
   const { pathname } = useRouter();
 
   return (
-    <nav
-      className={
-        "fixed inset-x-0 bottom-0 flex h-16 border-t bg-neutral-50 sm:hidden"
-      }
-    >
-      {items.map((item) => {
-        return (
-          <MobileNavItem
-            item={item}
-            selected={pathname === item.url}
-            key={item.labelKey}
-          />
-        );
-      })}
-    </nav>
+    <BottomBar asChild>
+      <nav>
+        {items.map((item) => {
+          return (
+            <MobileNavItem
+              item={item}
+              selected={pathname === item.url}
+              key={item.labelKey}
+            />
+          );
+        })}
+      </nav>
+    </BottomBar>
   );
 };

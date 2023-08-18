@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/layout/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/layout/MainLayout/MainLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/layout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/layout/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckReviewTabContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckReviewTabContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/layout/MainLayout/MobileNav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/layout/MainLayout/MobileNav.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +136,7 @@
       <workItem from="1692157128415" duration="4660000" />
       <workItem from="1692295481173" duration="2168000" />
       <workItem from="1692304896662" duration="3209000" />
-      <workItem from="1692386390644" duration="4335000" />
+      <workItem from="1692386390644" duration="4527000" />
     </task>
     <servers />
   </component>
