@@ -1,6 +1,7 @@
 {
   "selected_one": "{{count}} carte sélectionnée",
   "selected_other": "{{count}} cartes sélectionnées",
+  "cards": "Cartes du deck",
   "edit": {
     "title": "Modifier",
     "save": "Sauvegarder",

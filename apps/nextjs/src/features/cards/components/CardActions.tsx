@@ -14,7 +14,7 @@ import { useStore } from "zustand";
 import { useCardStore } from "./CardsProvider";
 
 const CardActions = () => {
-  const { t } = useTranslation("card");
+  const { t } = useTranslation("common");
   const cardStore = useCardStore();
   const { selectedCards } = useStore(cardStore, (state) => ({
     selectedCards: state.selectedCards,

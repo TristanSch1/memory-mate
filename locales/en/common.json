@@ -1,4 +1,7 @@
 {
+  "edit": "Edit",
+  "delete": "Delete",
+  "create": "Create",
   "nav": {
     "decks": "Decks",
     "folders": "Folders"

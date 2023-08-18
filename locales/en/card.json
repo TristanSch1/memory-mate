@@ -1,6 +1,7 @@
 {
   "selected_one": "{{count}} selected card",
   "selected_other": "{{count}} selected cards",
+  "cards": "Deck cards",
   "edit": {
     "title": "Edit",
     "save": "Save",

@@ -1,4 +1,7 @@
 {
+  "edit": "Modifier",
+  "delete": "Supprimer",
+  "create": "Créer",
   "nav": {
     "decks": "Decks",
     "folders": "Dossiers"
