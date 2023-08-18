@@ -22,7 +22,9 @@ export const DeckReviewTabContent = () => {
   const graphStats = getStatsForGraph(cardReviews);
   return (
     <div>
-      <div className={"flex flex-col items-start gap-6 lg:flex-row lg:gap-12"}>
+      <div
+        className={"flex flex-col items-start gap-6 py-4 lg:flex-row lg:gap-12"}
+      >
         <StatisticSection className={"flex-1"}>
           <StatisticSectionTitle>{t("stats.title")}</StatisticSectionTitle>
           <StatisticSectionItem

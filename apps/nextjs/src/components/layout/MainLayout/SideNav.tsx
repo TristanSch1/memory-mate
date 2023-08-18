@@ -1,20 +1,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { URLPath } from "@/routes";
+import { type NavItem } from "@/components/layout";
+import { Logo } from "@/components/layout/Logo";
 import { clsx } from "clsx";
-import {
-  Book,
-  ChevronLeft,
-  ChevronRight,
-  Folder,
-  type LucideIcon,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, type LucideIcon } from "lucide-react";
 import { useTranslation } from "next-i18next";
-
-import { Logo } from "./Logo";
-
-type NavItem = { labelKey: string; icon: LucideIcon; url: string };
 
 const SideNavItem = ({
   children,
@@ -48,7 +39,7 @@ const SideNavItem = ({
 type SideNavProps = {
   items: NavItem[];
 };
-const SideNav = ({ items }: SideNavProps) => {
+export const SideNav = ({ items }: SideNavProps) => {
   const { t } = useTranslation("common");
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useRouter();
@@ -84,31 +75,5 @@ const SideNav = ({ items }: SideNavProps) => {
         {isOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
       </button>
     </nav>
-  );
-};
-
-const NAV_ITEMS: NavItem[] = [
-  {
-    labelKey: "decks",
-    icon: Book,
-    url: URLPath.home,
-  },
-  {
-    labelKey: "folders",
-    icon: Folder,
-    url: URLPath.folders,
-  },
-];
-
-type MainLayoutProps = {
-  children: React.ReactNode;
-};
-
-export const MainLayout = ({ children }: MainLayoutProps) => {
-  return (
-    <div className={"flex"}>
-      <SideNav items={NAV_ITEMS} />
-      <main className={"w-full px-12 py-8"}>{children}</main>
-    </div>
   );
 };
