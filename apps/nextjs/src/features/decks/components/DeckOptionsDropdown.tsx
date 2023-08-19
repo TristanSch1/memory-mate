@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,6 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import IconButton, { type IconButtonProps } from "@/components/ui/icon-button";
 import { useModal } from "@/providers/ModalProvider";
+import { URLPath } from "@/routes";
 import { Pencil, Trash, WalletCards } from "lucide-react";
 import { useTranslation } from "next-i18next";
 
@@ -17,6 +19,7 @@ type Props = IconButtonProps & {
 };
 export const DeckOptionsDropdown = ({ deck, children, ...props }: Props) => {
   const { t } = useTranslation("deck");
+  const { push, pathname } = useRouter();
   const { open } = useModal();
   return (
     <DropdownMenu>
@@ -35,7 +38,19 @@ export const DeckOptionsDropdown = ({ deck, children, ...props }: Props) => {
           <span>{t("deckCard.menu.edit")}</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className={"text-destructive"}>
+        <DropdownMenuItem
+          className={"text-destructive"}
+          onClick={() =>
+            open("deleteDeck", {
+              deckId: deck.id,
+              onSuccess: () => {
+                if (pathname !== URLPath.home) {
+                  void push(URLPath.home);
+                }
+              },
+            })
+          }
+        >
           <Trash className={"mr-2 h-4 w-4"} />
           <span>{t("deckCard.menu.delete")}</span>
         </DropdownMenuItem>

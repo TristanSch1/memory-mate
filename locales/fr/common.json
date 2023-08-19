@@ -6,6 +6,15 @@
     "decks": "Decks",
     "folders": "Dossiers"
   },
+  "deck": {
+    "delete": {
+      "button": "Supprimer",
+      "title": "Êtes-vous sûr de vouloir supprimer ce deck ?",
+      "description": "Cette action est irréversible.",
+      "confirm": "Supprimer",
+      "cancel": "Annuler"
+    }
+  },
   "card": {
     "delete": {
       "button": "Supprimer",

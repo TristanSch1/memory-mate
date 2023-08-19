@@ -6,6 +6,15 @@
     "decks": "Decks",
     "folders": "Folders"
   },
+  "deck": {
+    "delete": {
+      "button": "Delete",
+      "title": "Are you sure you want to delete this deck?",
+      "description": "This action cannot be undone.",
+      "confirm": "Delete",
+      "cancel": "Cancel"
+    }
+  },
   "card": {
     "delete": {
       "button": "Delete",
