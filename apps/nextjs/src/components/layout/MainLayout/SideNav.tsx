@@ -1,33 +1,43 @@
-import { useState } from "react";
+import { useState, type ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { type NavItem } from "@/components/layout";
 import { Logo } from "@/components/layout/Logo";
+import { cn } from "@/lib/utils";
+import { URLPath } from "@/routes";
 import { clsx } from "clsx";
-import { ChevronLeft, ChevronRight, type LucideIcon } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Settings,
+  type LucideIcon,
+} from "lucide-react";
 import { useTranslation } from "next-i18next";
 
-const SideNavItem = ({
-  children,
-  icon: Icon,
-  url,
-  extended,
-  selected = false,
-}: {
-  children: string;
+type SideNavItemProps = ComponentPropsWithoutRef<typeof Link> & {
   icon: LucideIcon;
-  url: string;
   extended: boolean;
   selected?: boolean;
-}) => {
+};
+const SideNavItem = ({
+  children,
+  className,
+  icon: Icon,
+  extended,
+  selected = false,
+  ...props
+}: SideNavItemProps) => {
   return (
-    <Link href={url} className={"block"}>
+    <Link className={cn("block", className)} {...props}>
       <li
-        className={clsx("flex items-center gap-2 rounded p-3 text-xl", {
-          "text-muted-foreground": !selected,
-          "bg-neutral-100": selected,
-          "w-fit": !extended,
-        })}
+        className={cn(
+          "flex items-center gap-2 rounded p-3 text-xl transition-all hover:text-neutral-950",
+          {
+            "text-muted-foreground": !selected,
+            "bg-neutral-100": selected,
+            "w-fit": !extended,
+          },
+        )}
       >
         <Icon size={24} />
         <span className={extended ? "" : "hidden"}>{children}</span>
@@ -53,18 +63,22 @@ export const SideNav = ({ items }: SideNavProps) => {
       )}
     >
       <Logo />
-      <ul className={"mt-8 space-y-4"}>
+      <ul className={"mt-8 flex h-full flex-col space-y-4"}>
         {items.map((item) => (
           <SideNavItem
             key={item.labelKey}
             icon={item.icon}
             selected={item.url === pathname}
-            url={item.url}
+            href={item.url}
             extended={isOpen}
           >
             {t(`nav.${item.labelKey}`)}
           </SideNavItem>
         ))}
+        <div className={"flex-1"} />
+        <SideNavItem icon={Settings} href={URLPath.settings} extended={isOpen}>
+          Settings
+        </SideNavItem>
       </ul>
       <button
         onClick={() => setIsOpen(!isOpen)}
