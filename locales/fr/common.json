@@ -42,5 +42,14 @@
     "create": {
       "title": "Créer un dossier"
     }
+  },
+  "settings": {
+    "title": "Paramètres",
+    "lang": "Langue",
+    "selectLang": "Sélectionnez une langue",
+    "locales": {
+      "en": "Anglais",
+      "fr": "Français"
+    }
   }
 }

@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/layout/MainLayout/SideNav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/layout/MainLayout/SideNav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/modals/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/modals/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/providers/ModalProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/providers/ModalProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/next-i18next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/next-i18next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/_config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/_config/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/common.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/fr/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/common.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +144,7 @@
       <workItem from="1692304896662" duration="3209000" />
       <workItem from="1692386390644" duration="5851000" />
       <workItem from="1692435176093" duration="843000" />
-      <workItem from="1692560505208" duration="1271000" />
+      <workItem from="1692560505208" duration="2842000" />
     </task>
     <servers />
   </component>

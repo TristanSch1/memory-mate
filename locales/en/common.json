@@ -42,5 +42,14 @@
     "create": {
       "title": "Create folder"
     }
+  },
+  "settings": {
+    "title": "Settings",
+    "lang": "Language",
+    "selectLang": "Select language",
+    "locales": {
+      "en": "English",
+      "fr": "Français"
+    }
   }
 }

@@ -3,6 +3,7 @@ module.exports = {
   i18n: {
     defaultLocale: "fr",
     locales: ["en", "fr"],
+    fallbackLng: ["en", "fr"],
   },
   localePath: "../../locales",
   localeStructure: "{{lng}}/{{ns}}",
