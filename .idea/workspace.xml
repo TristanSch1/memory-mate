@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/statistic-section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/statistic-section.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckReviewTabContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckReviewTabContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewRecap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/review/components/ReviewRecap.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/root.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/root.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/api/src/router/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/api/src/router/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/api/src/router/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/src/review.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/utils/src/review.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +144,7 @@
       <workItem from="1692304896662" duration="3209000" />
       <workItem from="1692386390644" duration="5851000" />
       <workItem from="1692435176093" duration="843000" />
-      <workItem from="1692560505208" duration="3982000" />
+      <workItem from="1692560505208" duration="4685000" />
     </task>
     <servers />
   </component>

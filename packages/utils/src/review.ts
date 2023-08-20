@@ -5,7 +5,7 @@ import { millisecondsToSeconds, twoDigits } from "./time";
  * @param duration Duration in milliseconds
  * @returns A string in the format of `hh:mm:ss`
  */
-export const formatDeckReviewDuration = (duration: number) => {
+export const formatDuration = (duration: number) => {
   const durationInSeconds = Math.floor(millisecondsToSeconds(duration));
   const seconds = durationInSeconds % 60;
   const minutes = Math.floor((durationInSeconds / 60) % 60);

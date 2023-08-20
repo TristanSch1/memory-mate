@@ -30,10 +30,33 @@ export const userRouter = createTRPCRouter({
         },
       });
 
+      const todayReviewCount = await ctx.prisma.deckReview.count({
+        where: {
+          deck: {
+            ownerId: input.userId,
+          },
+          createdAt: {
+            gte: new Date(new Date().setHours(0, 0, 0, 0)),
+          },
+        },
+      });
+
+      const totalTimesReviewed = await ctx.prisma.deckReview.aggregate({
+        where: {
+          deck: {
+            ownerId: input.userId,
+          },
+        },
+        _sum: {
+          duration: true,
+        },
+      });
       return {
         deckCount,
         cardCount,
         reviewCount,
+        todayReviewCount,
+        totalTimesReviewed: totalTimesReviewed._sum.duration,
       };
     }),
 });

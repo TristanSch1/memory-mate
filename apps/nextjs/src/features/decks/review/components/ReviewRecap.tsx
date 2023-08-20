@@ -12,7 +12,7 @@ import { URLPath } from "@/routes";
 import { api, type RouterOutputs } from "@/utils/api";
 import { useTranslation } from "next-i18next";
 
-import { formatDeckReviewDuration } from "@memory-mate/utils";
+import { formatDuration } from "@memory-mate/utils";
 
 type SessionReviewRecapProps = {
   lastReview: RouterOutputs["deckReview"]["recap"]["lastReview"];
@@ -29,7 +29,7 @@ const SessionReviewRecap = ({
       <StatisticSectionTitle>{t("recap.session.title")}</StatisticSectionTitle>
       <StatisticSectionItem
         label={t("recap.session.duration")}
-        value={formatDeckReviewDuration(duration)}
+        value={formatDuration(duration)}
       />
       <Graph stats={stats} />
     </StatisticSection>
@@ -60,9 +60,7 @@ const DeckReviewRecap = ({
       <StatisticSectionItem
         label={t("recap.deck.averageReviewDuration")}
         value={
-          averageReviewDuration
-            ? formatDeckReviewDuration(averageReviewDuration)
-            : "-"
+          averageReviewDuration ? formatDuration(averageReviewDuration) : "-"
         }
       />
       <StatisticSectionItem

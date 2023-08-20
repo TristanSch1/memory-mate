@@ -12,7 +12,7 @@ import {
 } from "@/features/decks";
 import { useTranslation } from "next-i18next";
 
-import { formatDeckReviewDuration } from "@memory-mate/utils";
+import { formatDuration } from "@memory-mate/utils";
 
 export const DeckReviewTabContent = () => {
   const { t } = useTranslation("deck");
@@ -36,7 +36,7 @@ export const DeckReviewTabContent = () => {
             label={t("stats.averageReviewTime")}
             value={
               deck.avgDeckReviewDuration
-                ? formatDeckReviewDuration(deck.avgDeckReviewDuration)
+                ? formatDuration(deck.avgDeckReviewDuration)
                 : "-"
             }
           />

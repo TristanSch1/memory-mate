@@ -61,7 +61,7 @@ type StatisticSectionItemProps = Omit<
   "children"
 > & {
   label: string;
-  value: string;
+  value?: string;
   progress?: number;
 };
 
