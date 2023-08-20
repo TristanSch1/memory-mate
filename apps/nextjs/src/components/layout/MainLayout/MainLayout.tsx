@@ -1,7 +1,7 @@
 import { MobileNav } from "@/components/layout/MainLayout/MobileNav";
 import { SideNav } from "@/components/layout/MainLayout/SideNav";
 import { URLPath } from "@/routes";
-import { Book, Folder, type LucideIcon } from "lucide-react";
+import { Book, Folder, User, type LucideIcon } from "lucide-react";
 
 export type NavItem = { labelKey: string; icon: LucideIcon; url: string };
 
@@ -15,6 +15,11 @@ const NAV_ITEMS: NavItem[] = [
     labelKey: "folders",
     icon: Folder,
     url: URLPath.folders,
+  },
+  {
+    labelKey: "profile",
+    icon: User,
+    url: URLPath.profile,
   },
 ];
 

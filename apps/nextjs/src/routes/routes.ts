@@ -8,5 +8,5 @@ export const URLPath = {
     `/deck/${deckId}/review/${reviewId}/recap`,
   folders: "/folders",
   folder: (folderId: string) => `/folders/${folderId}`,
-  settings: "/settings",
+  profile: "/profile",
 };
