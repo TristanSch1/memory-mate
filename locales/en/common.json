@@ -50,6 +50,7 @@
     "locales": {
       "en": "English",
       "fr": "Français"
-    }
+    },
+    "logout": "Logout"
   }
 }
