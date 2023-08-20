@@ -1,9 +1,26 @@
+import {
+  type GetServerSideProps,
+  type InferGetServerSidePropsType,
+} from "next";
 import Head from "next/head";
+import { appConfig } from "@/_config";
 import { MainLayout } from "@/components/layout";
 import { type NextPageWithLayout } from "@/pages/_app";
+import { api } from "@/utils/api";
+import { createServerSideHelpers } from "@trpc/react-query/server";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import superjson from "superjson";
 
-const Profile: NextPageWithLayout = () => {
+import { appRouter } from "@memory-mate/api";
+import { createInnerTRPCContext } from "@memory-mate/api/src/trpc";
+import { getServerSession } from "@memory-mate/auth";
+
+const Profile: NextPageWithLayout = ({
+  session,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  console.log(session);
+  const { data: stats } = api.user.stats.useQuery({ userId: session.user.id });
+  console.log(stats);
   return (
     <>
       <Head>
@@ -21,12 +38,36 @@ Profile.getLayout = (page) => {
   return <MainLayout>{page}</MainLayout>;
 };
 
-export async function getStaticProps({ locale }) {
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  locale,
+}) => {
+  const session = await getServerSession({ req, res });
+  const helpers = createServerSideHelpers({
+    router: appRouter,
+    ctx: createInnerTRPCContext({ session }),
+    transformer: superjson,
+  });
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth/signin",
+        permanent: false,
+      },
+    };
+  }
+  await helpers.user.stats.prefetch({ userId: session.user.id });
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "profile"])),
+      trpcState: helpers.dehydrate(),
+      session,
+      ...(await serverSideTranslations(locale ?? appConfig.defaultLocale, [
+        "common",
+        "profile",
+      ])),
     },
   };
-}
+};
 
 export default Profile;
