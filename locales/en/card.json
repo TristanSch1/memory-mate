@@ -6,22 +6,5 @@
     "title": "Edit",
     "save": "Save",
     "cancel": "Cancel"
-  },
-  "create": {
-    "button": "Create new card",
-    "title": "Create new card",
-    "description": "Create a new card"
-  },
-  "form": {
-    "front": "Front",
-    "back": "Back",
-    "create": "Create",
-    "update": "Update",
-    "error": {
-      "FRONT_REQUIRED": "Front is required",
-      "FRONT_LENGTH": "Front must be between 1 and 500 characters",
-      "BACK_REQUIRED": "Back is required",
-      "BACK_LENGTH": "Back must be between 1 and 500 characters"
-    }
   }
 }

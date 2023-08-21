@@ -12,13 +12,13 @@ export type CreateCardProps = {
   deckId: string;
 };
 export const CreateCard = (props: CreateCardProps) => {
-  const { t } = useTranslation("card");
+  const { t } = useTranslation("common");
   const { close } = useModal();
   return (
     <>
       <DialogHeader>
-        <DialogTitle>{t("create.title")}</DialogTitle>
-        <DialogDescription>{t("create.description")}</DialogDescription>
+        <DialogTitle>{t("card.create.title")}</DialogTitle>
+        <DialogDescription>{t("card.create.description")}</DialogDescription>
       </DialogHeader>
       <CardForm onSuccess={close} deckId={props.deckId} />
     </>

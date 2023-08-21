@@ -47,7 +47,7 @@ type Props = {
 };
 
 const CardForm = (props: Props) => {
-  const { t } = useTranslation("card");
+  const { t } = useTranslation("common");
   const form = useForm({
     defaultValues: props.card ?? { front: "", back: "" },
     resolver: zodResolver(cardSchema),
@@ -83,7 +83,7 @@ const CardForm = (props: Props) => {
           name={"front"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t("form.front")}</FormLabel>
+              <FormLabel>{t("card.form.front")}</FormLabel>
               <FormControl>
                 <Editor
                   apiKey={appConfig.tinyMceApiKey}
@@ -101,7 +101,7 @@ const CardForm = (props: Props) => {
           name={"back"}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t("form.back")}</FormLabel>
+              <FormLabel>{t("card.form.back")}</FormLabel>
               <FormControl>
                 <Editor
                   apiKey={appConfig.tinyMceApiKey}
@@ -115,7 +115,7 @@ const CardForm = (props: Props) => {
           )}
         />
         <Button type={"submit"} className={"w-full"}>
-          {props.card ? t("form.update") : t("form.create")}
+          {props.card ? t("card.form.update") : t("card.form.create")}
         </Button>
       </form>
     </Form>
