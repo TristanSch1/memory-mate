@@ -9,6 +9,7 @@ import { MainLayout } from "@/components/layout";
 import {
   StatisticSection,
   StatisticSectionItem,
+  StatisticSectionTitle,
 } from "@/components/ui/statistic-section";
 import { type NextPageWithLayout } from "@/pages/_app";
 import { api } from "@/utils/api";
@@ -37,20 +38,21 @@ const Profile: NextPageWithLayout = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <StatisticSection>
+        <StatisticSectionTitle>{t("stats.title")}</StatisticSectionTitle>
         <StatisticSectionItem
-          label={t("deckCount")}
+          label={t("stats.deckCount")}
           value={stats.deckCount.toString()}
         />
         <StatisticSectionItem
-          label={t("cardCount")}
+          label={t("stats.cardCount")}
           value={stats.cardCount.toString()}
         />
         <StatisticSectionItem
-          label={t("reviewCount")}
+          label={t("stats.reviewCount")}
           value={stats.reviewCount.toString()}
         />
         <StatisticSectionItem
-          label={t("todayReviewCount")}
+          label={t("stats.todayReviewCount")}
           value={stats.todayReviewCount.toString()}
         />
         <StatisticSectionItem

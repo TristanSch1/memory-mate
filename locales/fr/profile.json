@@ -1,7 +1,10 @@
 {
-  "deckCount": "Nombre de decks",
-  "cardCount": "Nombre de cartes",
-  "reviewCount": "Nombre total de révisions",
-  "todayReviewCount": "Nombre de révisions aujourd'hui",
-  "totalTimesReviewed": "Temps total passé à réviser"
+  "stats": {
+    "title": "Statistiques",
+    "deckCount": "Nombre de decks",
+    "cardCount": "Nombre de cartes",
+    "reviewCount": "Nombre total de révisions",
+    "todayReviewCount": "Nombre de révisions aujourd'hui",
+    "totalTimesReviewed": "Temps total passé à réviser"
+  }
 }

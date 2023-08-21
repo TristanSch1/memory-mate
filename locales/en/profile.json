@@ -1,7 +1,10 @@
 {
-  "deckCount": "Number of decks",
-  "cardCount": "Number of cards",
-  "reviewCount": "Total number of reviews",
-  "todayReviewCount": "Number of reviews today",
-  "totalTimesReviewed": "Total time spent reviewing"
+  "stats": {
+    "title": "Stats",
+    "deckCount": "Number of decks",
+    "cardCount": "Number of cards",
+    "reviewCount": "Total number of reviews",
+    "todayReviewCount": "Number of reviews today",
+    "totalTimesReviewed": "Total time spent reviewing"
+  }
 }
