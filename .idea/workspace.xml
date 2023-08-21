@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/components/CardForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/CreateCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/cards/modals/CreateCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/card.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/fr/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/card.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/fr/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/common.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/profile.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/fr/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/fr/profile.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +144,7 @@
       <workItem from="1692386390644" duration="5851000" />
       <workItem from="1692435176093" duration="843000" />
       <workItem from="1692560505208" duration="5280000" />
-      <workItem from="1692647200465" duration="318000" />
+      <workItem from="1692647200465" duration="821000" />
     </task>
     <servers />
   </component>
