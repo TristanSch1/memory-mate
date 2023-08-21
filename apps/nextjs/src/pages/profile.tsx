@@ -6,7 +6,7 @@ import Error from "next/error";
 import Head from "next/head";
 import { appConfig } from "@/_config";
 import { MainLayout } from "@/components/layout";
-import { UserStatistics } from "@/features/user";
+import { UserInfos, UserStatistics } from "@/features/user";
 import { type NextPageWithLayout } from "@/pages/_app";
 import { api } from "@/utils/api";
 import { createServerSideHelpers } from "@trpc/react-query/server";
@@ -34,7 +34,10 @@ const Profile: NextPageWithLayout = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className={"page-title mb-8"}>{t("title")}</h1>
-      <UserStatistics userId={session.user.id} />
+      <div className={"space-y-4"}>
+        <UserInfos user={session.user} />
+        <UserStatistics userId={session.user.id} />
+      </div>
     </>
   );
 };
