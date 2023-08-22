@@ -38,7 +38,7 @@ export const UserStatistics = ({ userId }: Props) => {
         value={stats.todayReviewCount.toString()}
       />
       <StatisticSectionItem
-        label={t("totalTimesReviewed")}
+        label={t("stats.totalTimesReviewed")}
         value={
           stats.totalTimesReviewed
             ? formatDuration(stats.totalTimesReviewed)
