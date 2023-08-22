@@ -17,7 +17,7 @@ export const LangSelector = () => {
     void router.push(router.pathname, router.asPath, { locale: lang });
   };
   return (
-    <>
+    <div>
       <Label>{t("settings.lang")}</Label>
       <Select defaultValue={router.locale} onValueChange={(v) => changeLang(v)}>
         <SelectTrigger>
@@ -33,6 +33,6 @@ export const LangSelector = () => {
           })}
         </SelectContent>
       </Select>
-    </>
+    </div>
   );
 };
