@@ -22,7 +22,7 @@ const FoldersPage: NextPageWithLayout = () => {
     <>
       <div className={"mb-8 flex items-center justify-between"}>
         <div className={"space-y-4"}>
-          <h1 className={"heading text-5xl capitalize"}>{t("page.title")}</h1>
+          <h1 className={"page-title"}>{t("page.title")}</h1>
           <p className={"text-foreground/70"}>{t("page.description")}</p>
         </div>
         <Button onClick={handleNew}>{t("new")}</Button>
