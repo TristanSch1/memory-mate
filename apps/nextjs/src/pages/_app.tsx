@@ -7,6 +7,7 @@ import {
 } from "react";
 import { type NextPage } from "next";
 import { type AppProps } from "next/app";
+import { Loader } from "@/components/ui/loader";
 import { ModalProvider } from "@/providers/ModalProvider";
 import { api } from "@/utils/api";
 import dayjs from "dayjs";
@@ -50,7 +51,7 @@ const Auth = ({ children }: PropsWithChildren) => {
   const { status } = useSession({ required: true });
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return <>{children}</>;

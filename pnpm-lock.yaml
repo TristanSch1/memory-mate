@@ -198,6 +198,9 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.0.4
         version: 1.0.4(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
+      '@rive-app/react-canvas':
+        specifier: ^4.1.4
+        version: 4.1.4(react@18.2.0)
       '@t3-oss/env-nextjs':
         specifier: ^0.3.1
         version: 0.3.1(typescript@5.1.3)(zod@3.21.4)
@@ -4739,6 +4742,19 @@ packages:
     resolution: {integrity: sha512-CEge+ZLhb1HBrSvv4RwOol7EKLW1QoqVIQlE9TN5MpxS/+VoQvP+cLbuz0Op53/iJfYhtXRFd1ZAd3RTRqto9w==}
     dependencies:
       nanoid: 3.3.6
+    dev: false
+
+  /@rive-app/canvas@2.1.5:
+    resolution: {integrity: sha512-J3We/kOCWMlskk70hWmFT9u85etLE6kJDgZbPfRzDGeElkO4jzmkZG0W6oHRe1qGe3Y597upZpFiHg3xYqJzbQ==}
+    dev: false
+
+  /@rive-app/react-canvas@4.1.4(react@18.2.0):
+    resolution: {integrity: sha512-zNQJ+3L95QBOw5haooQ46hcFa8m2DJaYSm7K5xKdSi7Yni6Ek2GBHVGOiInI8mEoKPH3wy5Qgk6Ez+Zf6/uGHw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@rive-app/canvas': 2.1.5
+      react: 18.2.0
     dev: false
 
   /@rushstack/eslint-patch@1.2.0:

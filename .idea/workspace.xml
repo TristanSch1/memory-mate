@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e05d4dc8-e4bd-4b48-8e96-7906fabb9112" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/settings/components/LangSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/settings/components/LangSelector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/settings/components/Logout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/settings/components/Logout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/settings/modals/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/settings/modals/Settings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/components/ui/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/components/ui/loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/nextjs/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +74,11 @@
       <recent name="$PROJECT_DIR$/packages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/nextjs/public" />
       <recent name="$PROJECT_DIR$/apps/nextjs/src/components/layout/MainLayout" />
       <recent name="$PROJECT_DIR$/apps/nextjs/src/features/decks/modals" />
       <recent name="$PROJECT_DIR$/apps/nextjs/src/features/decks/components" />
       <recent name="$PROJECT_DIR$/apps/nextjs/src/features/decks/components/DeckCard" />
-      <recent name="$PROJECT_DIR$/locales" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -145,7 +146,10 @@
       <workItem from="1692560505208" duration="5280000" />
       <workItem from="1692647200465" duration="2238000" />
       <workItem from="1692687731506" duration="40000" />
-      <workItem from="1692731654559" duration="1287000" />
+      <workItem from="1692731654559" duration="2055000" />
+      <workItem from="1692819761102" duration="16000" />
+      <workItem from="1692901998569" duration="732000" />
+      <workItem from="1692971464964" duration="488000" />
     </task>
     <servers />
   </component>

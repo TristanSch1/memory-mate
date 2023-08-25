@@ -1,3 +1,4 @@
+import { Loader } from "@/components/ui/loader";
 import { api } from "@/utils/api";
 import { useTranslation } from "next-i18next";
 
@@ -10,8 +11,7 @@ export const DeckList = ({ search }: Props) => {
   const { t } = useTranslation("deck");
   const deckQuery = api.deck.all.useQuery({ search });
   if (deckQuery.status === "loading") {
-    //TODO LOADER
-    return <div>Chargement...</div>;
+    return <Loader />;
   }
 
   if (deckQuery.data?.length === 0) {
