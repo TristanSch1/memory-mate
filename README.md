@@ -1,4 +1,4 @@
-# Memory-Mate
+# Memory-Mate (Français)
 
 Memory-Mate est une application web permettant la création de fiches de mémorisations (flashcards).
 
@@ -35,3 +35,39 @@ En fonction de la note, la carte reviendra plus ou moins rapidement en révision
 
 [Algorithme SuperMemo 2](https://en.wikipedia.org/wiki/SuperMemo)
 
+# Memory-Mate (English)
+
+Memory-Mate is a web application for creating flashcards.
+
+Strongly inspired by [Anki](https://apps.ankiweb.net/), I created this project with the aim of acquiring skills in
+in the following technologies:
+- [Next.js](https://nextjs.org/)
+- [Prisma](https://www.prisma.io/)
+- [Trpc](https://trpc.io/)
+- [Zod](https://zod.dev/)
+
+## Main features
+As a user, I can :
+- Create an account (via github)
+- Create/Modify/Delete decks (group flashcards)
+- Create/Modify/Delete flashcards
+- Review a deck
+- Create/Modify/Delete folders (grouping decks)
+- Search for decks
+- View deck review statistics
+- View my statistics in my profile
+- Change application language (French/English)
+
+## Deck review
+Deck review is based on the principle of spaced repetition. After reviewing a card, the user
+must indicate, by means of a score between 0 and 5, the difficulty of reproducing the card's information.
+- 0: "Total blackout", impossible to remember the information.
+- 1: Incorrect answer, but when I saw the correct answer, it looked familiar.
+- 2: Incorrect answer, but after seeing the correct answer, it seemed easy to remember.
+- 3: Correct answer, but required considerable effort to remember.
+- 4 : Correct answer, after some hesitation.
+- 5: Correct answer with perfect recall.
+
+Depending on the score, the card will come back for review more or less quickly.
+
+[SuperMemo 2 Algorithm](https://en.wikipedia.org/wiki/SuperMemo)
